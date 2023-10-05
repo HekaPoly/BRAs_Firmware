@@ -9,6 +9,30 @@
  * 
  */
 
+#include "tim.h"
+#include "stdbool.h"
+
+/* Structs and enums */
+/**
+ * Enum describing the current direction in which a motor is rotating
+ */
+typedef enum
+{
+	DIRECTION_CLOCKWISE,
+	DIRECTION_COUNTERCLOCKWISE
+} Motor_Direction_t;
+
+/**
+ * Structure describing a motor
+ */
+typedef struct Motor_t
+{
+	bool is_motor_initialized;
+	TIM_HandleTypeDef * motor_timer_handle;
+	uint32_t motor_timer_channel;
+	Motor_Direction_t motor_direction;
+};
+
 /* Function implementation */
 void MotorControl_Init(void);
 void MotorControl_Task(void);

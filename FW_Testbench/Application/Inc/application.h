@@ -11,7 +11,6 @@
 
 /* Constants */
 
-
 /* Function prototypes */
 void Application_Init(void);
 void Application_Task(void);

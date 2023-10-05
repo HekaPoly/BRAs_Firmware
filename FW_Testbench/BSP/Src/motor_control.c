@@ -9,8 +9,14 @@
  * 
  */
 
+#include "../Inc/motor_control.h"
 #include "main.h"
-#include "tim.h"
+
+/* Global variables */
+struct Motor_t g_base_motor =
+{
+	.is_motor_initialized = false,
+};
 
 /* Function implementation */
 /**
@@ -20,10 +26,14 @@
 void MotorControl_Init(void)
 {
     /* Initialize all stepper motors (PWM, Direction GPIO and Enable GPIO) */
-	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+	g_base_motor.motor_direction = DIRECTION_CLOCKWISE;
+	g_base_motor.motor_timer_handle = &htim2;
+	g_base_motor.motor_timer_channel = TIM_CHANNEL_1;
 
-	TIM2->ARR = 2500;
-	TIM2->CCR1 = TIM2->ARR  / 2;
+	HAL_TIM_PWM_Start(g_base_motor.motor_timer_handle, g_base_motor.motor_timer_channel);
+
+	g_base_motor.motor_timer_handle->Instance->ARR = 2500;
+	g_base_motor.motor_timer_handle->Instance->CCR1 = g_base_motor.motor_timer_handle->Instance->ARR / 2;
 }
 
 /**
