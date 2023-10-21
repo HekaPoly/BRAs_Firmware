@@ -66,6 +66,8 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+	//unsigned char VariableReception =0;
+	//unsigned char Anciennevariable=0;
 
   /* USER CODE END 1 */
 
@@ -92,17 +94,27 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   Application_Init();
-
+  /*HAL_UART_Receive_IT(&huart2,p0data,)
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  Application_Task();
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
 	  HAL_Delay(100);
+	  /*HAL_UART_Receive(&huart1, &VariableReception,1,1000);
+	  if (VariableReception!= Anciennevariable)
+	  {
+		  Anciennevariable= VariableReception;
+		  HAL_UART_Transmit(&huart1,&VariableReception,1,1000);
+	  }
+	  */
+
+
   }
   /* USER CODE END 3 */
 }

@@ -30,6 +30,12 @@ void Application_Init(void)
  */
 void Application_Task(void)
 {
-    /* Call UART_Task() */
-    /* Call BSP_Task() */
+	while(1)
+	{
+		UART_Task();
+		HAL_Delay(1000);
+
+		/* Call BSP_Task() */
+	}
+
 }
