@@ -12,6 +12,7 @@
 #include "../Inc/application.h"
 #include "../../BSP/Inc/uart.h"
 #include "../../BSP/Inc/bsp.h"
+#include "../Inc/time.h"
 
 /* Function implementation */
 /**
@@ -30,13 +31,22 @@ void Application_Init(void)
  */
 void Application_Task(void)
 {
+	uint32_t uart_task_time_ms = 0;
+	uint32_t bsp_task_time_ms = 0;
+	
 	while(1)
 	{
-		UART_Task();
-		
-		BSP_Task();
+		if (Time_IsTimeUp(uart_task_time_ms, TASK_DELAY_BSP_MS))
+		{
+			UART_Task();
+			uart_task_time_ms = Time_GetTimeMs();
+		}
 
-		HAL_Delay(100);
+		if (Time_IsTimeUp(uart_task_time_ms, TASK_DELAY_BSP_MS))
+		{
+			BSP_Task();
+			bsp_task_time_ms = Time_GetTimeMs();
+		}
 
 		/* Call BSP_Task() */
 	}
