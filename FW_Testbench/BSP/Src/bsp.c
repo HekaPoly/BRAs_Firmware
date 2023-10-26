@@ -27,5 +27,5 @@ void BSP_Init(void)
  */
 void BSP_Task(void)
 {
-    /* Call MotorControl_Task() */
+	MotorControl_Task();
 }

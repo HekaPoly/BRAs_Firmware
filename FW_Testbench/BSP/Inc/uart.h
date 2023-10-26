@@ -21,8 +21,8 @@ typedef struct UART_t
 	UART_HandleTypeDef * uart_handle;
 	uint32_t message_received;
 	uint32_t message_to_send;
+} UART;
 
-};
 /* Function protoytpes */
 void UART_Init(void);
 void UART_Task(void);

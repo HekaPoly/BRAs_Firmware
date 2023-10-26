@@ -31,7 +31,9 @@ typedef struct Motor_t
 	TIM_HandleTypeDef * motor_timer_handle;
 	uint32_t motor_timer_channel;
 	Motor_Direction_t motor_direction;
-};
+	uint16_t motor_speed_percent;
+	uint16_t motor_angle_to_reach;
+} Motor;
 
 /* Function implementation */
 void MotorControl_Init(void);

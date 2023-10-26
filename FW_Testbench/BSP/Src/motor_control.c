@@ -34,6 +34,9 @@ void MotorControl_Init(void)
 
 	g_base_motor.motor_timer_handle->Instance->ARR = 2500;
 	g_base_motor.motor_timer_handle->Instance->CCR1 = g_base_motor.motor_timer_handle->Instance->ARR / 2;
+
+	g_base_motor.motor_speed_percent = 0;
+	g_base_motor.motor_angle_to_reach = 0;
 }
 
 /**
@@ -42,5 +45,15 @@ void MotorControl_Init(void)
  */
 void MotorControl_Task(void)
 {
-    
+    if (g_base_motor.motor_direction == DIRECTION_CLOCKWISE)
+    {
+    	HAL_GPIO_WritePin(DIR_Motor_1_GPIO_Port, DIR_Motor_1_Pin, GPIO_PIN_SET);
+    }
+    else if (g_base_motor.motor_direction == DIRECTION_COUNTERCLOCKWISE)
+	{
+    	HAL_GPIO_WritePin(DIR_Motor_1_GPIO_Port, DIR_Motor_1_Pin, GPIO_PIN_RESET);
+	}
+
+	g_base_motor.motor_timer_handle->Instance->ARR = 2500 + (500 * g_base_motor.motor_speed_percent);
+	g_base_motor.motor_timer_handle->Instance->CCR1 = g_base_motor.motor_timer_handle->Instance->ARR / 2;
 }
