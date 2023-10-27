@@ -20,9 +20,12 @@ extern Motor g_base_motor;
 static void Receive_Data(UART * uart);
 
 /* Global variables */
+uint8_t g_rx_buffer[4] = {0};
+
 struct UART_t g_uart =
 {
 	.is_uart_initialized = false,
+	.message_received = g_rx_buffer,
 };
 
 /**
@@ -33,8 +36,6 @@ void UART_Init(void)
 {
     /* Initialize the UART communication */
 	g_uart.uart_handle = &huart2;
-	g_uart.message_received = 0;
-	g_uart.message_to_send = 0;
 }
 
 /**
@@ -57,8 +58,6 @@ void UART_Task(void)
 		HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
 	}
 
-	HAL_Delay(100);
-
 	/* Update the data structure with desired speed and angle for every motor */
 }
 
@@ -69,8 +68,8 @@ void UART_Task(void)
  */
 static void Receive_Data(UART * uart)
 {
-	HAL_UART_Receive(uart->uart_handle,(uint8_t *) &uart->message_received, 4, 10);
+	HAL_UART_Receive(uart->uart_handle, g_rx_buffer, 4, 1000);
 
-	g_base_motor.motor_angle_to_reach = (uart->message_received & 0xFF00) >> 16;
-	g_base_motor.motor_speed_percent = uart->message_received & 0x00FF;
+	g_base_motor.motor_speed_percent = (uart->message_received[0] + (uart->message_received[1] << 8));
+	g_base_motor.motor_angle_to_reach = (uart->message_received[2] + (uart->message_received[3] << 8));
 }
