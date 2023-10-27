@@ -12,6 +12,7 @@
 #include "tim.h"
 #include "stdbool.h"
 #include <float.h>
+#include <stdlib.h>
 
 /* Constants */
 #define FREQ_MAX_HZ 3598

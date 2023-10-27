@@ -47,17 +47,6 @@ void UART_Task(void)
     /* Receive data from the interface */
 	Receive_Data(&g_uart);
 
-	if (g_base_motor.motor_angle_to_reach == 20)
-	{
-		g_base_motor.motor_direction = DIRECTION_CLOCKWISE;
-		HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);
-	}
-	if (g_base_motor.motor_angle_to_reach == 40)
-	{
-		g_base_motor.motor_direction = DIRECTION_COUNTERCLOCKWISE;
-		HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
-	}
-
 	/* Update the data structure with desired speed and angle for every motor */
 }
 
