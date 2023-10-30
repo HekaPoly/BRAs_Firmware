@@ -25,7 +25,7 @@ uint8_t g_rx_buffer[NUMBER_OF_BYTES_PER_MSG] = {0};
 struct UART_t g_uart =
 {
 	.is_uart_initialized = false,
-	.uart_handle = 0u;
+	.uart_handle = 0u,
 	.message_received = g_rx_buffer,
 };
 
@@ -53,8 +53,8 @@ void UART_Task(void)
 		Receive_Data(&g_uart);
 
 		/* Update the data structure with desired speed and angle for every motor */
-		g_base_motor.motor_speed_percent = (uart->message_received[INDEX_FIRST_BYTE] + (uart->message_received[INDEX_SECOND_BYTE] << 8));
-		g_base_motor.motor_angle_to_reach = (uart->message_received[INDEX_THIRD_BYTE] + (uart->message_received[INDEX_FOURTH_BYTE] << 8));
+		g_base_motor.motor_speed_percent = (g_uart.message_received[INDEX_FIRST_BYTE] + (g_uart.message_received[INDEX_SECOND_BYTE] << 8));
+		g_base_motor.motor_angle_to_reach = (g_uart.message_received[INDEX_THIRD_BYTE] + (g_uart.message_received[INDEX_FOURTH_BYTE] << 8));
 	}
 }
 

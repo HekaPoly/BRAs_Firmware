@@ -189,4 +189,3 @@ VP_TIM2_VS_ClockSourceITR.Mode=TriggerSource_ITR0
 VP_TIM2_VS_ClockSourceITR.Signal=TIM2_VS_ClockSourceITR
 board=NUCLEO-F401RE
 boardIOC=true
-isbadioc=false
