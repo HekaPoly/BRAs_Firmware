@@ -12,6 +12,8 @@
 #include "../Inc/motor_control.h"
 #include "main.h"
 
+/* Constants */
+#define FACTOR_SECONDS_TO_MS 1000
 
 /* Private functions declaration */
 static void Modify_Speed(void);
@@ -35,16 +37,11 @@ void MotorControl_Init(void)
 	g_base_motor.motor_timer_handle = &htim2;
 	g_base_motor.motor_timer_channel = TIM_CHANNEL_1;
 
-	g_base_motor.motor_timer_handle->Instance->ARR = 2500;
-	g_base_motor.motor_timer_handle->Instance->CCR1 = g_base_motor.motor_timer_handle->Instance->ARR / 2;
-
-	g_base_motor.motor_angle_to_reach = 0;
-
-	g_base_motor.deg_per_turn = 0.06f;
-	g_base_motor.current_motor_angle = 0;
-	g_base_motor.nb_pulse = 0;
-	g_base_motor.delay = 0;
-
+	g_base_motor.motor_angle_to_reach = 0u;
+	g_base_motor.deg_per_turn = DEGREES_PER_PULSE_WITH_GEARBOX;
+	g_base_motor.current_motor_angle = 0u;
+	g_base_motor.nb_pulse = 0u;
+	g_base_motor.delay = 0u;
 }
 
 /**
@@ -62,6 +59,10 @@ void MotorControl_Task(void)
 	}
 }
 
+/**
+ * @brief Calculation of new ARR value to give the PWM in order to modifiy the motor's speed
+ *
+ */
 void Modify_Speed(void)
 {
 	uint16_t new_freq = (g_base_motor.motor_speed_percent * FREQ_MAX_HZ) / 100;
@@ -71,7 +72,7 @@ void Modify_Speed(void)
 	g_base_motor.motor_timer_handle->Instance->CCR1 = g_base_motor.motor_timer_handle->Instance->ARR / 2;
 
 	g_base_motor.nb_pulse = (abs(g_base_motor.motor_angle_to_reach - g_base_motor.current_motor_angle)) / g_base_motor.deg_per_turn ;
-	g_base_motor.delay = ((float)g_base_motor.nb_pulse / (float)new_freq) * 1000;
+	g_base_motor.delay = ((float)g_base_motor.nb_pulse / (float)new_freq) * FACTOR_SECONDS_TO_MS;
 
 	HAL_TIM_PWM_Start(g_base_motor.motor_timer_handle, g_base_motor.motor_timer_channel);
 	HAL_Delay(g_base_motor.delay);
@@ -80,22 +81,27 @@ void Modify_Speed(void)
 	g_base_motor.current_motor_angle = g_base_motor.motor_angle_to_reach;
 }
 
+/**
+ * @brief Modifies the direction signal controlling the turning direction of the motor
+ *
+ * @param[in] difference	The difference between the angle to reach and the current motor's angle
+ *
+ */
 void Modify_Direction(int16_t difference)
 {
-	if (difference < 0)
+	if (difference < 0u)
 	{
 		g_base_motor.motor_direction = DIRECTION_COUNTERCLOCKWISE;
 	}
 
-	else if (difference > 0)
+	else if (difference > 0u)
 	{
 		g_base_motor.motor_direction = DIRECTION_CLOCKWISE;
 	}
 	else
 	{
-		/* nothing do */
+		/* Do nothing here */
 	}
-
 
 	if (g_base_motor.motor_direction == DIRECTION_CLOCKWISE)
 	{
