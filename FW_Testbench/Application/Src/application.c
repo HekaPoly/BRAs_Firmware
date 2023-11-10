@@ -36,13 +36,13 @@ void Application_Task(void)
 	
 	while(1)
 	{
-		if (Time_IsTimeUp(uart_task_time_ms, TASK_DELAY_BSP_MS))
+		if (Time_IsTimeUp(uart_task_time_ms, TASK_DELAY_UART_MS))
 		{
 			UART_Task();
 			uart_task_time_ms = Time_GetTimeMs();
 		}
 
-		if (Time_IsTimeUp(uart_task_time_ms, TASK_DELAY_BSP_MS))
+		if (Time_IsTimeUp(bsp_task_time_ms, TASK_DELAY_BSP_MS))
 		{
 			BSP_Task();
 			bsp_task_time_ms = Time_GetTimeMs();
