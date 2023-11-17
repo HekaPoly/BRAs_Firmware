@@ -11,6 +11,7 @@
 
 #include "../Inc/motor_control.h"
 #include "main.h"
+#include "../../Data_Structure/Inc/data_structure.h"
 
 /* Constants */
 #define FACTOR_SECONDS_TO_MS 1000
@@ -42,6 +43,7 @@ void MotorControl_Init(void)
 	g_base_motor.current_motor_angle = 0u;
 	g_base_motor.nb_pulse = 0u;
 	g_base_motor.delay = 0u;
+	struct Data_t * data = DataStruct_Get();
 }
 
 /**
