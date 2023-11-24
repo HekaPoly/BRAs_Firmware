@@ -105,16 +105,6 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  HAL_Delay(100);
-	  /*HAL_UART_Receive(&huart1, &VariableReception,1,1000);
-	  if (VariableReception!= Anciennevariable)
-	  {
-		  Anciennevariable= VariableReception;
-		  HAL_UART_Transmit(&huart1,&VariableReception,1,1000);
-	  }
-	  */
-
-
   }
   /* USER CODE END 3 */
 }
