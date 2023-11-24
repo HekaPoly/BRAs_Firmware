@@ -10,7 +10,7 @@
  */
 
 #include "../Inc/application.h"
-#include "../../BSP/Inc/uart.h"
+#include "../../UART/Inc/uart.h"
 #include "../../BSP/Inc/bsp.h"
 #include "../Inc/time.h"
 
