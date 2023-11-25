@@ -48,6 +48,9 @@
 
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
+osThreadId Bsp_TaskHandle;
+osThreadId Uart_taskHandle;
+osSemaphoreId myBinarySem01Handle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -55,6 +58,8 @@ osThreadId defaultTaskHandle;
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void const * argument);
+void StartBsp_Task(void const * argument);
+void StartUart_task(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -88,6 +93,11 @@ void MX_FREERTOS_Init(void) {
   /* add mutexes, ... */
   /* USER CODE END RTOS_MUTEX */
 
+  /* Create the semaphores(s) */
+  /* definition and creation of myBinarySem01 */
+  osSemaphoreDef(myBinarySem01);
+  myBinarySem01Handle = osSemaphoreCreate(osSemaphore(myBinarySem01), 1);
+
   /* USER CODE BEGIN RTOS_SEMAPHORES */
   /* add semaphores, ... */
   /* USER CODE END RTOS_SEMAPHORES */
@@ -104,6 +114,14 @@ void MX_FREERTOS_Init(void) {
   /* definition and creation of defaultTask */
   osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
+
+  /* definition and creation of Bsp_Task */
+  osThreadDef(Bsp_Task, StartBsp_Task, osPriorityNormal, 0, 128);
+  Bsp_TaskHandle = osThreadCreate(osThread(Bsp_Task), NULL);
+
+  /* definition and creation of Uart_task */
+  osThreadDef(Uart_task, StartUart_task, osPriorityNormal, 0, 128);
+  Uart_taskHandle = osThreadCreate(osThread(Uart_task), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -127,6 +145,42 @@ void StartDefaultTask(void const * argument)
     osDelay(1);
   }
   /* USER CODE END StartDefaultTask */
+}
+
+/* USER CODE BEGIN Header_StartBsp_Task */
+/**
+* @brief Function implementing the Bsp_Task thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartBsp_Task */
+void StartBsp_Task(void const * argument)
+{
+  /* USER CODE BEGIN StartBsp_Task */
+  /* Infinite loop */
+  for(;;)
+  {
+	  UART_Task();
+  }
+  /* USER CODE END StartBsp_Task */
+}
+
+/* USER CODE BEGIN Header_StartUart_task */
+/**
+* @brief Function implementing the Uart_task thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartUart_task */
+void StartUart_task(void const * argument)
+{
+  /* USER CODE BEGIN StartUart_task */
+  /* Infinite loop */
+  for(;;)
+  {
+	  BSP_Task();
+  }
+  /* USER CODE END StartUart_task */
 }
 
 /* Private application code --------------------------------------------------*/

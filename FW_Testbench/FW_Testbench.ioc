@@ -2,8 +2,10 @@
 CAD.formats=
 CAD.pinconfig=
 CAD.provider=
-FREERTOS.IPParameters=Tasks01
-FREERTOS.Tasks01=defaultTask,0,128,StartDefaultTask,Default,NULL,Dynamic,NULL,NULL
+FREERTOS.BinarySemaphores01=myBinarySem01,Dynamic,NULL
+FREERTOS.FootprintOK=true
+FREERTOS.IPParameters=Tasks01,FootprintOK,BinarySemaphores01
+FREERTOS.Tasks01=defaultTask,0,128,StartDefaultTask,Default,NULL,Dynamic,NULL,NULL;Bsp_Task,0,128,StartBsp_Task,Default,NULL,Dynamic,NULL,NULL;Uart_task,0,128,StartUart_task,Default,NULL,Dynamic,NULL,NULL
 File.Version=6
 KeepUserPlacement=false
 Mcu.CPN=STM32F401RET6
