@@ -43,7 +43,6 @@ void MotorControl_Init(void)
 	g_base_motor.current_motor_angle = 0u;
 	g_base_motor.nb_pulse = 0u;
 	g_base_motor.delay = 0u;
-	struct Data_t * data = DataStruct_Get();
 }
 
 /**
