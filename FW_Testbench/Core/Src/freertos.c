@@ -160,7 +160,7 @@ void StartBsp_Task(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	  UART_Task();
+	  BSP_Task();
   }
   /* USER CODE END StartBsp_Task */
 }
@@ -178,7 +178,7 @@ void StartUart_task(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	  BSP_Task();
+    UART_Task();
   }
   /* USER CODE END StartUart_task */
 }
