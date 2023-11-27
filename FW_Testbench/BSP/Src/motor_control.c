@@ -90,12 +90,12 @@ void Modify_Speed(void)
  */
 void Modify_Direction(int16_t difference)
 {
-	if (difference < 0u)
+	if (difference < 0)
 	{
 		g_base_motor.motor_direction = DIRECTION_COUNTERCLOCKWISE;
 	}
 
-	else if (difference > 0u)
+	else if (difference > 0)
 	{
 		g_base_motor.motor_direction = DIRECTION_CLOCKWISE;
 	}

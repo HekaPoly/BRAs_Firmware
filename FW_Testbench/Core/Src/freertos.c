@@ -142,6 +142,7 @@ void StartDefaultTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
+
     osDelay(1);
   }
   /* USER CODE END StartDefaultTask */
@@ -160,7 +161,10 @@ void StartBsp_Task(void const * argument)
   /* Infinite loop */
   for(;;)
   {
+
 	  BSP_Task();
+	  osDelay(100);
+
   }
   /* USER CODE END StartBsp_Task */
 }
@@ -179,6 +183,8 @@ void StartUart_task(void const * argument)
   for(;;)
   {
     UART_Task();
+	  osDelay(50);
+
   }
   /* USER CODE END StartUart_task */
 }

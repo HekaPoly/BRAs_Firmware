@@ -15,11 +15,11 @@
 #include <stdlib.h>
 
 /* Constants */
-#define FREQ_MAX_HZ 3598
+#define FREQ_MAX_HZ 14000
 #define PSC 9
 #define FREQ_CLK_HZ 72000000
-#define DEGREES_PER_PULSE_WITHOUT_GEARBOX 0.9f
-#define DEGREES_PER_PULSE_WITH_GEARBOX 0.06f
+#define DEGREES_PER_PULSE_WITHOUT_GEARBOX 0.225f
+#define DEGREES_PER_PULSE_WITH_GEARBOX 0.015f
 
 /* Structs and enums */
 /**
