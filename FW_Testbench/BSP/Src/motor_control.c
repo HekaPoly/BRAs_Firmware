@@ -21,7 +21,7 @@ static void Modify_Speed(void);
 static void Modify_Direction(int16_t difference);
 
 /* Global variables */
-struct Motor_t g_base_motor =
+Motor g_base_motor =
 {
 	.is_motor_initialized = false,
 };
@@ -34,7 +34,7 @@ struct Motor_t g_base_motor =
 void MotorControl_Init(void)
 {
     /* Initialize all stepper motors (PWM, Direction GPIO and Enable GPIO) */
-	g_base_motor.motor_direction = DIRECTION_CLOCKWISE;
+	g_base_motor.motor_direction = MOTOR_DIRECTION_CLOCKWISE;
 	g_base_motor.motor_timer_handle = &htim2;
 	g_base_motor.motor_timer_channel = TIM_CHANNEL_1;
 
@@ -49,15 +49,26 @@ void MotorControl_Init(void)
  * @brief Task to control the stepper motors in manual mode
  * 
  */
-void MotorControl_Task(void)
+Motor_State MotorControl_Task(void)
 {
-	int16_t difference = g_base_motor.motor_angle_to_reach - g_base_motor.current_motor_angle;
+	Data * data_structure = DataStruct_Get();
+	if (data_structure == NULL)
+	{
+		return MOTOR_STATE_WAITING_FOR_SEMAPHORE;
+	}
 
+	/* Test pour valider l'écriture et la lecture de la structure de données */
+	data_structure->gyro_value = 3000;
+	uint32_t speed_value = data_structure->motor_speed;
+
+	int16_t difference = g_base_motor.motor_angle_to_reach - g_base_motor.current_motor_angle;
 	if (difference != 0)
 	{
 		Modify_Direction(difference);
 		Modify_Speed();
 	}
+
+	return MOTOR_STATE_OK;
 }
 
 /**
@@ -92,23 +103,23 @@ void Modify_Direction(int16_t difference)
 {
 	if (difference < 0)
 	{
-		g_base_motor.motor_direction = DIRECTION_COUNTERCLOCKWISE;
+		g_base_motor.motor_direction = MOTOR_DIRECTION_COUNTERCLOCKWISE;
 	}
 
 	else if (difference > 0)
 	{
-		g_base_motor.motor_direction = DIRECTION_CLOCKWISE;
+		g_base_motor.motor_direction = MOTOR_DIRECTION_CLOCKWISE;
 	}
 	else
 	{
 		/* Do nothing here */
 	}
 
-	if (g_base_motor.motor_direction == DIRECTION_CLOCKWISE)
+	if (g_base_motor.motor_direction == MOTOR_DIRECTION_CLOCKWISE)
 	{
 		HAL_GPIO_WritePin(DIR_Motor_1_GPIO_Port, DIR_Motor_1_Pin, GPIO_PIN_SET);
 	}
-    else if (g_base_motor.motor_direction == DIRECTION_COUNTERCLOCKWISE)
+    else if (g_base_motor.motor_direction == MOTOR_DIRECTION_COUNTERCLOCKWISE)
 	{
     	HAL_GPIO_WritePin(DIR_Motor_1_GPIO_Port, DIR_Motor_1_Pin, GPIO_PIN_RESET);
 	}

@@ -12,18 +12,22 @@
 #include "stdbool.h"
 #include "stdint.h"
 #include <float.h>
+#include "cmsis_os.h"
 
 
 /* Constants */
-
-typedef struct Data_t
+/**
+ * @brief Data structure to contain sensor and control values of each joint
+ * 
+ */
+typedef struct
 {
 	uint32_t encoder_value;
 	uint32_t gyro_value;
 	uint32_t motor_speed;
 	uint32_t motor_angle_to_reach;
-} data;
+} Data;
 
 /* Function protoytpes */
-struct Data_t * DataStruct_Get(void);
-struct Data_t * DataStruct_Release(void);
+Data * DataStruct_Get(void);
+Data * DataStruct_Release(void);

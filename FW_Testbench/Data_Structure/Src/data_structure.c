@@ -1,7 +1,7 @@
 /**
  * @file data_structure.c
  * @author HEKA
- * @brief data structure for encoders, gyroscope sensors,speed and angle to reach
+ * @brief Data structure for all sensor values and event information variables
  *
  * @date 2023-11-10
  *
@@ -10,16 +10,28 @@
  */
 
 #include "../Inc/data_structure.h"
+#include "cmsis_os.h"
 
-struct Data_t * data_struct = (struct Data_t*)0x20040000;
+/* External variables */
+extern osSemaphoreId binarySemaphoreHandle;
+
+/* Data structure address declaration in .c to keep other files from reaching it */
+Data * data_struct = (Data *)0x20040000;
 
 /* Function implementation */
 /**
- * @ function to return data address
- *
+ * @brief Returns data structure address if the semaphore is not taken
+ * 
+ * @return The data structure address when the semaphore is available, else returns a null pointer
  */
-struct Data_t * DataStruct_Get(void)
+Data * DataStruct_Get(void)
 {
-    return data_struct;
+	if (osSemaphoreWait(binarySemaphoreHandle, 0) == osOK)
+	{
+	    return data_struct;
+	}
+	else
+	{
+		return NULL;
+	}
 }
-

@@ -25,7 +25,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "../../BSP/Inc/bsp.h"
+#include "../../BSP/Inc/uart.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -50,7 +51,7 @@
 osThreadId defaultTaskHandle;
 osThreadId Bsp_TaskHandle;
 osThreadId Uart_taskHandle;
-osSemaphoreId myBinarySem01Handle;
+osSemaphoreId binarySemaphoreHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -94,9 +95,9 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE END RTOS_MUTEX */
 
   /* Create the semaphores(s) */
-  /* definition and creation of myBinarySem01 */
-  osSemaphoreDef(myBinarySem01);
-  myBinarySem01Handle = osSemaphoreCreate(osSemaphore(myBinarySem01), 1);
+  /* definition and creation of binarySemaphore */
+  osSemaphoreDef(binarySemaphore);
+  binarySemaphoreHandle = osSemaphoreCreate(osSemaphore(binarySemaphore), 1);
 
   /* USER CODE BEGIN RTOS_SEMAPHORES */
   /* add semaphores, ... */
@@ -161,10 +162,8 @@ void StartBsp_Task(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-
 	  BSP_Task();
 	  osDelay(100);
-
   }
   /* USER CODE END StartBsp_Task */
 }
@@ -183,8 +182,7 @@ void StartUart_task(void const * argument)
   for(;;)
   {
     UART_Task();
-	  osDelay(50);
-
+	osDelay(50);
   }
   /* USER CODE END StartUart_task */
 }

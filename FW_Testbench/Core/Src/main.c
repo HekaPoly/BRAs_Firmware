@@ -96,7 +96,6 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   Application_Init();
-  /*HAL_UART_Receive_IT(&huart2,p0data,)
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */
@@ -114,16 +113,6 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  HAL_Delay(100);
-	  /*HAL_UART_Receive(&huart1, &VariableReception,1,1000);
-	  if (VariableReception!= Anciennevariable)
-	  {
-		  Anciennevariable= VariableReception;
-		  HAL_UART_Transmit(&huart1,&VariableReception,1,1000);
-	  }
-	  */
-
-
   }
   /* USER CODE END 3 */
 }
