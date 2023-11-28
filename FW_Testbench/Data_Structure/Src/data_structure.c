@@ -35,3 +35,14 @@ Data * DataStruct_Get(void)
 		return NULL;
 	}
 }
+
+/* Function implementation */
+/**
+ * @brief Releases the binary semaphore
+ *
+ */
+void DataStruct_ReleaseSemaphore(void)
+{
+	/* No verifying of the release status - to be added if necessary */
+	osSemaphoreRelease(binarySemaphoreHandle);
+}

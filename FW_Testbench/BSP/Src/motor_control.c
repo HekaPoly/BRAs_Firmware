@@ -68,6 +68,8 @@ Motor_State MotorControl_Task(void)
 		Modify_Speed();
 	}
 
+	DataStruct_ReleaseSemaphore();
+
 	return MOTOR_STATE_OK;
 }
 

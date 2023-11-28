@@ -30,4 +30,4 @@ typedef struct
 
 /* Function protoytpes */
 Data * DataStruct_Get(void);
-Data * DataStruct_Release(void);
+void DataStruct_ReleaseSemaphore(void);
