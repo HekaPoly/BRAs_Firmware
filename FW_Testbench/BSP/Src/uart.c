@@ -22,7 +22,7 @@ static void Receive_Data(UART * uart);
 /* Global variables */
 uint8_t g_rx_buffer[NUMBER_OF_BYTES_PER_MSG] = {0};
 
-struct UART_t g_uart =
+UART g_uart =
 {
 	.is_uart_initialized = false,
 	.uart_handle = 0u,

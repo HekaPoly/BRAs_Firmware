@@ -16,7 +16,7 @@
 extern osSemaphoreId binarySemaphoreHandle;
 
 /* Data structure address declaration in .c to keep other files from reaching it */
-Data * data_struct = (Data *)0x20040000;
+Data * data_struct = (Data *)0x20000300;
 
 /* Function implementation */
 /**

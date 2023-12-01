@@ -22,7 +22,7 @@
 /**
  * Structure describing the UART module
  */
-typedef struct UART_t
+typedef struct
 {
 	bool is_uart_initialized;
 	UART_HandleTypeDef * uart_handle;
