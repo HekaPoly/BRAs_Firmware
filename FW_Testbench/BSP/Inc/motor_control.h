@@ -50,7 +50,7 @@ typedef struct
 	TIM_HandleTypeDef * motor_timer_handle;
 	Motor_Direction motor_direction;
 	float deg_per_turn;
-	uint32_t motor_timer_channel;
+	uint32_t motor_timer_channel; 
 	uint16_t motor_speed_percent;
 	uint16_t motor_angle_to_reach;
 	uint16_t current_motor_angle;

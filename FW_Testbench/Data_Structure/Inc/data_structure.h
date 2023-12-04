@@ -28,6 +28,8 @@ typedef struct
 	uint32_t motor_angle_to_reach;
 } Data;
 
+
+
 /* Function protoytpes */
 Data * DataStruct_Get(void);
 void DataStruct_ReleaseSemaphore(void);
