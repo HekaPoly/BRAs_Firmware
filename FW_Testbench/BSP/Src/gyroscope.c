@@ -29,7 +29,7 @@ Gyroscope g_base_gyroscope =
  * @brief Initialization function for gyroscopes
  * 
  */
-void Encoder_Init(void)
+void Gyroscope_Init(void)
 {
     /* Initialize all stepper motors (PWM, Direction GPIO and Enable GPIO) */
     g_base_gyroscope.gyroscope_timer_handle = &htim3;
