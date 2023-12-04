@@ -9,7 +9,7 @@
  * 
  */
 
-#include "../Inc/encoder.h"
+#include "../Inc/gyroscope.h"
 #include "main.h"
 #include "../../Data_Structure/Inc/data_structure.h"
 
@@ -42,4 +42,18 @@ void Gyroscope_Init(void)
  * 
  */
 
+Gyroscope_State Gyroscope_Task(void)
+{
+	Data * data_structure = DataStruct_Get();
+	if (data_structure == NULL)
+	{
+		return GYROSCOPE_STATE_WAITING_FOR_SEMAPHORE;
+	}
 
+	/* Test pour valider l'écriture et la lecture de la structure de données */
+	data_structure->gyro_value = 3000;
+
+	DataStruct_ReleaseSemaphore();
+
+	return GYROSCOPE_STATE_OK;
+}

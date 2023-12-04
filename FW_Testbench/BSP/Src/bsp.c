@@ -19,6 +19,8 @@
 void BSP_Init(void)
 {
     MotorControl_Init();
+    Encoder_Init();
+    Gyroscope_Init();
 }
 
 /**
@@ -28,4 +30,6 @@ void BSP_Init(void)
 void BSP_Task(void)
 {
 	MotorControl_Task();
+    Encoder_Task();
+    Gyroscope_Task();
 }

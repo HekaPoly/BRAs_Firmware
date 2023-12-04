@@ -19,13 +19,13 @@
 
 
 /* Structs and enums */
-/**
- * Enum describing 
-
-
-/**
- * Enum describing 
- */
+// Enum describing the encoder state 
+ 
+typedef enum
+{
+	ENCODER_STATE_WAITING_FOR_SEMAPHORE 	= -2,
+	ENCODER_STATE_OK 						= 0
+} Encoder_State;
 
 
 /**
@@ -41,5 +41,5 @@ typedef struct
 
 /* Function declaration */
 
-
-
+void Encoder_Init(void);
+Encoder_State Encoder_Task(void);

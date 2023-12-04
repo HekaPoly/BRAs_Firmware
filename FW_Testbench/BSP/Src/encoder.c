@@ -33,7 +33,7 @@ void Encoder_Init(void)
 {
     /* Initialize all encoders (PWM, Direction GPIO and Enable GPIO) */
     g_base_encoder.encoder_timer_handle = &htim3;
-	g_base_motor.encoder_timer_channel = TIM_CHANNEL_1; // doit on mettre un autre channel : TIM3 channel 1 et 2 ?
+	g_base_encoder.encoder_timer_channel = TIM_CHANNEL_1; // doit on mettre un autre channel : TIM3 channel 1 et 2 ?
 	g_base_encoder.delay = 0u;
 }
 
@@ -42,4 +42,18 @@ void Encoder_Init(void)
  * 
  */
 
+Encoder_State Encoder_Task(void)
+{
+	Data * data_structure = DataStruct_Get();
+	if (data_structure == NULL)
+	{
+		return ENCODER_STATE_WAITING_FOR_SEMAPHORE;
+	}
 
+	/* Test pour valider l'écriture et la lecture de la structure de données */
+	data_structure->encoder_value = 3000;
+
+	DataStruct_ReleaseSemaphore();
+
+	return ENCODER_STATE_OK;
+}

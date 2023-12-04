@@ -20,9 +20,13 @@
 
 /* Structs and enums */
 /**
- * Enum describing 
+ * Enum describing the gyroscope state
  */
-
+typedef enum
+{
+	GYROSCOPE_STATE_WAITING_FOR_SEMAPHORE 	= -2,
+	GYROSCOPE_STATE_OK 						= 0
+} Gyroscope_State;
 
 /**
  * Enum describing 
@@ -41,6 +45,5 @@ typedef struct
 } Gyroscope;
 
 /* Function declaration */
-
-
-
+void Gyroscope_Init(void);
+Gyroscope_State Gyroscope_Task(void);
