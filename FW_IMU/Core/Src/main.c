@@ -73,7 +73,7 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
+ HAL_Init();
 
   /* USER CODE BEGIN Init */
 
@@ -90,6 +90,7 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   MX_I2C1_Init();
+
   /* USER CODE BEGIN 2 */
   uint8_t data[30];
   /* USER CODE END 2 */
@@ -99,12 +100,13 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
 	  lsm6dsr_read_data_polling();
-	  HAL_Delay(50);
+	  lsm6dsr_read_data_polling_2();
+	  HAL_Delay(500);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
+
 }
 
 /**

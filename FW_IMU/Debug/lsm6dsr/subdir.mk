@@ -6,15 +6,18 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../lsm6dsr/lsm6dsr.c \
-../lsm6dsr/lsm6dsr_read_data.c 
+../lsm6dsr/lsm6dsr_read_data.c \
+../lsm6dsr/lsm6dsr_read_data2.c 
 
 OBJS += \
 ./lsm6dsr/lsm6dsr.o \
-./lsm6dsr/lsm6dsr_read_data.o 
+./lsm6dsr/lsm6dsr_read_data.o \
+./lsm6dsr/lsm6dsr_read_data2.o 
 
 C_DEPS += \
 ./lsm6dsr/lsm6dsr.d \
-./lsm6dsr/lsm6dsr_read_data.d 
+./lsm6dsr/lsm6dsr_read_data.d \
+./lsm6dsr/lsm6dsr_read_data2.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -24,7 +27,7 @@ lsm6dsr/%.o lsm6dsr/%.su lsm6dsr/%.cyclo: ../lsm6dsr/%.c lsm6dsr/subdir.mk
 clean: clean-lsm6dsr
 
 clean-lsm6dsr:
-	-$(RM) ./lsm6dsr/lsm6dsr.cyclo ./lsm6dsr/lsm6dsr.d ./lsm6dsr/lsm6dsr.o ./lsm6dsr/lsm6dsr.su ./lsm6dsr/lsm6dsr_read_data.cyclo ./lsm6dsr/lsm6dsr_read_data.d ./lsm6dsr/lsm6dsr_read_data.o ./lsm6dsr/lsm6dsr_read_data.su
+	-$(RM) ./lsm6dsr/lsm6dsr.cyclo ./lsm6dsr/lsm6dsr.d ./lsm6dsr/lsm6dsr.o ./lsm6dsr/lsm6dsr.su ./lsm6dsr/lsm6dsr_read_data.cyclo ./lsm6dsr/lsm6dsr_read_data.d ./lsm6dsr/lsm6dsr_read_data.o ./lsm6dsr/lsm6dsr_read_data.su ./lsm6dsr/lsm6dsr_read_data2.cyclo ./lsm6dsr/lsm6dsr_read_data2.d ./lsm6dsr/lsm6dsr_read_data2.o ./lsm6dsr/lsm6dsr_read_data2.su
 
 .PHONY: clean-lsm6dsr
 

@@ -78,6 +78,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include <string.h>
 #include <stdio.h>
+#include <math.h>
 #include "lsm6dsr.h"
 #include "lsm6dsr_read_data.h"
 
@@ -101,11 +102,15 @@ extern I2C_HandleTypeDef hi2c1;
 
 /* Private macro -------------------------------------------------------------*/
 #define    BOOT_TIME            10 //ms
+#define    PI                   3.141592653589793
 
 /* Private variables ---------------------------------------------------------*/
 static int16_t data_raw_acceleration[3];
 static int16_t data_raw_angular_rate[3];
 static int16_t data_raw_temperature;
+static float theta_angle;
+static float phi_angle;
+static float x =0,y=0,z=0;
 static float acceleration_mg[3];
 static float angular_rate_mdps[3];
 static float temperature_degC;
@@ -181,18 +186,35 @@ void lsm6dsr_read_data_polling(void)
       /* Read acceleration field data */
       memset(data_raw_acceleration, 0x00, 3 * sizeof(int16_t));
       lsm6dsr_acceleration_raw_get(&dev_ctx, data_raw_acceleration);
+     //acceleration selon l'axe x du IMU
       acceleration_mg[0] =
-        lsm6dsr_from_fs2g_to_mg(data_raw_acceleration[0]);
+        lsm6dsr_from_fs4g_to_mg(data_raw_acceleration[0]);
+      //selon l'axe y du IMU
       acceleration_mg[1] =
-        lsm6dsr_from_fs2g_to_mg(data_raw_acceleration[1]);
+        lsm6dsr_from_fs4g_to_mg(data_raw_acceleration[1]);
+      // selon l'axe z du IMU
       acceleration_mg[2] =
         lsm6dsr_from_fs2g_to_mg(data_raw_acceleration[2]);
-      /*
+
+      /*Définition des composantes du vecteur accélération
+      selon les axes principales du IMU*/
+      x = acceleration_mg[0]; y = acceleration_mg[1]; z = acceleration_mg[2];
+
       sprintf((char *)tx_buffer,
-              "Acceleration [mg]:%4.2f\t%4.2f\t%4.2f\r\n",
-              acceleration_mg[0], acceleration_mg[1], acceleration_mg[2]);
-              */
+              "Acceleration[mg]: x:%4.2f\ty:%4.2f\tz:%4.2f\r\n",
+              x, y, z);
+
       tx_com(tx_buffer, strlen((char const *)tx_buffer));
+
+      //Calcul de l'angle radiale phi et azimutale theta:
+      phi_angle = (180/PI)*atan(x/y);
+      theta_angle = (180/PI)*atan(sqrt(pow(y,2)+pow(x,2))/z);
+
+      sprintf((char *)tx_buffer,"angle phi et theta[deg]: phi=%4.2f\ttheta=%4.2f\r\n",phi_angle,theta_angle);
+
+      tx_com(tx_buffer, strlen((char const *)tx_buffer));
+
+      HAL_Delay(1000);
     }
 
     lsm6dsr_gy_flag_data_ready_get(&dev_ctx, &reg);
@@ -207,12 +229,13 @@ void lsm6dsr_read_data_polling(void)
         lsm6dsr_from_fs2000dps_to_mdps(data_raw_angular_rate[1]);
       angular_rate_mdps[2] =
         lsm6dsr_from_fs2000dps_to_mdps(data_raw_angular_rate[2]);
-      /*
+
       sprintf((char *)tx_buffer,
               "Angular rate [mdps]:%4.2f\t%4.2f\t%4.2f\r\n",
               angular_rate_mdps[0], angular_rate_mdps[1], angular_rate_mdps[2]);
-              */
+
       tx_com(tx_buffer, strlen((char const *)tx_buffer));
+      HAL_Delay(1000);
     }
 
     lsm6dsr_temp_flag_data_ready_get(&dev_ctx, &reg);
@@ -224,10 +247,11 @@ void lsm6dsr_read_data_polling(void)
       temperature_degC = lsm6dsr_from_lsb_to_celsius(
                            data_raw_temperature);
 
-      /*
+
        sprintf((char *)tx_buffer,
-              "Temperature [degC]:%6.2f\r\n", temperature_degC);*/
+              "Temperature [degC]:%6.2f\r\n", temperature_degC);
       tx_com(tx_buffer, strlen((char const *)tx_buffer));
+      HAL_Delay(1000);
     }
   }
 }

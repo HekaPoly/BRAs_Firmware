@@ -1,0 +1,1132 @@
+20:42:15 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16004	     20	   2772	  18796	   496c	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+20:42:45 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16004	     20	   2772	  18796	   496c	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+16:17:29 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16004	     20	   2772	  18796	   496c	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+16:19:19 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16004	     20	   2772	  18796	   496c	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+16:21:00 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16004	     20	   2772	  18796	   496c	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+16:23:00 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16004	     20	   2772	  18796	   496c	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+16:24:50 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16004	     20	   2772	  18796	   496c	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+16:27:39 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16004	     20	   2772	  18796	   496c	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+16:29:21 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16004	     20	   2772	  18796	   496c	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+16:31:13 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16004	     20	   2772	  18796	   496c	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+16:31:20 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16004	     20	   2772	  18796	   496c	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+16:31:56 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16004	     20	   2772	  18796	   496c	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+16:32:53 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16004	     20	   2772	  18796	   496c	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+16:34:22 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16004	     20	   2772	  18796	   496c	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+16:36:27 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16004	     20	   2772	  18796	   496c	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+16:41:21 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16004	     20	   2772	  18796	   496c	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+16:42:44 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16004	     20	   2772	  18796	   496c	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+16:43:14 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16004	     20	   2772	  18796	   496c	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+16:49:37 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16004	     20	   2772	  18796	   496c	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+16:51:35 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16004	     20	   2772	  18796	   496c	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+16:56:10 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../lsm6dsr/lsm6dsr_read_data.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"lsm6dsr/lsm6dsr_read_data.d" -MT"lsm6dsr/lsm6dsr_read_data.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "lsm6dsr/lsm6dsr_read_data.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:94:11: warning: unused variable 'data' [-Wunused-variable]
+   94 |   uint8_t data[30];
+      |           ^~~~
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  31448	    476	   3108	  35032	   88d8	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+16:57:14 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:94:11: warning: unused variable 'data' [-Wunused-variable]
+   94 |   uint8_t data[30];
+      |           ^~~~
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  31448	    476	   3108	  35032	   88d8	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+16:57:47 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:94:11: warning: unused variable 'data' [-Wunused-variable]
+   94 |   uint8_t data[30];
+      |           ^~~~
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  31448	    476	   3108	  35032	   88d8	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+16:59:21 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:94:11: warning: unused variable 'data' [-Wunused-variable]
+   94 |   uint8_t data[30];
+      |           ^~~~
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  31448	    476	   3108	  35032	   88d8	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+17:00:54 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31448	    476	   3108	  35032	   88d8	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+17:01:58 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:94:11: warning: unused variable 'data' [-Wunused-variable]
+   94 |   uint8_t data[30];
+      |           ^~~~
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  31448	    476	   3108	  35032	   88d8	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+17:04:00 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31448	    476	   3108	  35032	   88d8	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+17:04:06 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31448	    476	   3108	  35032	   88d8	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+17:10:12 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31448	    476	   3108	  35032	   88d8	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+17:11:00 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31448	    476	   3108	  35032	   88d8	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+17:13:35 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:94:11: warning: unused variable 'data' [-Wunused-variable]
+   94 |   uint8_t data[30];
+      |           ^~~~
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  31448	    476	   3108	  35032	   88d8	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+17:17:55 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:94:11: warning: unused variable 'data' [-Wunused-variable]
+   94 |   uint8_t data[30];
+      |           ^~~~
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  31448	    476	   3108	  35032	   88d8	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+17:26:12 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../lsm6dsr/lsm6dsr_read_data.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"lsm6dsr/lsm6dsr_read_data.d" -MT"lsm6dsr/lsm6dsr_read_data.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "lsm6dsr/lsm6dsr_read_data.o"
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+17:30:13 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:94:11: warning: unused variable 'data' [-Wunused-variable]
+   94 |   uint8_t data[30];
+      |           ^~~~
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+17:33:46 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:94:11: warning: unused variable 'data' [-Wunused-variable]
+   94 |   uint8_t data[30];
+      |           ^~~~
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+17:34:43 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:94:11: warning: unused variable 'data' [-Wunused-variable]
+   94 |   uint8_t data[30];
+      |           ^~~~
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+17:37:39 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:94:11: warning: unused variable 'data' [-Wunused-variable]
+   94 |   uint8_t data[30];
+      |           ^~~~
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+17:38:53 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+17:39:16 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+17:40:49 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+17:41:19 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:94:11: warning: unused variable 'data' [-Wunused-variable]
+   94 |   uint8_t data[30];
+      |           ^~~~
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+17:42:58 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+17:53:23 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:94:11: warning: unused variable 'data' [-Wunused-variable]
+   94 |   uint8_t data[30];
+      |           ^~~~
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+17:53:50 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+17:55:07 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:94:11: warning: unused variable 'data' [-Wunused-variable]
+   94 |   uint8_t data[30];
+      |           ^~~~
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+17:55:31 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+17:55:55 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+17:57:50 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:94:11: warning: unused variable 'data' [-Wunused-variable]
+   94 |   uint8_t data[30];
+      |           ^~~~
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+18:00:08 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:94:11: warning: unused variable 'data' [-Wunused-variable]
+   94 |   uint8_t data[30];
+      |           ^~~~
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+18:01:49 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+18:10:53 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+18:11:12 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+18:12:30 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+18:14:00 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:94:11: warning: unused variable 'data' [-Wunused-variable]
+   94 |   uint8_t data[30];
+      |           ^~~~
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+18:16:01 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:94:11: warning: unused variable 'data' [-Wunused-variable]
+   94 |   uint8_t data[30];
+      |           ^~~~
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+18:17:51 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+18:21:59 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+18:22:15 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+18:23:16 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+18:24:09 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+18:30:11 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:96:11: warning: unused variable 'data' [-Wunused-variable]
+   96 |   uint8_t data[30];
+      |           ^~~~
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  31552	    476	   3108	  35136	   8940	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+18:32:03 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:95:11: warning: unused variable 'data' [-Wunused-variable]
+   95 |   uint8_t data[30];
+      |           ^~~~
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+18:32:38 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+18:33:30 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+18:35:45 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:95:11: warning: unused variable 'data' [-Wunused-variable]
+   95 |   uint8_t data[30];
+      |           ^~~~
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+18:38:06 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:95:11: warning: unused variable 'data' [-Wunused-variable]
+   95 |   uint8_t data[30];
+      |           ^~~~
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  31496	    476	   3108	  35080	   8908	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+18:40:37 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../lsm6dsr/lsm6dsr_read_data.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"lsm6dsr/lsm6dsr_read_data.d" -MT"lsm6dsr/lsm6dsr_read_data.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "lsm6dsr/lsm6dsr_read_data.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:95:11: warning: unused variable 'data' [-Wunused-variable]
+   95 |   uint8_t data[30];
+      |           ^~~~
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  31520	    476	   3108	  35104	   8920	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+18:41:31 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31520	    476	   3108	  35104	   8920	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+20:25:54 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../lsm6dsr/lsm6dsr_read_data.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"lsm6dsr/lsm6dsr_read_data.d" -MT"lsm6dsr/lsm6dsr_read_data.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "lsm6dsr/lsm6dsr_read_data.o"
+../lsm6dsr/lsm6dsr_read_data.c: In function 'lsm6dsr_read_data_polling':
+../lsm6dsr/lsm6dsr_read_data.c:197:7: error: 'x' undeclared (first use in this function)
+  197 |       x = acceleration_mg[0];
+      |       ^
+../lsm6dsr/lsm6dsr_read_data.c:197:7: note: each undeclared identifier is reported only once for each function it appears in
+../lsm6dsr/lsm6dsr_read_data.c:198:7: error: 'y' undeclared (first use in this function); did you mean 'yn'?
+  198 |       y = acceleration_mg[1];
+      |       ^
+      |       yn
+../lsm6dsr/lsm6dsr_read_data.c:199:7: error: 'z' undeclared (first use in this function)
+  199 |       z = acceleration_mg[2];
+      |       ^
+At top level:
+../lsm6dsr/lsm6dsr_read_data.c:110:14: warning: 'phi_angle' defined but not used [-Wunused-variable]
+  110 | static float phi_angle[3];
+      |              ^~~~~~~~~
+../lsm6dsr/lsm6dsr_read_data.c:109:14: warning: 'theta_angle' defined but not used [-Wunused-variable]
+  109 | static float theta_angle[3];
+      |              ^~~~~~~~~~~
+make: *** [lsm6dsr/subdir.mk:22: lsm6dsr/lsm6dsr_read_data.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+20:26:42 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../lsm6dsr/lsm6dsr_read_data.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"lsm6dsr/lsm6dsr_read_data.d" -MT"lsm6dsr/lsm6dsr_read_data.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "lsm6dsr/lsm6dsr_read_data.o"
+../lsm6dsr/lsm6dsr_read_data.c:110:14: warning: 'phi_angle' defined but not used [-Wunused-variable]
+  110 | static float phi_angle[3];
+      |              ^~~~~~~~~
+../lsm6dsr/lsm6dsr_read_data.c:109:14: warning: 'theta_angle' defined but not used [-Wunused-variable]
+  109 | static float theta_angle[3];
+      |              ^~~~~~~~~~~
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  31528	    476	   3108	  35112	   8928	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+20:27:12 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../lsm6dsr/lsm6dsr_read_data.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"lsm6dsr/lsm6dsr_read_data.d" -MT"lsm6dsr/lsm6dsr_read_data.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "lsm6dsr/lsm6dsr_read_data.o"
+../lsm6dsr/lsm6dsr_read_data.c:110:14: warning: 'phi_angle' defined but not used [-Wunused-variable]
+  110 | static float phi_angle[3];
+      |              ^~~~~~~~~
+../lsm6dsr/lsm6dsr_read_data.c:109:14: warning: 'theta_angle' defined but not used [-Wunused-variable]
+  109 | static float theta_angle[3];
+      |              ^~~~~~~~~~~
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  31528	    476	   3108	  35112	   8928	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+20:34:21 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../lsm6dsr/lsm6dsr_read_data.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"lsm6dsr/lsm6dsr_read_data.d" -MT"lsm6dsr/lsm6dsr_read_data.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "lsm6dsr/lsm6dsr_read_data.o"
+../lsm6dsr/lsm6dsr_read_data.c: In function 'lsm6dsr_read_data_polling':
+../lsm6dsr/lsm6dsr_read_data.c:105:34: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  105 | #define    PI                   3,141592653589793
+      |                                  ^
+../lsm6dsr/lsm6dsr_read_data.c:205:24: note: in expansion of macro 'PI'
+  205 |       phi_angle = (180/PI)*atan(acceleration_mg[1]/acceleration_mg[0]);
+      |                        ^~
+../lsm6dsr/lsm6dsr_read_data.c:205:17: error: assignment to expression with array type
+  205 |       phi_angle = (180/PI)*atan(acceleration_mg[1]/acceleration_mg[0]);
+      |                 ^
+../lsm6dsr/lsm6dsr_read_data.c:207:61: warning: format '%f' expects argument of type 'double', but argument 3 has type 'float *' [-Wformat=]
+  207 |       sprintf((char *)tx_buffer,"angle radiale phi[deg]:%4.2f\r\n",phi_angle);
+      |                                                         ~~~~^      ~~~~~~~~~
+      |                                                             |      |
+      |                                                             double float *
+At top level:
+../lsm6dsr/lsm6dsr_read_data.c:111:14: warning: 'theta_angle' defined but not used [-Wunused-variable]
+  111 | static float theta_angle[3];
+      |              ^~~~~~~~~~~
+make: *** [lsm6dsr/subdir.mk:22: lsm6dsr/lsm6dsr_read_data.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+20:35:34 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../lsm6dsr/lsm6dsr_read_data.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"lsm6dsr/lsm6dsr_read_data.d" -MT"lsm6dsr/lsm6dsr_read_data.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "lsm6dsr/lsm6dsr_read_data.o"
+../lsm6dsr/lsm6dsr_read_data.c: In function 'lsm6dsr_read_data_polling':
+../lsm6dsr/lsm6dsr_read_data.c:105:34: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  105 | #define    PI                   3,141592653589793
+      |                                  ^
+../lsm6dsr/lsm6dsr_read_data.c:206:24: note: in expansion of macro 'PI'
+  206 |       phi_angle = (180/PI)*atan(y/x);
+      |                        ^~
+At top level:
+../lsm6dsr/lsm6dsr_read_data.c:113:18: warning: 'z' defined but not used [-Wunused-variable]
+  113 | static float x,y,z;
+      |                  ^
+../lsm6dsr/lsm6dsr_read_data.c:111:14: warning: 'theta_angle' defined but not used [-Wunused-variable]
+  111 | static float theta_angle;
+      |              ^~~~~~~~~~~
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  32784	    476	   3116	  36376	   8e18	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+20:39:27 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../lsm6dsr/lsm6dsr_read_data.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"lsm6dsr/lsm6dsr_read_data.d" -MT"lsm6dsr/lsm6dsr_read_data.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "lsm6dsr/lsm6dsr_read_data.o"
+../lsm6dsr/lsm6dsr_read_data.c: In function 'lsm6dsr_read_data_polling':
+../lsm6dsr/lsm6dsr_read_data.c:105:34: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  105 | #define    PI                   3,141592653589793
+      |                                  ^
+../lsm6dsr/lsm6dsr_read_data.c:210:24: note: in expansion of macro 'PI'
+  210 |       phi_angle = (180/PI)*atan(y/x);
+      |                        ^~
+At top level:
+../lsm6dsr/lsm6dsr_read_data.c:111:14: warning: 'theta_angle' defined but not used [-Wunused-variable]
+  111 | static float theta_angle;
+      |              ^~~~~~~~~~~
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  32808	    476	   3124	  36408	   8e38	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+20:39:59 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../lsm6dsr/lsm6dsr_read_data.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"lsm6dsr/lsm6dsr_read_data.d" -MT"lsm6dsr/lsm6dsr_read_data.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "lsm6dsr/lsm6dsr_read_data.o"
+../lsm6dsr/lsm6dsr_read_data.c:111:14: warning: 'theta_angle' defined but not used [-Wunused-variable]
+  111 | static float theta_angle;
+      |              ^~~~~~~~~~~
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  32808	    476	   3124	  36408	   8e38	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+20:40:30 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  32808	    476	   3124	  36408	   8e38	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+20:46:07 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../lsm6dsr/lsm6dsr_read_data.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"lsm6dsr/lsm6dsr_read_data.d" -MT"lsm6dsr/lsm6dsr_read_data.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "lsm6dsr/lsm6dsr_read_data.o"
+../lsm6dsr/lsm6dsr_read_data.c: In function 'lsm6dsr_read_data_polling':
+../lsm6dsr/lsm6dsr_read_data.c:211:43: error: invalid operands to binary ^ (have 'float' and 'float')
+  211 |       theta_angle = (180*PI)*atan(z/sqrt(y^2+x^2));
+      |                                           ^~~~
+      |                                             |
+      |                                             float
+make: *** [lsm6dsr/subdir.mk:22: lsm6dsr/lsm6dsr_read_data.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+20:47:04 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../lsm6dsr/lsm6dsr_read_data.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"lsm6dsr/lsm6dsr_read_data.d" -MT"lsm6dsr/lsm6dsr_read_data.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "lsm6dsr/lsm6dsr_read_data.o"
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  36872	    496	   3128	  40496	   9e30	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+20:47:12 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36872	    496	   3128	  40496	   9e30	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+20:57:22 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../lsm6dsr/lsm6dsr_read_data.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"lsm6dsr/lsm6dsr_read_data.d" -MT"lsm6dsr/lsm6dsr_read_data.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "lsm6dsr/lsm6dsr_read_data.o"
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  36872	    496	   3128	  40496	   9e30	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+20:57:33 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36872	    496	   3128	  40496	   9e30	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+20:57:57 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36872	    496	   3128	  40496	   9e30	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+20:58:27 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36872	    496	   3128	  40496	   9e30	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+20:59:01 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36872	    496	   3128	  40496	   9e30	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+21:02:08 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../lsm6dsr/lsm6dsr_read_data.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"lsm6dsr/lsm6dsr_read_data.d" -MT"lsm6dsr/lsm6dsr_read_data.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "lsm6dsr/lsm6dsr_read_data.o"
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  36856	    496	   3128	  40480	   9e20	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+21:02:51 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36856	    496	   3128	  40480	   9e20	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+21:06:28 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../lsm6dsr/lsm6dsr_read_data.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"lsm6dsr/lsm6dsr_read_data.d" -MT"lsm6dsr/lsm6dsr_read_data.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "lsm6dsr/lsm6dsr_read_data.o"
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  36848	    496	   3128	  40472	   9e18	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+21:14:55 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36848	    496	   3128	  40472	   9e18	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+21:27:53 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36848	    496	   3128	  40472	   9e18	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+21:32:49 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../lsm6dsr/lsm6dsr_read_data.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"lsm6dsr/lsm6dsr_read_data.d" -MT"lsm6dsr/lsm6dsr_read_data.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "lsm6dsr/lsm6dsr_read_data.o"
+../lsm6dsr/lsm6dsr_read_data.c:113:16: error: 'y' undeclared here (not in a function)
+  113 | static float x=y=z=0;
+      |                ^
+../lsm6dsr/lsm6dsr_read_data.c:113:18: error: 'z' undeclared here (not in a function)
+  113 | static float x=y=z=0;
+      |                  ^
+make: *** [lsm6dsr/subdir.mk:22: lsm6dsr/lsm6dsr_read_data.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+21:33:23 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../lsm6dsr/lsm6dsr_read_data.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"lsm6dsr/lsm6dsr_read_data.d" -MT"lsm6dsr/lsm6dsr_read_data.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "lsm6dsr/lsm6dsr_read_data.o"
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  36848	    496	   3128	  40472	   9e18	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+21:33:31 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36848	    496	   3128	  40472	   9e18	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+21:44:44 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../lsm6dsr/lsm6dsr_read_data.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"lsm6dsr/lsm6dsr_read_data.d" -MT"lsm6dsr/lsm6dsr_read_data.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "lsm6dsr/lsm6dsr_read_data.o"
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  36896	    496	   3128	  40520	   9e48	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+21:48:09 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../lsm6dsr/lsm6dsr_read_data.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"lsm6dsr/lsm6dsr_read_data.d" -MT"lsm6dsr/lsm6dsr_read_data.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "lsm6dsr/lsm6dsr_read_data.o"
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  36896	    496	   3128	  40520	   9e48	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+22:24:44 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-gcc "../lsm6dsr/lsm6dsr.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"lsm6dsr/lsm6dsr.d" -MT"lsm6dsr/lsm6dsr.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "lsm6dsr/lsm6dsr.o"
+arm-none-eabi-gcc "../lsm6dsr/lsm6dsr_read_data.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"lsm6dsr/lsm6dsr_read_data.d" -MT"lsm6dsr/lsm6dsr_read_data.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "lsm6dsr/lsm6dsr_read_data.o"
+arm-none-eabi-gcc "../lsm6dsr/lsm6dsr_read_data2.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"lsm6dsr/lsm6dsr_read_data2.d" -MT"lsm6dsr/lsm6dsr_read_data2.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "lsm6dsr/lsm6dsr_read_data2.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:104:11: warning: implicit declaration of function 'lsm6dsr_read_data_polling_2'; did you mean 'lsm6dsr_read_data_polling'? [-Wimplicit-function-declaration]
+  104 |           lsm6dsr_read_data_polling_2();
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |           lsm6dsr_read_data_polling
+../Core/Src/main.c:95:11: warning: unused variable 'data' [-Wunused-variable]
+   95 |   uint8_t data[30];
+      |           ^~~~
+arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FW_IMU.elf
+ 
+arm-none-eabi-size  FW_IMU.elf 
+arm-none-eabi-objdump -h -S FW_IMU.elf  > "FW_IMU.list"
+   text	   data	    bss	    dec	    hex	filename
+  38392	    496	   4192	  43080	   a848	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+Finished building: FW_IMU.list
+ 
+22:25:28 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  38392	    496	   4192	  43080	   a848	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+22:25:59 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  38392	    496	   4192	  43080	   a848	FW_IMU.elf
+Finished building: default.size.stdout
+ 
+22:26:52 **** Incremental Build of configuration Debug for project FW_IMU ****
+make -j8 all 
+arm-none-eabi-size  FW_IMU.elf 
+   text	   data	    bss	    dec	    hex	filename
+  38392	    496	   4192	  43080	   a848	FW_IMU.elf
+Finished building: default.size.stdout
+ 

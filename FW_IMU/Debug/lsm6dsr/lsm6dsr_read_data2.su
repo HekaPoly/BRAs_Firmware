@@ -1,0 +1,6 @@
+../lsm6dsr/lsm6dsr_read_data2.c:139:6:lsm6dsr_read_data_polling_2	64	static
+../lsm6dsr/lsm6dsr_read_data2.c:269:16:platform_write	40	static
+../lsm6dsr/lsm6dsr_read_data2.c:296:16:platform_read	40	static
+../lsm6dsr/lsm6dsr_read_data2.c:321:13:tx_com	16	static
+../lsm6dsr/lsm6dsr_read_data2.c:338:13:platform_delay	16	static
+../lsm6dsr/lsm6dsr_read_data2.c:350:13:platform_init	4	static

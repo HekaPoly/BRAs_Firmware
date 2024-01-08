@@ -28,3 +28,4 @@
 "./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o"
 "./lsm6dsr/lsm6dsr.o"
 "./lsm6dsr/lsm6dsr_read_data.o"
+"./lsm6dsr/lsm6dsr_read_data2.o"
