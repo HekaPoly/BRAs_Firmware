@@ -25,7 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "../../BSP/Inc/bsp.h"
+#include "../../BSP/Inc/motor_control.h"
 #include "../../BSP/Inc/uart.h"
 /* USER CODE END Includes */
 
@@ -48,9 +48,9 @@
 /* USER CODE BEGIN Variables */
 
 /* USER CODE END Variables */
-osThreadId defaultTaskHandle;
-osThreadId Bsp_TaskHandle;
-osThreadId Uart_taskHandle;
+osThreadId Sensors_TaskHandle;
+osThreadId MotorControl_TaHandle;
+osThreadId UART_taskHandle;
 osSemaphoreId binarySemaphoreHandle;
 
 /* Private function prototypes -----------------------------------------------*/
@@ -58,9 +58,9 @@ osSemaphoreId binarySemaphoreHandle;
 
 /* USER CODE END FunctionPrototypes */
 
-void StartDefaultTask(void const * argument);
-void StartBsp_Task(void const * argument);
-void StartUart_task(void const * argument);
+void StartSensorsTask(void const * argument);
+void StartMotorControlTask(void const * argument);
+void StartUART_task(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -112,17 +112,17 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
-  /* definition and creation of defaultTask */
-  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
-  defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
+  /* definition and creation of Sensors_Task */
+  osThreadDef(Sensors_Task, StartSensorsTask, osPriorityNormal, 0, 128);
+  Sensors_TaskHandle = osThreadCreate(osThread(Sensors_Task), NULL);
 
-  /* definition and creation of Bsp_Task */
-  osThreadDef(Bsp_Task, StartBsp_Task, osPriorityNormal, 0, 128);
-  Bsp_TaskHandle = osThreadCreate(osThread(Bsp_Task), NULL);
+  /* definition and creation of MotorControl_Ta */
+  osThreadDef(MotorControl_Ta, StartMotorControlTask, osPriorityNormal, 0, 128);
+  MotorControl_TaHandle = osThreadCreate(osThread(MotorControl_Ta), NULL);
 
-  /* definition and creation of Uart_task */
-  osThreadDef(Uart_task, StartUart_task, osPriorityNormal, 0, 128);
-  Uart_taskHandle = osThreadCreate(osThread(Uart_task), NULL);
+  /* definition and creation of UART_task */
+  osThreadDef(UART_task, StartUART_task, osPriorityNormal, 0, 128);
+  UART_taskHandle = osThreadCreate(osThread(UART_task), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -130,61 +130,64 @@ void MX_FREERTOS_Init(void) {
 
 }
 
-/* USER CODE BEGIN Header_StartDefaultTask */
+/* USER CODE BEGIN Header_StartSensorsTask */
 /**
-  * @brief  Function implementing the defaultTask thread.
+  * @brief  Function implementing the Sensors_Task thread.
   * @param  argument: Not used
   * @retval None
   */
-/* USER CODE END Header_StartDefaultTask */
-void StartDefaultTask(void const * argument)
+/* USER CODE END Header_StartSensorsTask */
+void StartSensorsTask(void const * argument)
 {
-  /* USER CODE BEGIN StartDefaultTask */
+  /* USER CODE BEGIN StartSensorsTask */
   /* Infinite loop */
   for(;;)
   {
-
     osDelay(1);
   }
-  /* USER CODE END StartDefaultTask */
+  /* USER CODE END StartSensorsTask */
 }
 
-/* USER CODE BEGIN Header_StartBsp_Task */
+/* USER CODE BEGIN Header_StartMotorControlTask */
 /**
-* @brief Function implementing the Bsp_Task thread.
+* @brief Function implementing the MotorControl_Ta thread.
 * @param argument: Not used
 * @retval None
 */
-/* USER CODE END Header_StartBsp_Task */
-void StartBsp_Task(void const * argument)
+/* USER CODE END Header_StartMotorControlTask */
+void StartMotorControlTask(void const * argument)
 {
-  /* USER CODE BEGIN StartBsp_Task */
+  /* USER CODE BEGIN StartMotorControlTask */
+  MotorControl_Init();
+
   /* Infinite loop */
   for(;;)
   {
-	  BSP_Task();
-	  osDelay(100);
+	MotorControl_Task();
+    osDelay(100);
   }
-  /* USER CODE END StartBsp_Task */
+  /* USER CODE END StartMotorControlTask */
 }
 
-/* USER CODE BEGIN Header_StartUart_task */
+/* USER CODE BEGIN Header_StartUART_task */
 /**
-* @brief Function implementing the Uart_task thread.
+* @brief Function implementing the UART_task thread.
 * @param argument: Not used
 * @retval None
 */
-/* USER CODE END Header_StartUart_task */
-void StartUart_task(void const * argument)
+/* USER CODE END Header_StartUART_task */
+void StartUART_task(void const * argument)
 {
-  /* USER CODE BEGIN StartUart_task */
+  /* USER CODE BEGIN StartUART_task */
+  UART_Init();
+
   /* Infinite loop */
   for(;;)
   {
-    UART_Task();
-	osDelay(50);
+	UART_Task();
+    osDelay(500);
   }
-  /* USER CODE END StartUart_task */
+  /* USER CODE END StartUART_task */
 }
 
 /* Private application code --------------------------------------------------*/
