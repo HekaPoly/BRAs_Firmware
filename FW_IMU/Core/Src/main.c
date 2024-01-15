@@ -101,7 +101,7 @@ int main(void)
   {
     /* USER CODE END WHILE */
 	  lsm6dsr_read_data_polling();
-	  lsm6dsr_read_data_polling_2();
+	 // lsm6dsr_read_data_polling_2();
 	  HAL_Delay(500);
     /* USER CODE BEGIN 3 */
   }

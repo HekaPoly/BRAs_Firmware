@@ -237,7 +237,7 @@ void lsm6dsr_read_data_polling(void)
       tx_com(tx_buffer, strlen((char const *)tx_buffer));
       HAL_Delay(1000);
     }
-
+    ///Mesure de temp
     lsm6dsr_temp_flag_data_ready_get(&dev_ctx, &reg);
 
     if (reg) {
