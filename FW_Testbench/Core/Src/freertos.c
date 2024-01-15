@@ -158,13 +158,15 @@ void StartSensorsTask(void const * argument)
 void StartMotorControlTask(void const * argument)
 {
   /* USER CODE BEGIN StartMotorControlTask */
+  /* Encoder_Init() à rajouter */
   MotorControl_Init();
 
   /* Infinite loop */
   for(;;)
   {
+	/* Encoder_Task() à rajouter */
 	MotorControl_Task();
-    osDelay(100);
+    osDelay(50);
   }
   /* USER CODE END StartMotorControlTask */
 }

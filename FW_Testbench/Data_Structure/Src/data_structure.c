@@ -9,7 +9,7 @@
  *
  */
 
-#include "../Inc/data_structure.h"
+#include "data_structure.h"
 #include "cmsis_os.h"
 
 /* External variables */
@@ -36,13 +36,11 @@ Data * DataStruct_Get(void)
 	}
 }
 
-/* Function implementation */
 /**
  * @brief Releases the binary semaphore
  *
  */
 void DataStruct_ReleaseSemaphore(void)
 {
-	/* No verifying of the release status - to be added if necessary */
 	osSemaphoreRelease(binarySemaphoreHandle);
 }

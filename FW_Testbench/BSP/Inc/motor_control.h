@@ -27,8 +27,8 @@
  */
 typedef enum
 {
-	MOTOR_DIRECTION_CLOCKWISE,
-	MOTOR_DIRECTION_COUNTERCLOCKWISE
+	MOTOR_DIRECTION_CLOCKWISE 			= 0,
+	MOTOR_DIRECTION_COUNTERCLOCKWISE 	= 1
 } Motor_Direction;
 
 /**
@@ -51,9 +51,6 @@ typedef struct
 	Motor_Direction motor_direction;
 	float deg_per_turn;
 	uint32_t motor_timer_channel;
-	uint16_t motor_speed_percent;
-	uint16_t motor_angle_to_reach;
-	uint16_t current_motor_angle;
 	uint16_t nb_pulse;
 	uint16_t delay;
 } Motor;
