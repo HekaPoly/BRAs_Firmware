@@ -65,9 +65,9 @@ void UART_Task(void)
 /**
  * @brief Data reception
  * 
- * @param uart The UART structure containing pertinent information about the UART module used
+ * @param[in] uart The UART structure containing pertinent information about the UART module used
  */
 static void Receive_Data(UART * uart)
 {
-	HAL_UART_Receive(uart->uart_handle, g_rx_buffer, NUMBER_OF_BYTES_PER_MSG, 1000);
+	HAL_UART_Receive_DMA(uart->uart_handle, g_rx_buffer, NUMBER_OF_BYTES_PER_MSG);
 }
