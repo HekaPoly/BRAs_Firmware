@@ -69,5 +69,5 @@ void UART_Task(void)
  */
 static void Receive_Data(UART * uart)
 {
-	HAL_UART_Receive_DMA(uart->uart_handle, g_rx_buffer, NUMBER_OF_BYTES_PER_MSG);
+	HAL_UART_Receive(uart->uart_handle, g_rx_buffer, NUMBER_OF_BYTES_PER_MSG, 1000);
 }
