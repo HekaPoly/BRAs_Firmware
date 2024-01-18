@@ -9,6 +9,7 @@
  *
  */
 
+#include "string.h"
 #include "data_structure.h"
 #include "cmsis_os.h"
 
@@ -16,7 +17,7 @@
 extern osSemaphoreId binarySemaphoreHandle;
 
 /* Data structure address declaration in .c to keep other files from reaching it */
-Data * data_struct = (Data *)0x20000000;
+Data g_data_struct = {0};
 
 /* Function implementation */
 /**
@@ -26,9 +27,15 @@ Data * data_struct = (Data *)0x20000000;
  */
 Data * DataStruct_Get(void)
 {
+	if (g_data_struct.is_dataset_initialized != true)
+	{
+		memset(&g_data_struct, 0, sizeof(Data));
+		g_data_struct.is_dataset_initialized = true;
+	}
+
 	if (osSemaphoreWait(binarySemaphoreHandle, 0) == osOK)
 	{
-	    return data_struct;
+	    return &g_data_struct;
 	}
 	else
 	{

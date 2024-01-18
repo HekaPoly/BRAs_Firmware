@@ -14,14 +14,13 @@
 #include "stdint.h"
 #include "cmsis_os.h"
 
-
 /* Constants */
 /**
  * @brief Data structure for any motor at a joint
  */
 typedef struct
 {
-	uint32_t motor_desired_speed;
+	uint32_t motor_desired_speed_percent;
 	uint32_t motor_angle_to_reach_deg;
 	uint32_t motor_current_angle_deg;
 	uint32_t encoder_value_deg;
@@ -33,7 +32,8 @@ typedef struct
  */
 typedef struct
 {
-	Data_Motor * motor_base;
+	bool is_dataset_initialized;
+	Data_Motor motor_base;
 	uint32_t gyro_value;
 } Data;
 

@@ -11,6 +11,7 @@
 
 #include "uart.h"
 #include "main.h"
+#include "data_structure.h"
 
 /* Private functions declaration */
 static void Receive_Data(UART * uart);
@@ -48,8 +49,16 @@ void UART_Task(void)
 		Receive_Data(&g_uart);
 
 		/* Update the data structure approprietly */
-		//g_base_motor.motor_speed_percent = (g_uart.message_received[INDEX_FIRST_BYTE] + (g_uart.message_received[INDEX_SECOND_BYTE] << 8));
-		//g_base_motor.motor_angle_to_reach = (g_uart.message_received[INDEX_THIRD_BYTE] + (g_uart.message_received[INDEX_FOURTH_BYTE] << 8));
+		Data * data_structure = DataStruct_Get();
+		if (data_structure == NULL)
+		{
+			//return MOTOR_STATE_WAITING_FOR_SEMAPHORE;
+		}
+
+		data_structure->motor_base.motor_desired_speed_percent = (g_uart.message_received[INDEX_FIRST_BYTE] + (g_uart.message_received[INDEX_SECOND_BYTE] << 8));
+		data_structure->motor_base.motor_angle_to_reach_deg = (g_uart.message_received[INDEX_THIRD_BYTE] + (g_uart.message_received[INDEX_FOURTH_BYTE] << 8));
+
+		DataStruct_ReleaseSemaphore();
 	}
 }
 

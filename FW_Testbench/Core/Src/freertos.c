@@ -187,7 +187,7 @@ void StartUART_task(void const * argument)
   for(;;)
   {
 	UART_Task();
-    osDelay(500);
+    osDelay(75);
   }
   /* USER CODE END StartUART_task */
 }
