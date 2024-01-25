@@ -49,6 +49,8 @@ void MotorControl_Init(void)
  */
 Motor_State MotorControl_Task(void)
 {
+	int32_t counter = (int32_t)((TIM3->CNT) >> 2);
+
 	Data * data_structure = DataStruct_Get();
 	if (data_structure == NULL)
 	{
