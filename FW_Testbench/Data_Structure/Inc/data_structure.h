@@ -33,7 +33,12 @@ typedef struct
 typedef struct
 {
 	bool is_dataset_initialized;
-	Data_Motor motor_base;
+	Data_Motor motor_0; //Name subject to change
+	Data_Motor motor_1; //Name subject to change
+	Data_Motor motor_2; //Name subject to change
+	Data_Motor motor_3; //Name subject to change
+	Data_Motor motor_4; //Name subject to change
+	Data_Motor motor_5; //Name subject to change
 	uint32_t gyro_value;
 } Data;
 

@@ -202,4 +202,3 @@ VP_TIM2_VS_ClockSourceITR.Signal=TIM2_VS_ClockSourceITR
 board=NUCLEO-F401RE
 boardIOC=true
 rtos.0.ip=FREERTOS
-isbadioc=false
