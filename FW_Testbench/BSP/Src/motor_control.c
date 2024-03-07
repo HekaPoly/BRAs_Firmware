@@ -12,6 +12,7 @@
 #include "motor_control.h"
 #include "main.h"
 #include "data_structure.h"
+#include "pid.h"
 
 /* Constants */
 #define FACTOR_SECONDS_TO_MS 1000
@@ -55,6 +56,16 @@ Motor_State MotorControl_Task(void)
 		return MOTOR_STATE_WAITING_FOR_SEMAPHORE;
 	}
 
+	/* Get all desired angle values and maximal speeds from the data structure */
+
+	/* Release data structure semaphore */
+
+	/* For loop for each motor: 
+		1- Read the current encoder value for the motor
+		2- Call the PID function with the angle difference for the current motor
+	*/
+
+	/*
 	int16_t difference_deg = data_structure->motor_base.motor_angle_to_reach_deg - data_structure->motor_base.motor_current_angle_deg;
 
 	if (difference_deg != 0)
@@ -64,6 +75,7 @@ Motor_State MotorControl_Task(void)
 
 		data_structure->motor_base.motor_current_angle_deg = data_structure->motor_base.motor_angle_to_reach_deg;
 	}
+	*/
 
 	DataStruct_ReleaseSemaphore();
 
@@ -96,34 +108,3 @@ static void Modify_Speed(int16_t difference_deg, uint32_t motor_speed_desired_pe
 	HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
 }
 
-/**
- * @brief Modifies the direction signal controlling the turning direction of the motor
- *
- * @param[in] difference_deg	The difference between the angle to reach and the current motor's angle
- *
- */
-static void Modify_Direction(int16_t difference_deg)
-{
-	if (difference_deg < 0)
-	{
-		g_base_motor.motor_direction = MOTOR_DIRECTION_COUNTERCLOCKWISE;
-	}
-
-	else if (difference_deg > 0)
-	{
-		g_base_motor.motor_direction = MOTOR_DIRECTION_CLOCKWISE;
-	}
-	else
-	{
-		/* Do nothing here */
-	}
-
-	if (g_base_motor.motor_direction == MOTOR_DIRECTION_CLOCKWISE)
-	{
-		HAL_GPIO_WritePin(DIR_Motor_1_GPIO_Port, DIR_Motor_1_Pin, GPIO_PIN_SET);
-	}
-    else if (g_base_motor.motor_direction == MOTOR_DIRECTION_COUNTERCLOCKWISE)
-	{
-    	HAL_GPIO_WritePin(DIR_Motor_1_GPIO_Port, DIR_Motor_1_Pin, GPIO_PIN_RESET);
-	}
-}
