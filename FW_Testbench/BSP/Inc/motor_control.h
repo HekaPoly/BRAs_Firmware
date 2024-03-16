@@ -31,6 +31,14 @@ typedef enum
 	MOTOR_DIRECTION_COUNTERCLOCKWISE 	= 1
 } Motor_Direction;
 
+/*
+  Struct describing the selected pin
+ */
+typedef struct{
+	GPIO_TypeDef section; 	// GPIOA, GPIOB, GPIOC, GPIOD, GPIOE (check the type of variable GPIO_TypeDef)
+	uint8_t pin_num;
+}gpio_section;
+
 /**
  * Enum describing the current state of the motor
  */
@@ -53,6 +61,10 @@ typedef struct
 	uint32_t motor_timer_channel;
 	uint16_t nb_pulse;
 	uint16_t delay;
+	
+	gpio_section direction_port;
+	gpio_section speed_port;
+	
 } Motor;
 
 /* Function declaration */
