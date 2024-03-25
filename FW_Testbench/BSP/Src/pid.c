@@ -10,7 +10,10 @@
  */
 
 #include "pid.h"
-#include "motor_control.h"
+
+/* Static function declaration */
+static void Modify_Direction(int16_t difference_deg, Motor * motor);
+static void Modify_Speed(int16_t difference_deg, uint32_t motor_speed_desired_percent);
 
 /* Function implementation */
 /**
@@ -22,6 +25,7 @@
 void Pid_Algorithm(int difference_deg, Motor * current_motor)
 {
     Modify_Direction(difference_deg, current_motor);
+    Modify_Speed(difference_deg, 100);
 
     
 }
@@ -61,4 +65,16 @@ static void Modify_Direction(int16_t difference_deg, Motor * motor)
     {
         /* Do nothing here */
     }
+}
+
+
+/**
+ * @brief Calculation of new ARR value to give the PWM in order to modifiy the motor's speed
+ *
+ * @param[in] difference_deg	The difference between the angle to reach and the current motor's angle
+ *
+ */
+static void Modify_Speed(int16_t difference_deg, uint32_t motor_speed_desired_percent)
+{
+
 }

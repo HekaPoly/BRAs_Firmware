@@ -9,6 +9,9 @@
  * 
  */
 
+#ifndef __MOTOR_CONTROL_H__
+#define __MOTOR_CONTROL_H__
+
 #include "tim.h"
 #include "stdbool.h"
 #include <float.h>
@@ -58,5 +61,7 @@ typedef struct
 /* Function declaration */
 void MotorControl_Init(void);
 Motor_State MotorControl_Task(void);
+
+#endif /* __MOTOR_CONTROL_H__ */
 
 
