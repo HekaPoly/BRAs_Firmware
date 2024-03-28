@@ -57,57 +57,28 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-
-// ports and pins for each motor
-//TODO : pin and port distribution for each motor
-// Motor 0
-#define MOTOR0_DIRECTION_PORT GPIOA     
-#define MOTOR0_DIRECTION_PIN GPIO_PIN_0
-#define MOTOR0_SPEED_PORT GPIOA
-#define MOTOR0_SPEED_PIN GPIO_PIN_0
-
-// Motor 1
-#define MOTOR1_DIRECTION_PORT GPIOA
-#define MOTOR1_DIRECTION_PIN GPIO_PIN_0
-#define MOTOR1_SPEED_PORT GPIOA
-#define MOTOR1_SPEED_PIN GPIO_PIN_0
-
-// Motor 2
-#define MOTOR2_DIRECTION_PORT GPIOA
-#define MOTOR2_DIRECTION_PIN GPIO_PIN_0
-#define MOTOR2_SPEED_PORT GPIOA
-#define MOTOR2_SPEED_PIN GPIO_PIN_0
-
-// Motor 3
-#define MOTOR3_DIRECTION_PORT GPIOA
-#define MOTOR3_DIRECTION_PIN GPIO_PIN_0
-#define MOTOR3_SPEED_PORT GPIOA
-#define MOTOR3_SPEED_PIN GPIO_PIN_0
-
-// Motor 4
-#define MOTOR4_DIRECTION_PORT GPIOA
-#define MOTOR4_DIRECTION_PIN GPIO_PIN_0
-#define MOTOR4_SPEED_PORT GPIOA
-#define MOTOR4_SPEED_PIN GPIO_PIN_0
-
-// Motor 5
-#define MOTOR5_DIRECTION_PORT GPIOA
-#define MOTOR5_DIRECTION_PIN GPIO_PIN_0
-#define MOTOR5_SPEED_PORT GPIOA
-#define MOTOR5_SPEED_PIN GPIO_PIN_0
-
 #define B1_Pin GPIO_PIN_13
 #define B1_GPIO_Port GPIOC
-/*#define PWM_Motor_1_Pin GPIO_PIN_0  // check if needed
-#define PWM_Motor_1_GPIO_Port GPIOA   // check if needed
-#define DIR_Motor_1_Pin GPIO_PIN_1    // check if needed
-#define DIR_Motor_1_GPIO_Port GPIOA*/ // check if needed
+#define PWM_Motor_1_Pin GPIO_PIN_0 // A voir ce que ca fais?
+#define PWM_Motor_1_GPIO_Port GPIOA
+#define DIR_Motor_0_Pin GPIO_PIN_1
+#define DIR_Motor_0_GPIO_Port GPIOA
 #define USART_TX_Pin GPIO_PIN_2
 #define USART_TX_GPIO_Port GPIOA
 #define USART_RX_Pin GPIO_PIN_3
 #define USART_RX_GPIO_Port GPIOA
 #define LD2_Pin GPIO_PIN_5
 #define LD2_GPIO_Port GPIOA
+#define DIR_Motor_1_Pin GPIO_PIN_12
+#define DIR_Motor_1_GPIO_Port GPIOB
+#define DIR_Motor_2_Pin GPIO_PIN_13
+#define DIR_Motor_2_GPIO_Port GPIOB
+#define DIR_Motor_3_Pin GPIO_PIN_14
+#define DIR_Motor_3_GPIO_Port GPIOB
+#define DIR_Motor_4_Pin GPIO_PIN_15
+#define DIR_Motor_4_GPIO_Port GPIOB
+#define DIR_Motor_5_Pin GPIO_PIN_6
+#define DIR_Motor_5_GPIO_Port GPIOC
 #define TMS_Pin GPIO_PIN_13
 #define TMS_GPIO_Port GPIOA
 #define TCK_Pin GPIO_PIN_14

@@ -35,8 +35,8 @@ typedef enum
   Struct describing the selected pin
  */
 typedef struct{
-	GPIO_TypeDef section; 	// GPIOA, GPIOB, GPIOC, GPIOD, GPIOE (check the type of variable GPIO_TypeDef)
-	uint8_t pin_num;
+	GPIO_TypeDef* section; 	// GPIOA, GPIOB, GPIOC, GPIOD, GPIOE (check the type of variable GPIO_TypeDef)
+	uint16_t pin_num;
 }gpio_section;
 
 /**
@@ -46,7 +46,7 @@ typedef enum
 {
 	MOTOR_STATE_WAITING_FOR_SEMAPHORE 	= -2,
 	MOTOR_STATE_TEMPERATURE_ERROR 		= -1,
-	MOTOR_STATE_OK 						= 0
+	MOTOR_STATE_OK 						= 0,
 } Motor_State;
 
 /**
@@ -63,8 +63,6 @@ typedef struct
 	uint16_t delay;
 	
 	gpio_section direction_port;
-	gpio_section speed_port;
-	
 } Motor;
 
 /* Function declaration */
