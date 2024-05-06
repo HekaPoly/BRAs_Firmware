@@ -32,7 +32,7 @@ typedef enum
 } Motor_Direction;
 
 /*
-  Struct describing the selected pin
+ * Structure describing the selected pin
  */
 typedef struct{
 	GPIO_TypeDef* section; 	// GPIOA, GPIOB, GPIOC, GPIOD, GPIOE (check the type of variable GPIO_TypeDef)

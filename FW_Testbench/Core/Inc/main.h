@@ -59,7 +59,7 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define B1_Pin GPIO_PIN_13
 #define B1_GPIO_Port GPIOC
-#define PWM_Motor_1_Pin GPIO_PIN_0 // A voir ce que ca fais?
+#define PWM_Motor_1_Pin GPIO_PIN_0
 #define PWM_Motor_1_GPIO_Port GPIOA
 #define DIR_Motor_0_Pin GPIO_PIN_1
 #define DIR_Motor_0_GPIO_Port GPIOA
