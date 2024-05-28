@@ -79,6 +79,9 @@ void Error_Handler(void);
 #define TCK_GPIO_Port GPIOA
 #define SWO_Pin GPIO_PIN_3
 #define SWO_GPIO_Port GPIOB
+#define ENCODER_INPUT_INDEX_Pin GPIO_PIN_6
+#define ENCODER_INPUT_INDEX_GPIO_Port GPIOB
+#define ENCODER_INPUT_INDEX_EXTI_IRQn EXTI9_5_IRQn
 
 /* USER CODE BEGIN Private defines */
 

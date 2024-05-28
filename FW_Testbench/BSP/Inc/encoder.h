@@ -16,15 +16,17 @@
 
 /* Constants */
 #define DEGREES_PER_TURN 360
+#define OVERFLOW 2000
+#define DEGREES_PER_COUNTER_INCREMENTS (360.0f / (640.0f * 4))
 
 /* Structs and enums */
 typedef struct 
 {
 	TIM_HandleTypeDef * htim;
+	float encoder_position_degrees;
 	uint32_t encoder_last_counter_value;
-	int32_t encoder_position_non_converted;
-	int32_t encoder_position_degrees;
 	int32_t encoder_velocity;
+	int32_t encoder_position_non_converted;
 } Encoder;
 
 /* Function declaration */

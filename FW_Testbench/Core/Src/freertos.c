@@ -170,7 +170,7 @@ void StartMotorControlTask(void const * argument)
   {
 	/* Encoder_Task() à rajouter */
 	MotorControl_Task();
-    osDelay(50);
+    osDelay(100);
   }
   /* USER CODE END StartMotorControlTask */
 }
@@ -190,6 +190,7 @@ void StartUART_task(void const * argument)
   /* Infinite loop */
   for(;;)
   {
+
 	UART_Task();
     osDelay(75);
   }

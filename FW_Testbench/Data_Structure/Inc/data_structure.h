@@ -27,6 +27,14 @@ typedef struct
 } Data_Motor;
 
 /**
+ * @brief Data structure for any encoder at a joint
+ */
+typedef struct
+{
+	float encoder_degrees;
+} Data_Encoder;
+
+/**
  * @brief Data structure to contain sensor and control values of each joint
  * 
  */
@@ -34,6 +42,7 @@ typedef struct
 {
 	bool is_dataset_initialized;
 	Data_Motor motor_base;
+	Data_Encoder encoder_base;
 	uint32_t gyro_value;
 } Data;
 
