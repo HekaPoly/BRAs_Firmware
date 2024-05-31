@@ -14,6 +14,8 @@
 #include "stdint.h"
 #include "cmsis_os.h"
 
+#define NUMBER_MOTOR 6
+
 /* Constants */
 /**
  * @brief Data structure for any motor at a joint
@@ -41,8 +43,8 @@ typedef struct
 typedef struct
 {
 	bool is_dataset_initialized;
-	Data_Motor motor_base;
 	Data_Encoder encoder_base;
+	Data_Motor Data_Motors[NUMBER_MOTOR]; //Name subject to change
 	uint32_t gyro_value;
 } Data;
 

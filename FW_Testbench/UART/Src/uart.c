@@ -41,8 +41,12 @@ void UART_Init(void)
 }
 
 /**
- * @brief Recieve data and update the appropriate data structure fields
+ * @brief This function is responsible for processing UART data and updating the data structure.
  * 
+ * It receives data from the UART and updates the data structure with the received values.
+ * The received data is distributed to all motors in the data structure.
+ * 
+ * @note This function assumes that the UART is already initialized.
  */
 void UART_Task(void)
 {
@@ -50,8 +54,8 @@ void UART_Task(void)
 	{
 		Receive_Data(&g_uart);
 
-		/* Update the data structure approprietly */
-		Data * data_structure = DataStruct_Get();
+		/* Update the data structure appropriately */
+		Data *data_structure = DataStruct_Get();
 		if (data_structure == NULL)
 		{
 			//return MOTOR_STATE_WAITING_FOR_SEMAPHORE;
@@ -68,6 +72,24 @@ void UART_Task(void)
 			memset(g_tx_buffer, 0, 50);
 			sprintf(g_tx_buffer, "\r\n");
 			HAL_UART_Transmit(g_uart.uart_handle, g_tx_buffer, sizeof(g_tx_buffer), 1000);
+		// Distribute the same data to all motors
+		data_structure->Data_Motors[0].motor_desired_speed_percent = (g_uart.message_received[INDEX_FIRST_BYTE] + (g_uart.message_received[INDEX_SECOND_BYTE] << 8));
+		data_structure->Data_Motors[0].motor_angle_to_reach_deg = (g_uart.message_received[INDEX_THIRD_BYTE] + (g_uart.message_received[INDEX_FOURTH_BYTE] << 8));
+
+		data_structure->Data_Motors[1].motor_desired_speed_percent = (g_uart.message_received[INDEX_FIRST_BYTE] + (g_uart.message_received[INDEX_SECOND_BYTE] << 8));
+		data_structure->Data_Motors[1].motor_angle_to_reach_deg = (g_uart.message_received[INDEX_THIRD_BYTE] + (g_uart.message_received[INDEX_FOURTH_BYTE] << 8));
+
+		data_structure->Data_Motors[2].motor_desired_speed_percent = (g_uart.message_received[INDEX_FIRST_BYTE] + (g_uart.message_received[INDEX_SECOND_BYTE] << 8));
+		data_structure->Data_Motors[2].motor_angle_to_reach_deg = (g_uart.message_received[INDEX_THIRD_BYTE] + (g_uart.message_received[INDEX_FOURTH_BYTE] << 8));
+
+		data_structure->Data_Motors[3].motor_desired_speed_percent = (g_uart.message_received[INDEX_FIRST_BYTE] + (g_uart.message_received[INDEX_SECOND_BYTE] << 8));
+		data_structure->Data_Motors[3].motor_angle_to_reach_deg = (g_uart.message_received[INDEX_THIRD_BYTE] + (g_uart.message_received[INDEX_FOURTH_BYTE] << 8));
+
+		data_structure->Data_Motors[4].motor_desired_speed_percent = (g_uart.message_received[INDEX_FIRST_BYTE] + (g_uart.message_received[INDEX_SECOND_BYTE] << 8));
+		data_structure->Data_Motors[4].motor_angle_to_reach_deg = (g_uart.message_received[INDEX_THIRD_BYTE] + (g_uart.message_received[INDEX_FOURTH_BYTE] << 8));
+
+		data_structure->Data_Motors[5].motor_desired_speed_percent = (g_uart.message_received[INDEX_FIRST_BYTE] + (g_uart.message_received[INDEX_SECOND_BYTE] << 8));
+		data_structure->Data_Motors[5].motor_angle_to_reach_deg = (g_uart.message_received[INDEX_THIRD_BYTE] + (g_uart.message_received[INDEX_FOURTH_BYTE] << 8));
 
 			DataStruct_ReleaseSemaphore();
 		}
