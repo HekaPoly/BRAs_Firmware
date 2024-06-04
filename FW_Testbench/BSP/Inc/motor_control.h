@@ -14,22 +14,6 @@
 #include <float.h>
 #include <stdlib.h>
 
-#define DIRECTION_MOTOR_0_PIN DIR_Motor_0_Pin
-#define DIRECTION_MOTOR_0_GPIO_PORT DIR_Motor_0_GPIO_Port
-#define DIRECTION_MOTOR_1_PIN DIR_Motor_1_Pin
-#define DIRECTION_MOTOR_1_GPIO_PORT DIR_Motor_1_GPIO_Port
-#define DIRECTION_MOTOR_2_PIN DIR_Motor_2_Pin
-#define DIRECTION_MOTOR_2_GPIO_PORT DIR_Motor_2_GPIO_Port
-#define DIRECTION_MOTOR_3_PIN DIR_Motor_3_Pin
-#define DIRECTION_MOTOR_3_GPIO_PORT DIR_Motor_3_GPIO_Port
-#define DIRECTION_MOTOR_4_PIN DIR_Motor_4_Pin
-#define DIRECTION_MOTOR_4_GPIO_PORT DIR_Motor_4_GPIO_Port
-#define DIRECTION_MOTOR_5_PIN DIR_Motor_5_Pin
-#define DIRECTION_MOTOR_5_GPIO_PORT DIR_Motor_5_GPIO_Port
-
-
-
-
 /* Constants */
 #define FREQ_MAX_HZ 14000
 #define PSC 9
