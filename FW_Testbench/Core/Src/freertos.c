@@ -27,6 +27,7 @@
 /* USER CODE BEGIN Includes */
 #include "motor_control.h"
 #include "uart.h"
+#include "encoder.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -140,10 +141,13 @@ void MX_FREERTOS_Init(void) {
 void StartSensorsTask(void const * argument)
 {
   /* USER CODE BEGIN StartSensorsTask */
+  Encoder_Init();
+
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+	Encoder_Task();
+    osDelay(100);
   }
   /* USER CODE END StartSensorsTask */
 }
@@ -166,7 +170,7 @@ void StartMotorControlTask(void const * argument)
   {
 	/* Encoder_Task() à rajouter */
 	MotorControl_Task();
-    osDelay(50);
+    osDelay(100);
   }
   /* USER CODE END StartMotorControlTask */
 }
@@ -186,6 +190,7 @@ void StartUART_task(void const * argument)
   /* Infinite loop */
   for(;;)
   {
+
 	UART_Task();
     osDelay(75);
   }

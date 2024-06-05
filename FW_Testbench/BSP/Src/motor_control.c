@@ -43,34 +43,34 @@ void MotorControl_Init(void)
 	}
 	// Initialize the timer and the channels for each motor
 	// change timing handle if necessary
-	Motors[0].motor_timer_handle = &htim1;		   		
+	Motors[0].motor_timer_handle = &htim2;
 	Motors[0].motor_timer_channel = TIM_CHANNEL_1; 		
-	Motor_gpio_section direction0 = {DIRECTION_MOTOR_0_GPIO_PORT, DIRECTION_MOTOR_0_PIN};
+	Motor_gpio_section direction0 = {DIR_MOTOR_1_GPIO_Port, DIR_MOTOR_1_Pin};
 	Motors[0].direction_port = direction0;   
 
-	Motors[1].motor_timer_handle = &htim1;	   			
-	Motors[1].motor_timer_channel = TIM_CHANNEL_2;	   	
-	Motor_gpio_section direction1 = {DIRECTION_MOTOR_1_GPIO_PORT, DIRECTION_MOTOR_1_PIN};
+	Motors[1].motor_timer_handle = &htim2;
+	Motors[1].motor_timer_channel = TIM_CHANNEL_3;
+	Motor_gpio_section direction1 = {DIR_MOTOR_2_GPIO_Port, DIR_MOTOR_2_Pin};
 	Motors[1].direction_port = direction1;
 	
-	Motors[2].motor_timer_handle = &htim1; 	   			
-	Motors[2].motor_timer_channel = TIM_CHANNEL_3;	   	
-	Motor_gpio_section direction2 = {DIRECTION_MOTOR_2_GPIO_PORT, DIRECTION_MOTOR_2_PIN};
+	Motors[2].motor_timer_handle = &htim4;
+	Motors[2].motor_timer_channel = TIM_CHANNEL_4;
+	Motor_gpio_section direction2 = {DIR_MOTOR_3_GPIO_Port, DIR_MOTOR_3_Pin};
 	Motors[2].direction_port = direction2;
 
-	Motors[3].motor_timer_handle = &htim1;	   			
-	Motors[3].motor_timer_channel = TIM_CHANNEL_4;	   	
-	Motor_gpio_section direction3 = {DIRECTION_MOTOR_3_GPIO_PORT, DIRECTION_MOTOR_3_PIN};
+	Motors[3].motor_timer_handle = &htim4;
+	Motors[3].motor_timer_channel = TIM_CHANNEL_3;
+	Motor_gpio_section direction3 = {DIR_MOTOR_4_GPIO_Port, DIR_MOTOR_4_Pin};
 	Motors[3].direction_port = direction3;
 	
-	Motors[4].motor_timer_handle = &htim2;	   			
-	Motors[4].motor_timer_channel = TIM_CHANNEL_1;	   	
-	Motor_gpio_section direction4 = {DIRECTION_MOTOR_4_GPIO_PORT, DIRECTION_MOTOR_4_PIN};
+	Motors[4].motor_timer_handle = &htim4;
+	Motors[4].motor_timer_channel = TIM_CHANNEL_2;
+	Motor_gpio_section direction4 = {DIR_MOTOR_5_GPIO_Port, DIR_MOTOR_5_Pin};
 	Motors[4].direction_port = direction4;
 	
-	Motors[5].motor_timer_handle = &htim2;	   			
-	Motors[5].motor_timer_channel = TIM_CHANNEL_3;	   	
-	Motor_gpio_section direction5 = {DIRECTION_MOTOR_5_GPIO_PORT, DIRECTION_MOTOR_5_PIN};
+	Motors[5].motor_timer_handle = &htim5;
+	Motors[5].motor_timer_channel = TIM_CHANNEL_1;
+	Motor_gpio_section direction5 = {DIR_MOTOR_6_GPIO_Port, DIR_MOTOR_6_Pin};
 	Motors[5].direction_port = direction5;
 }
 
@@ -81,17 +81,18 @@ void MotorControl_Init(void)
 Motor_State MotorControl_Task(void)
 {
 	Data * data_structure = DataStruct_Get();
-	
-	if (data_structure == NULL) return MOTOR_STATE_WAITING_FOR_SEMAPHORE;
+	if (data_structure == NULL)
+	{
+		return MOTOR_STATE_WAITING_FOR_SEMAPHORE;
+	}
 	
 	// Data of the Motor we are currently changing
-	Data_Motor* currentData; 
-	Motor* currentMotor;
+	Data_Motor * currentData;
+	Motor * currentMotor;
 
-	for(int i=0;i<NUMBER_MOTOR;i++){ // loops each motor
-
+	for(int i=0;i<NUMBER_MOTOR;i++)
+	{ // loops each motor
 		// call encoder
-
 		// call PID
 		
 		currentData = &data_structure->Data_Motors[i];
@@ -99,7 +100,8 @@ Motor_State MotorControl_Task(void)
 
 		int16_t difference_deg = currentData->motor_angle_to_reach_deg - currentData->motor_current_angle_deg;
 
-		if (difference_deg != 0){
+		if (difference_deg != 0)
+		{
 			Modify_Direction(difference_deg, currentMotor);
 			Modify_Speed(difference_deg, currentData->motor_desired_speed_percent, currentMotor);
 
