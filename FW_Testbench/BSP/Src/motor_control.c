@@ -17,6 +17,12 @@
 #define FACTOR_SECONDS_TO_MS 1000
 #define NUMBER_MOTOR 6
 
+#define dT 50/1000
+
+#define FREQUENCY_CLOCK_HZ 72000000
+#define PRESCALER 9
+#define STEPS_PER_TURN 1600
+#define DEGREES_PER_STEPS 360 / STEPS_PER_TURN
 
 /* Private functions declaration */
 static void Modify_Speed(int16_t difference_deg, uint32_t motor_speed_desired, Motor* currentMotor);
@@ -24,6 +30,32 @@ static void Modify_Direction(int16_t difference_deg, Motor* currentMotor);
 
 /* Global variables */
 Motor Motors[NUMBER_MOTOR]; //Array of all the motors
+
+/* PID parameters */
+
+uint16_t FACTOR = 1;
+
+float K_CRITICAL = 8.88889;
+float T_CRITICAL_SECONDS = 0.1;
+
+float KP = (K_CRITICAL * 0.2) * FACTOR;
+float KI = 0;
+float KD = (0.066666 * K_CRITICAL * T_CRITICAL_SECONDS) * FACTOR;
+
+/* Error values for Integral and Derivative components */
+float eint = 0;
+float edev = 0;
+
+boolean isTrajectoryCompleted = False;
+
+/* Arrays to contain data */
+
+float error[2] = {0,0};
+float ARR[2]  = {0,0};
+float time[2]  = {0,0};
+
+float position_degrees[2] = {0,0};
+float pwm_frequency_hz[2] = {0,0};
 
 /* Function implementation */
 
@@ -94,15 +126,15 @@ Motor_State MotorControl_Task(void)
 	{ // loops each motor
 		// call encoder
 		// call PID
-		
 		currentData = &data_structure->Data_Motors[i];
 		currentMotor = &Motors[i];
 
-		int16_t difference_deg = currentData->motor_angle_to_reach_deg - currentData->motor_current_angle_deg;
+		int16_t difference_deg = currentData->motor_angle_to_reach_deg - g_base_motor_encoder.encoder_position_degrees;
 
 		if (difference_deg != 0)
 		{
 			Modify_Direction(difference_deg, currentMotor);
+
 			Modify_Speed(difference_deg, currentData->motor_desired_speed_percent, currentMotor);
 
 			currentData->motor_current_angle_deg = currentData->motor_angle_to_reach_deg;
@@ -137,13 +169,6 @@ static void Modify_Speed(int16_t difference_deg, uint32_t motor_speed_desired_pe
 	currentMotor->nb_pulse = abs(difference_deg) / currentMotor->deg_per_turn;
 	currentMotor->delay = ((float)currentMotor->nb_pulse / (float)new_freq) * FACTOR_SECONDS_TO_MS;
 
-	HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin); // Turn on LED
-
-	HAL_TIM_PWM_Start(currentMotor->motor_timer_handle, currentMotor->motor_timer_channel);
-	HAL_Delay(currentMotor->delay);
-	HAL_TIM_PWM_Stop(currentMotor->motor_timer_handle, currentMotor->motor_timer_channel);
-
-	HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin); // Turn off LED
 }
 
 /**

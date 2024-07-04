@@ -303,4 +303,3 @@ VP_TIM5_VS_ClockSourceITR.Signal=TIM5_VS_ClockSourceITR
 board=NUCLEO-F401RE
 boardIOC=true
 rtos.0.ip=FREERTOS
-isbadioc=false
