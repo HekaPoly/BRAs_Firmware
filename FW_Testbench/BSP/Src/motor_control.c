@@ -13,6 +13,8 @@
 #include "main.h"
 #include "data_structure.h"
 
+#include <time.h>
+
 /* Constants */
 #define FACTOR_SECONDS_TO_MS 1000
 #define NUMBER_MOTOR 6
@@ -46,15 +48,8 @@ float KD = (0.066666 * K_CRITICAL * T_CRITICAL_SECONDS) * FACTOR;
 float eint = 0;
 float edev = 0;
 
-boolean isTrajectoryCompleted = False;
-
 /* Arrays to contain data */
-
 float error[2] = {0,0};
-float ARR[2]  = {0,0};
-float time[2]  = {0,0};
-
-float position_degrees[2] = {0,0};
 float pwm_frequency_hz[2] = {0,0};
 
 /* Function implementation */
@@ -106,6 +101,16 @@ void MotorControl_Init(void)
 	Motors[5].direction_port = direction5;
 }
 
+int generateRandomAngle(){
+	srand(time(NULL));
+	return rand() % 361;
+}
+
+void switchValueArrays(){
+	error[0] = error[1];
+	pwm_frequency_hz[0] = pwm_frequency_hz[1];
+}
+
 /**
  * @brief Task to control the stepper motors in manual mode
  * @return The state of the motors.
@@ -124,22 +129,41 @@ Motor_State MotorControl_Task(void)
 
 	for(int i=0;i<NUMBER_MOTOR;i++)
 	{ // loops each motor
-		// call encoder
-		// call PID
+
 		currentData = &data_structure->Data_Motors[i];
 		currentMotor = &Motors[i];
 
-		int16_t difference_deg = currentData->motor_angle_to_reach_deg - g_base_motor_encoder.encoder_position_degrees;
+		//int16_t difference_deg = currentData->motor_angle_to_reach_deg - g_base_motor_encoder.encoder_position_degrees;
+
+		error[1] = (float)currentData->motor_angle_to_reach_deg - g_base_motor_encoder.encoder_position_degrees;
 
 		if (difference_deg != 0)
 		{
 			Modify_Direction(difference_deg, currentMotor);
 
-			Modify_Speed(difference_deg, currentData->motor_desired_speed_percent, currentMotor);
+			eint = error[0] + (error[0] * dT);
+
+			edev = (error[1] - error[0]) / dT;
+
+			pwm_frequency_hz[1] = abs((KP * (error[1]) + (KI * eint) + (KD * edev)));
+
+			if (pwm_frequency_hz[1] - pwm_frequency_hz[0] > 50)
+			    pwm_frequency_hz[1] = pwm_frequency_hz[0] + 50;
+
+			if (pwm_frequency_hz[1] < 0)
+				pwm_frequency_hz[1] = 0;
+
+
+			Modify_Speed(difference_deg, pwm_frequency_hz[1], currentMotor);
 
 			currentData->motor_current_angle_deg = currentData->motor_angle_to_reach_deg;
 		}
+		/*else{
+			currentData->motor_angle_to_reach_deg = generateRandomAngle();
+		}*/
 	}
+
+	switchValueArrays();
 
 	DataStruct_ReleaseSemaphore();
 
