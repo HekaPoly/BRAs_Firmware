@@ -35,4 +35,5 @@ void Encoder_Task(void);
 void Encoder_Update(Encoder * current_encoder);
 void Encoder_Reset(Encoder * current_encoder);
 
+
 #endif /* __ENCODER_H__ */

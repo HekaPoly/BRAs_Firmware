@@ -13,6 +13,10 @@
 #include "main.h"
 #include "data_structure.h"
 
+#include "encoder.h"
+#include <stdlib.h>
+
+
 #include <time.h>
 
 /* Constants */
@@ -35,14 +39,14 @@ Motor Motors[NUMBER_MOTOR]; //Array of all the motors
 
 /* PID parameters */
 
-uint16_t FACTOR = 1;
+const uint16_t FACTOR = 1;
 
-float K_CRITICAL = 8.88889;
-float T_CRITICAL_SECONDS = 0.1;
+const float K_CRITICAL = 8.88889;
+const float T_CRITICAL_SECONDS = 0.1;
 
-float KP = (K_CRITICAL * 0.2) * FACTOR;
-float KI = 0;
-float KD = (0.066666 * K_CRITICAL * T_CRITICAL_SECONDS) * FACTOR;
+const float KP = (K_CRITICAL * 0.2) * FACTOR;
+const float KI = 0;
+const float KD = (0.066666 * K_CRITICAL * T_CRITICAL_SECONDS) * FACTOR;
 
 /* Error values for Integral and Derivative components */
 float eint = 0;
@@ -134,12 +138,12 @@ Motor_State MotorControl_Task(void)
 		currentMotor = &Motors[i];
 
 		//int16_t difference_deg = currentData->motor_angle_to_reach_deg - g_base_motor_encoder.encoder_position_degrees;
-
+		// error[1] is the equivalent of the difference degree but stored in an array for later use
 		error[1] = (float)currentData->motor_angle_to_reach_deg - g_base_motor_encoder.encoder_position_degrees;
 
-		if (difference_deg != 0)
+		if (error[1] != 0)
 		{
-			Modify_Direction(difference_deg, currentMotor);
+			Modify_Direction(error[1], currentMotor);
 
 			eint = error[0] + (error[0] * dT);
 
@@ -154,7 +158,7 @@ Motor_State MotorControl_Task(void)
 				pwm_frequency_hz[1] = 0;
 
 
-			Modify_Speed(difference_deg, pwm_frequency_hz[1], currentMotor);
+			Modify_Speed(error[1], pwm_frequency_hz[1], currentMotor);
 
 			currentData->motor_current_angle_deg = currentData->motor_angle_to_reach_deg;
 		}

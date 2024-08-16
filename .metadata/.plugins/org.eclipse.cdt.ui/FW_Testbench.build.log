@@ -1,0 +1,28 @@
+20:25:13 **** Incremental Build of configuration Debug for project FW_Testbench ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I"C:/Users/Admin/Desktop/heka/BRAs_Firmware/FW_Testbench/UART/Inc" -I"C:/Users/Admin/Desktop/heka/BRAs_Firmware/FW_Testbench/Data_Structure/Inc" -I"C:/Users/Admin/Desktop/heka/BRAs_Firmware/FW_Testbench/BSP/Inc" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+arm-none-eabi-gcc "../BSP/Src/encoder.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I"C:/Users/Admin/Desktop/heka/BRAs_Firmware/FW_Testbench/UART/Inc" -I"C:/Users/Admin/Desktop/heka/BRAs_Firmware/FW_Testbench/Data_Structure/Inc" -I"C:/Users/Admin/Desktop/heka/BRAs_Firmware/FW_Testbench/BSP/Inc" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"BSP/Src/encoder.d" -MT"BSP/Src/encoder.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "BSP/Src/encoder.o"
+arm-none-eabi-gcc "../BSP/Src/motor_control.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I"C:/Users/Admin/Desktop/heka/BRAs_Firmware/FW_Testbench/UART/Inc" -I"C:/Users/Admin/Desktop/heka/BRAs_Firmware/FW_Testbench/Data_Structure/Inc" -I"C:/Users/Admin/Desktop/heka/BRAs_Firmware/FW_Testbench/BSP/Inc" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"BSP/Src/motor_control.d" -MT"BSP/Src/motor_control.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "BSP/Src/motor_control.o"
+../BSP/Src/encoder.c: In function 'Encoder_Update':
+../BSP/Src/encoder.c:40:40: warning: implicit declaration of function 'abs' [-Wimplicit-function-declaration]
+   40 |         uint32_t absolute_difference = abs(temp_counter - current_encoder->encoder_last_counter_value);
+      |                                        ^~~
+../BSP/Src/encoder.c:14:1: note: include '<stdlib.h>' or provide a declaration of 'abs'
+   13 | #include "data_structure.h"
+  +++ |+#include <stdlib.h>
+   14 | 
+../BSP/Src/encoder.c:40:57: warning: 'abs' argument 1 promotes to 'uint32_t' {aka 'long unsigned int'} where 'int' is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+   40 |         uint32_t absolute_difference = abs(temp_counter - current_encoder->encoder_last_counter_value);
+      |                                            ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<built-in>: note: built-in 'abs' declared here
+../BSP/Src/motor_control.c: In function 'MotorControl_Task':
+../BSP/Src/motor_control.c:142:75: error: 'g_base_motor_encoder' undeclared (first use in this function)
+  142 |                 error[1] = (float)currentData->motor_angle_to_reach_deg - g_base_motor_encoder.encoder_position_degrees;
+      |                                                                           ^~~~~~~~~~~~~~~~~~~~
+../BSP/Src/motor_control.c:142:75: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [BSP/Src/subdir.mk:25: BSP/Src/motor_control.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+
+20:25:13 Build Failed. 3 errors, 2 warnings. (took 504ms)
+
