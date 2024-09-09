@@ -63,12 +63,12 @@ void UART_Task(void)
 		else
 		{
 			//Transmit_Data(&g_uart, data_structure);
-			sprintf(g_tx_buffer, "Encoder Ticks = %f\r\n", data_structure->encoder_base.encoder_degrees);
+			/*sprintf(g_tx_buffer, "Encoder Ticks = %f\r\n", data_structure->encoder_base.encoder_degrees);
 			HAL_UART_Transmit(g_uart.uart_handle, g_tx_buffer, sizeof(g_tx_buffer), 1000);
 
 			memset(g_tx_buffer, 0, 50);
 			sprintf(g_tx_buffer, "\r\n");
-			HAL_UART_Transmit(g_uart.uart_handle, g_tx_buffer, sizeof(g_tx_buffer), 1000);
+			HAL_UART_Transmit(g_uart.uart_handle, g_tx_buffer, sizeof(g_tx_buffer), 1000);*/
 
 			// Distribute the same data to all motors
 			data_structure->Data_Motors[0].motor_desired_speed_percent = (g_uart.message_received[INDEX_FIRST_BYTE] + (g_uart.message_received[INDEX_SECOND_BYTE] << 8));

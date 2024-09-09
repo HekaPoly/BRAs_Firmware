@@ -25,6 +25,7 @@
 
 #define dT 50/1000
 
+// TODO: change values for different models
 #define FREQUENCY_CLOCK_HZ 72000000
 #define PRESCALER 9
 #define STEPS_PER_TURN 1600
@@ -36,6 +37,8 @@ static void Modify_Direction(int16_t difference_deg, Motor* currentMotor);
 
 /* Global variables */
 Motor Motors[NUMBER_MOTOR]; //Array of all the motors
+
+extern Encoder g_base_motor_encoder;
 
 /* PID parameters */
 
@@ -110,7 +113,7 @@ int generateRandomAngle(){
 	return rand() % 361;
 }
 
-void switchValueArrays(){
+void switchValueArrays(){ // TODO: implementation for multiple motors
 	error[0] = error[1];
 	pwm_frequency_hz[0] = pwm_frequency_hz[1];
 }
@@ -162,7 +165,7 @@ Motor_State MotorControl_Task(void)
 
 			currentData->motor_current_angle_deg = currentData->motor_angle_to_reach_deg;
 		}
-		/*else{
+		/*else{ Check if needed
 			currentData->motor_angle_to_reach_deg = generateRandomAngle();
 		}*/
 	}

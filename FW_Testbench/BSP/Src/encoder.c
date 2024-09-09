@@ -12,6 +12,8 @@
 #include "encoder.h"
 #include "data_structure.h"
 
+
+
 /* Global variables */
 Encoder g_base_motor_encoder =
 {

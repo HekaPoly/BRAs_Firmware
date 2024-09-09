@@ -14,6 +14,8 @@
 
 #include "tim.h"
 
+#include <stdlib.h>
+
 /* Constants */
 #define DEGREES_PER_TURN 360
 #define OVERFLOW 2000
