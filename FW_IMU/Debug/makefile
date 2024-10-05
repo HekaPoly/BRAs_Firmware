@@ -61,8 +61,8 @@ all: main-build
 main-build: FW_IMU.elf secondary-outputs
 
 # Tool invocations
-FW_IMU.elf FW_IMU.map: $(OBJS) $(USER_OBJS) C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\nathf\OneDrive\Documents\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+FW_IMU.elf FW_IMU.map: $(OBJS) $(USER_OBJS) C:\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "FW_IMU.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\GitHub\Firmware\FW_IMU\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FW_IMU.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
