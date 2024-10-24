@@ -81,13 +81,16 @@
 #include <math.h>
 #include "lsm6dsr.h"
 #include "lsm6dsr_read_data.h"
+#include "tim.h"
 
 #if defined(NUCLEO_F401RE)
 #include "stm32f4xx_hal.h"
 #include "usart.h"
 #include "gpio.h"
 #include "i2c.h"
+#include "tim.h"
 extern I2C_HandleTypeDef hi2c1;
+extern TIM_HandleTypeDef htim1;
 
 #elif defined(STEVAL_MKI109V3)
 #include "stm32f4xx_hal.h"
@@ -108,8 +111,11 @@ extern I2C_HandleTypeDef hi2c1;
 static int16_t data_raw_acceleration[3];
 static int16_t data_raw_angular_rate[3];
 static int16_t data_raw_temperature;
-static float x =0,y=0,z=0,v_x =0,v_y=0,v_z=0;
-
+static float ax =0,ay=0,az=0;
+static float dt =0;
+//gx =0, gy=0,gz=0;
+static float vx = 0, vy = 0, vz = 0; // Vitesse initiale
+static float px = 0, py = 0, pz = 0;   // Position initiale
 static float acceleration_mg[3];
 static float angular_rate_mdps[3];
 static float temperature_degC;
@@ -121,6 +127,8 @@ static uint8_t tx_buffer[1000];
 float temperature_window[WINDOW_SIZE] = {0}; // Tableau pour stocker les dernières températures
 int window_index = 0; // Indice courant dans le tableau
 int valid_readings = 0; // Compteur de lectures valides
+
+
 
 
 /* Extern variables ----------------------------------------------------------*/
@@ -142,15 +150,18 @@ static void platform_delay(uint32_t ms);
 static void platform_init(void);
 
 /* Main Example --------------------------------------------------------------*/
+
 void lsm6dsr_read_data_polling(void)
 {
   stmdev_ctx_t dev_ctx;
+  uint8_t reg;
   /* Initialize mems driver interface */
   dev_ctx.write_reg = platform_write;
   dev_ctx.read_reg = platform_read;
   dev_ctx.handle = &hi2c1;
   /* Init test platform */
   platform_init();
+
   /* Wait sensor boot time */
   platform_delay(BOOT_TIME);
   /* Check device ID */
@@ -185,13 +196,13 @@ void lsm6dsr_read_data_polling(void)
   lsm6dsr_gy_filter_lp1_set(&dev_ctx,PROPERTY_ENABLE);
   /* Read samples in polling mode */
   while (1) {
-    uint8_t reg;
+   // uint8_t reg;
     /* Read output only if new xl value is available */
     lsm6dsr_xl_flag_data_ready_get(&dev_ctx, &reg);
 
-   /* if (reg) {*/
+    if (reg) {
       /* Read acceleration field data */
-    /*  memset(data_raw_acceleration, 0x00, 3 * sizeof(int16_t));
+      memset(data_raw_acceleration, 0x00, 3 * sizeof(int16_t));
       lsm6dsr_acceleration_raw_get(&dev_ctx, data_raw_acceleration);
      //acceleration selon l'axe x du IMU
         acceleration_mg[0] =
@@ -202,34 +213,60 @@ void lsm6dsr_read_data_polling(void)
       // selon l'axe z du IMU
       acceleration_mg[2] =
         lsm6dsr_from_fs2g_to_mg(data_raw_acceleration[2]);
-*/
+
       /*Définition des composantes du vecteur accélération
       selon les axes principales du IMU*/
-    /*  x = acceleration_mg[0]/1000; y =acceleration_mg[1]/1000; z = acceleration_mg[2]/1000;
+      ax = acceleration_mg[0]*0.061*9.81; ay =acceleration_mg[1]*0.061*9.81; az = acceleration_mg[2]*0.061*9.81;
+
+      //Calcul du temps écoulé
+
+      void TIM1_IRQHandler(void) {
+          // Vérifie si l'interruption vient du timer
+          if (__HAL_TIM_GET_FLAG(&htim1, TIM_FLAG_UPDATE) != RESET) {
+              if (__HAL_TIM_GET_IT_SOURCE(&htim1, TIM_IT_UPDATE) != RESET) {
+                  __HAL_TIM_CLEAR_IT(&htim1, TIM_IT_UPDATE);
+
+                  // Simule la lecture des données de l'accéléromètre
+                  // Remplace ces lignes par la lecture réelle de l'accéléromètre
+
+
+                  // Calcul de la vitesse et de la position
+                  // Intégration pour obtenir la vitesse
+               vx += ax * 0.01f;
+               vy += ay * 0.01f;
+               vz += az * 0.01f;
+
+               // Intégration pour obtenir la position
+               px += vx * 0.01f;
+               py += vy * 0.01f;
+               pz += vz * 0.01f;
+               }
+              }
+          }
+
+
+
+      //sprintf((char *)tx_buffer,
+        //      "Acceleration[g]: ax:%4.2f\tay:%4.2f\taz:%4.2f\r\n",
+           //   x, y, z);
 
       sprintf((char *)tx_buffer,
-              "Acceleration[g]: x:%4.2f\ty:%4.2f\tz:%4.2f\r\n",
-              x, y, z);
+              "Position[m]: px:%4.6\tpy:%4.6f\tpz:%4.6f\r\n",
+                  px, py, pz);
 
       tx_com(tx_buffer, strlen((char const *)tx_buffer));
       sprintf((char *)tx_buffer,
               "\r\n");
-      //Calcul de l'angle radiale phi et azimutale theta:
-      phi_angle = (180/PI)*atan(x/y);
-      theta_angle = (180/PI)*atan(sqrt(pow(y,2)+pow(x,2))/z);
 
-      sprintf((char *)tx_buffer,"angle phi et theta[deg]: phi=%4.2f\ttheta=%4.2f\r\n",phi_angle,theta_angle);
-
-      tx_com(tx_buffer, strlen((char const *)tx_buffer));
 
       HAL_Delay(1000);
     }
-*/
+
     lsm6dsr_gy_flag_data_ready_get(&dev_ctx, &reg);
 
-   /* if (reg) {*/
+    if (reg) {
       /* Read angular rate field data */
-    /*  memset(data_raw_angular_rate, 0x00, 3 * sizeof(int16_t));
+     memset(data_raw_angular_rate, 0x00, 3 * sizeof(int16_t));
       lsm6dsr_angular_rate_raw_get(&dev_ctx, data_raw_angular_rate);
       angular_rate_mdps[0] =
         lsm6dsr_from_fs125dps_to_mdps(data_raw_angular_rate[0]);
@@ -238,7 +275,7 @@ void lsm6dsr_read_data_polling(void)
       angular_rate_mdps[2] =
         lsm6dsr_from_fs125dps_to_mdps(data_raw_angular_rate[2]);
 
-      v_x = angular_rate_mdps[0]/1000;
+      /*v_x = angular_rate_mdps[0]/1000;
       v_y = angular_rate_mdps[1]/1000;
       v_z = angular_rate_mdps[2]/1000;
       sprintf((char *)tx_buffer,
@@ -247,56 +284,58 @@ void lsm6dsr_read_data_polling(void)
 
       tx_com(tx_buffer, strlen((char const *)tx_buffer));
       sprintf((char *)tx_buffer,
-              "\r\n");
+              "\r\n");*/
       HAL_Delay(1000);
     }
-    */
-    ///Mesure de temp
-  lsm6dsr_temp_flag_data_ready_get(&dev_ctx, &reg);
+
+		///Mesure de temp
+	  lsm6dsr_temp_flag_data_ready_get(&dev_ctx, &reg);
 
 
-if (reg) {
-    /* Initialiser les données de température */
-    memset(&data_raw_temperature, 0x00, sizeof(int16_t));
+	if (reg) {
+		/* Initialiser les données de température */
+		memset(&data_raw_temperature, 0x00, sizeof(int16_t));
 
-    /* Lire les données de température brute */
-    if (lsm6dsr_temperature_raw_get(&dev_ctx, &data_raw_temperature) == 0) {
-        /* Convertir en Celsius */
-        float temperature_degC = lsm6dsr_from_lsb_to_celsius(data_raw_temperature);
+		/* Lire les données de température brute */
+		if (lsm6dsr_temperature_raw_get(&dev_ctx, &data_raw_temperature) == 0) {
+			/* Convertir en Celsius */
+			float temperature_degC = lsm6dsr_from_lsb_to_celsius(data_raw_temperature);
 
-        /* Stocker la température dans le tableau pour la moyenne mobile */
-        temperature_window[window_index] = temperature_degC;
-        window_index = (window_index + 1) % WINDOW_SIZE; // Mettre à jour l'indice
+			/* Stocker la température dans le tableau pour la moyenne mobile */
+			temperature_window[window_index] = temperature_degC;
+			window_index = (window_index + 1) % WINDOW_SIZE; // Mettre à jour l'indice
 
-        // Si moins de WINDOW_SIZE lectures, incrémenter le compteur
-        if (valid_readings < WINDOW_SIZE) {
-            valid_readings++;
-        }
+			// Si moins de WINDOW_SIZE lectures, incrémenter le compteur
+			if (valid_readings < WINDOW_SIZE) {
+				valid_readings++;
+			}
 
-        /* Calculer la moyenne mobile */
-        float average_temperature = 0;
-        for (int i = 0; i < valid_readings; i++) {
-            average_temperature += temperature_window[i];
-        }
-        average_temperature /= valid_readings;
+			/* Calculer la moyenne mobile */
+			float average_temperature = 0;
+			for (int i = 0; i < valid_readings; i++) {
+				average_temperature += temperature_window[i];
+			}
+			average_temperature /= valid_readings;
 
-        /* Formater et transmettre la température moyenne */
-        snprintf((char *)tx_buffer, sizeof(tx_buffer), "Temperature [degC]: %6.2f\r\n", average_temperature);
-        tx_com(tx_buffer, strlen((char const *)tx_buffer));
+			/* Formater et transmettre la température moyenne */
+			snprintf((char *)tx_buffer, sizeof(tx_buffer), "Temperature [degC]: %6.2f\r\n", average_temperature);
+			tx_com(tx_buffer, strlen((char const *)tx_buffer));
 
-        // Optionnel : transmettre une nouvelle ligne
-        snprintf((char *)tx_buffer, sizeof(tx_buffer), "\r\n");
-        tx_com(tx_buffer, strlen((char const *)tx_buffer));
-    } else {
-        // Gérer le cas d'erreur
-    }
+			// Optionnel : transmettre une nouvelle ligne
+			snprintf((char *)tx_buffer, sizeof(tx_buffer), "\r\n");
+			tx_com(tx_buffer, strlen((char const *)tx_buffer));
+		} else {
+			// Gérer le cas d'erreur
+		}
 
-    /* Délai avant la prochaine lecture */
-    HAL_Delay(1000);
+		/* Délai avant la prochaine lecture */
+		HAL_Delay(1000);
 
-    }
-  }
+		}
 }
+}
+
+
 
 /*
  * @brief  Write generic device register (platform dependent)

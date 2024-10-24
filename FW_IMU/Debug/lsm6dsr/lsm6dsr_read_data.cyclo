@@ -1,6 +1,6 @@
-../lsm6dsr/lsm6dsr_read_data.c:145:6:lsm6dsr_read_data_polling	7
-../lsm6dsr/lsm6dsr_read_data.c:311:16:platform_write	1
-../lsm6dsr/lsm6dsr_read_data.c:338:16:platform_read	1
-../lsm6dsr/lsm6dsr_read_data.c:363:13:tx_com	1
-../lsm6dsr/lsm6dsr_read_data.c:380:13:platform_delay	1
-../lsm6dsr/lsm6dsr_read_data.c:392:13:platform_init	1
+../lsm6dsr/lsm6dsr_read_data.c:154:6:lsm6dsr_read_data_polling	9
+../lsm6dsr/lsm6dsr_read_data.c:350:16:platform_write	1
+../lsm6dsr/lsm6dsr_read_data.c:377:16:platform_read	1
+../lsm6dsr/lsm6dsr_read_data.c:402:13:tx_com	1
+../lsm6dsr/lsm6dsr_read_data.c:419:13:platform_delay	1
+../lsm6dsr/lsm6dsr_read_data.c:431:13:platform_init	1

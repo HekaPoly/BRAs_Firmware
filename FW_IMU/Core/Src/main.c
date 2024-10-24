@@ -19,6 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "i2c.h"
+#include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
@@ -73,7 +74,7 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
- HAL_Init();
+  HAL_Init();
 
   /* USER CODE BEGIN Init */
 
@@ -91,8 +92,10 @@ int main(void)
   MX_USART2_UART_Init();
   MX_I2C1_Init();
 
+  MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
   uint8_t data[30];
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -101,12 +104,9 @@ int main(void)
   {
     /* USER CODE END WHILE */
 	  lsm6dsr_read_data_polling();
-	 // lsm6dsr_read_data_polling_2();
-	  HAL_Delay(500);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
-
 }
 
 /**
