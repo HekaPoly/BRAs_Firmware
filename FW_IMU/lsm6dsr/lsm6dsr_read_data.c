@@ -113,10 +113,10 @@ static int16_t data_raw_acceleration[3];
 static int16_t data_raw_angular_rate[3];
 static int16_t data_raw_temperature;
 
- float ax,ay,az;
+ float ax =0 ,ay = 0,az = 0,axy = 0, ayz = 0, axz = 0;
+ float a_limite = 10.0;
  volatile uint32_t dt = 0;
  float vx = 0, vy = 0, vz = 0;
- float px = 0, py = 0, pz = 0;
  float acceleration_mg[3];
  float angular_rate_mdps[3];
  float temperature_degC;
@@ -219,34 +219,37 @@ void lsm6dsr_read_data_polling(void)
       //Définition des composantes du vecteur accélération//
       /*selon les axes principales du IMU*/
 
-      //Calcul du temps écoulé
+
 
       ax = acceleration_mg[0]*0.00981; // Accélération en X (m/s²)
       ay = acceleration_mg[1]*0.00981; // Accélération en Y
       az = acceleration_mg[2]*0.00981; // Accélération en Z
 
+      axy = sqrt(pow(ax, 2) + pow(ay, 2));
+      ayz =sqrt(pow(ay, 2) + pow(az, 2));
+      axz=sqrt(pow(ax, 2) + pow(az, 2));
 
-      // Update the timer interrupt function for velocity and position calculations
-      sprintf((char *)tx_buffer,
-              "Acceleration [m/s^2]: ax:%4.2f\tay:%4.2f\taz:%4.2f\r\n",
+
+
+      if (axy > a_limite||axz > a_limite||ayz > a_limite||fabs(ax)>a_limite||fabs(ay)>a_limite||fabs(az)>a_limite){
+          sprintf((char *)tx_buffer,
+                  "Attention!\r\n");
+          tx_com(tx_buffer, strlen((char const *)tx_buffer));
+          sprintf((char *)tx_buffer,
+                  "\r\n");
+      }
+
+      else{
+
+          };
+	  // Update the timer interrupt function for velocity and position calculations
+	  sprintf((char *)tx_buffer,
+			  "Acceleration [m/s^2]: ax:%4.2f\tay:%4.2f\taz:%4.2f\r\n",
 			  ax,ay,az);
-      tx_com(tx_buffer, strlen((char const *)tx_buffer));
-
-
-      vx += ax * dt;
-      vy += ay * dt;
-      vz += az * dt;
-
-      // Intégration pour la position
-      px += vx * dt;
-      py += vy * dt;
-      pz += vz * dt;
-
-      sprintf((char *)tx_buffer, "t = %lu\r\n",dt);
-      tx_com(tx_buffer, strlen((char const *)tx_buffer));
-      sprintf((char *)tx_buffer, "position [m]: px:%4.2f\tpy:%4.2f\tpz:%4.2f\r\n\r\n",pz,py,px);
-      tx_com(tx_buffer, strlen((char const *)tx_buffer));
-      HAL_Delay(1000);
+	  tx_com(tx_buffer, strlen((char const *)tx_buffer));
+	  sprintf((char *)tx_buffer,
+			  "\r\n");
+	  HAL_Delay(1000);
 
     }
 
@@ -254,7 +257,7 @@ void lsm6dsr_read_data_polling(void)
 
     if (reg) {
       /* Read angular rate field data */
-     memset(data_raw_angular_rate, 0x00, 3 * sizeof(int16_t));
+     /*memset(data_raw_angular_rate, 0x00, 3 * sizeof(int16_t));
       lsm6dsr_angular_rate_raw_get(&dev_ctx, data_raw_angular_rate);
       angular_rate_mdps[0] =
         lsm6dsr_from_fs125dps_to_mdps(data_raw_angular_rate[0]);
@@ -263,17 +266,17 @@ void lsm6dsr_read_data_polling(void)
       angular_rate_mdps[2] =
         lsm6dsr_from_fs125dps_to_mdps(data_raw_angular_rate[2]);
 
-      /*v_x = angular_rate_mdps[0]/1000;
-      v_y = angular_rate_mdps[1]/1000;
-      v_z = angular_rate_mdps[2]/1000;
+      vx = angular_rate_mdps[0]/1000;
+      vy = angular_rate_mdps[1]/1000;
+      vz = angular_rate_mdps[2]/1000;
       sprintf((char *)tx_buffer,
               "Angular rate [dps]: v_x:%4.2f\tv_y:%4.2f\tv_z:%4.2f\r\n",
-			  v_x,v_y,v_z);
+			  vx,vy,vz);
 
       tx_com(tx_buffer, strlen((char const *)tx_buffer));
       sprintf((char *)tx_buffer,
-              "\r\n");*/
-      HAL_Delay(1000);
+              "\r\n");
+      HAL_Delay(1000);*/
     }
 
 		///Mesure de temp
@@ -323,14 +326,7 @@ void lsm6dsr_read_data_polling(void)
 }
 }
 
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-    if (htim->Instance == TIM1) {
-        dt++; // Incrémente le compteur de secondes
-//        char buffer[50];
-  //      snprintf(buffer, sizeof(buffer), "Temps écoulé: %lu secondes\r\n", seconds);
-    //    USART_SendString(buffer); // Envoie le temps écoulé par USART
-    }
-}
+
 
 /*void USART_SendString(char *str) {
     while (*str) {
