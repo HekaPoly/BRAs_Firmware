@@ -98,6 +98,7 @@ extern TIM_HandleTypeDef htim1;
 #include "gpio.h"
 #include "spi.h"
 #include "tim.h"
+#include "stm32f4xx_ll_tim.h"
 
 #elif defined(SPC584B_DIS)
 #include "components.h"
@@ -111,14 +112,14 @@ extern TIM_HandleTypeDef htim1;
 static int16_t data_raw_acceleration[3];
 static int16_t data_raw_angular_rate[3];
 static int16_t data_raw_temperature;
-static float ax =0,ay=0,az=0;
-static float dt =0;
-//gx =0, gy=0,gz=0;
-static float vx = 0, vy = 0, vz = 0; // Vitesse initiale
-static float px = 0, py = 0, pz = 0;   // Position initiale
-static float acceleration_mg[3];
-static float angular_rate_mdps[3];
-static float temperature_degC;
+
+ float ax,ay,az;
+ volatile uint32_t dt = 0;
+ float vx = 0, vy = 0, vz = 0;
+ float px = 0, py = 0, pz = 0;
+ float acceleration_mg[3];
+ float angular_rate_mdps[3];
+ float temperature_degC;
 static uint8_t whoamI, rst;
 static uint8_t tx_buffer[1000];
 /*Définition des variables pour la moyenne mobile de la température-----------*/
@@ -196,13 +197,14 @@ void lsm6dsr_read_data_polling(void)
   lsm6dsr_gy_filter_lp1_set(&dev_ctx,PROPERTY_ENABLE);
   /* Read samples in polling mode */
   while (1) {
-   // uint8_t reg;
+
     /* Read output only if new xl value is available */
     lsm6dsr_xl_flag_data_ready_get(&dev_ctx, &reg);
 
     if (reg) {
+    	HAL_TIM_Base_Start_IT(&htim1);
       /* Read acceleration field data */
-      memset(data_raw_acceleration, 0x00, 3 * sizeof(int16_t));
+    	memset(data_raw_acceleration, 0x00, 3 * sizeof(int16_t));
       lsm6dsr_acceleration_raw_get(&dev_ctx, data_raw_acceleration);
      //acceleration selon l'axe x du IMU
         acceleration_mg[0] =
@@ -214,52 +216,38 @@ void lsm6dsr_read_data_polling(void)
       acceleration_mg[2] =
         lsm6dsr_from_fs2g_to_mg(data_raw_acceleration[2]);
 
-      /*Définition des composantes du vecteur accélération
-      selon les axes principales du IMU*/
-      ax = acceleration_mg[0]*0.061*9.81; ay =acceleration_mg[1]*0.061*9.81; az = acceleration_mg[2]*0.061*9.81;
+      //Définition des composantes du vecteur accélération//
+      /*selon les axes principales du IMU*/
 
       //Calcul du temps écoulé
 
-      void TIM1_IRQHandler(void) {
-          // Vérifie si l'interruption vient du timer
-          if (__HAL_TIM_GET_FLAG(&htim1, TIM_FLAG_UPDATE) != RESET) {
-              if (__HAL_TIM_GET_IT_SOURCE(&htim1, TIM_IT_UPDATE) != RESET) {
-                  __HAL_TIM_CLEAR_IT(&htim1, TIM_IT_UPDATE);
-
-                  // Simule la lecture des données de l'accéléromètre
-                  // Remplace ces lignes par la lecture réelle de l'accéléromètre
+      ax = acceleration_mg[0]*0.00981; // Accélération en X (m/s²)
+      ay = acceleration_mg[1]*0.00981; // Accélération en Y
+      az = acceleration_mg[2]*0.00981; // Accélération en Z
 
 
-                  // Calcul de la vitesse et de la position
-                  // Intégration pour obtenir la vitesse
-               vx += ax * 0.01f;
-               vy += ay * 0.01f;
-               vz += az * 0.01f;
-
-               // Intégration pour obtenir la position
-               px += vx * 0.01f;
-               py += vy * 0.01f;
-               pz += vz * 0.01f;
-               }
-              }
-          }
-
-
-
-      //sprintf((char *)tx_buffer,
-        //      "Acceleration[g]: ax:%4.2f\tay:%4.2f\taz:%4.2f\r\n",
-           //   x, y, z);
-
+      // Update the timer interrupt function for velocity and position calculations
       sprintf((char *)tx_buffer,
-              "Position[m]: px:%4.6\tpy:%4.6f\tpz:%4.6f\r\n",
-                  px, py, pz);
-
+              "Acceleration [m/s^2]: ax:%4.2f\tay:%4.2f\taz:%4.2f\r\n",
+			  ax,ay,az);
       tx_com(tx_buffer, strlen((char const *)tx_buffer));
-      sprintf((char *)tx_buffer,
-              "\r\n");
 
 
+      vx += ax * dt;
+      vy += ay * dt;
+      vz += az * dt;
+
+      // Intégration pour la position
+      px += vx * dt;
+      py += vy * dt;
+      pz += vz * dt;
+
+      sprintf((char *)tx_buffer, "t = %lu\r\n",dt);
+      tx_com(tx_buffer, strlen((char const *)tx_buffer));
+      sprintf((char *)tx_buffer, "position [m]: px:%4.2f\tpy:%4.2f\tpz:%4.2f\r\n\r\n",pz,py,px);
+      tx_com(tx_buffer, strlen((char const *)tx_buffer));
       HAL_Delay(1000);
+
     }
 
     lsm6dsr_gy_flag_data_ready_get(&dev_ctx, &reg);
@@ -335,8 +323,22 @@ void lsm6dsr_read_data_polling(void)
 }
 }
 
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+    if (htim->Instance == TIM1) {
+        dt++; // Incrémente le compteur de secondes
+//        char buffer[50];
+  //      snprintf(buffer, sizeof(buffer), "Temps écoulé: %lu secondes\r\n", seconds);
+    //    USART_SendString(buffer); // Envoie le temps écoulé par USART
+    }
+}
 
+/*void USART_SendString(char *str) {
+    while (*str) {
+        HAL_UART_Transmit(&huart2, (uint8_t *)str++, 1, HAL_MAX_DELAY);
+    }
+}
 
+*/
 /*
  * @brief  Write generic device register (platform dependent)
  *
