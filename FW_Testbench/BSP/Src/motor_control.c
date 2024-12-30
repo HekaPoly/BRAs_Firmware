@@ -36,7 +36,6 @@ void MotorControl_Init(void)
     // Initializes all stepper motors (PWM, Direction GPIO and Enable GPIO)
 	for(int i=0;i<NUMBER_MOTOR;i++){
 		Motors[i].motor_direction = MOTOR_DIRECTION_CLOCKWISE;
-		Motors[i].deg_per_turn = DEGREES_PER_PULSE_WITH_GEARBOX;
 		Motors[i].nb_pulse = 0u;
 		Motors[i].delay = 0u;
 		Motors[i].is_motor_initialized = true;
@@ -46,32 +45,43 @@ void MotorControl_Init(void)
 	Motors[0].motor_timer_handle = &htim1;		   		
 	Motors[0].motor_timer_channel = TIM_CHANNEL_1; 		
 	Motor_gpio_section direction0 = {DIRECTION_MOTOR_0_GPIO_PORT, DIRECTION_MOTOR_0_PIN};
-	Motors[0].direction_port = direction0;   
+	Motors[0].direction_port = direction0;
+	Motors[0].deg_per_turn = DEGREES_PER_PULSE_WITH_GEARBOX_0;
 
 	Motors[1].motor_timer_handle = &htim1;	   			
 	Motors[1].motor_timer_channel = TIM_CHANNEL_2;	   	
 	Motor_gpio_section direction1 = {DIRECTION_MOTOR_1_GPIO_PORT, DIRECTION_MOTOR_1_PIN};
 	Motors[1].direction_port = direction1;
+	Motors[1].deg_per_turn = DEGREES_PER_PULSE_WITH_GEARBOX_1;
+
 	
 	Motors[2].motor_timer_handle = &htim1; 	   			
 	Motors[2].motor_timer_channel = TIM_CHANNEL_3;	   	
 	Motor_gpio_section direction2 = {DIRECTION_MOTOR_2_GPIO_PORT, DIRECTION_MOTOR_2_PIN};
 	Motors[2].direction_port = direction2;
+	Motors[2].deg_per_turn = DEGREES_PER_PULSE_WITH_GEARBOX_2;
+
 
 	Motors[3].motor_timer_handle = &htim1;	   			
 	Motors[3].motor_timer_channel = TIM_CHANNEL_4;	   	
 	Motor_gpio_section direction3 = {DIRECTION_MOTOR_3_GPIO_PORT, DIRECTION_MOTOR_3_PIN};
 	Motors[3].direction_port = direction3;
+	Motors[3].deg_per_turn = DEGREES_PER_PULSE_WITH_GEARBOX_3;
+
 	
 	Motors[4].motor_timer_handle = &htim2;	   			
 	Motors[4].motor_timer_channel = TIM_CHANNEL_1;	   	
 	Motor_gpio_section direction4 = {DIRECTION_MOTOR_4_GPIO_PORT, DIRECTION_MOTOR_4_PIN};
 	Motors[4].direction_port = direction4;
+	Motors[4].deg_per_turn = DEGREES_PER_PULSE_WITH_GEARBOX_4;
+
 	
 	Motors[5].motor_timer_handle = &htim2;	   			
 	Motors[5].motor_timer_channel = TIM_CHANNEL_3;	   	
 	Motor_gpio_section direction5 = {DIRECTION_MOTOR_5_GPIO_PORT, DIRECTION_MOTOR_5_PIN};
 	Motors[5].direction_port = direction5;
+	Motors[5].deg_per_turn = DEGREES_PER_PULSE_WITH_GEARBOX_5;
+
 }
 
 /**
