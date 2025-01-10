@@ -99,6 +99,7 @@ Motor_State MotorControl_Task(void)
 	Motor* currentMotor;
 
 	for(int i=0;i<NUMBER_MOTOR;i++){ // loops each motor
+		HAL_Delay(2000);
 
 		// call encoder
 
