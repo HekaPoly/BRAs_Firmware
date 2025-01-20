@@ -18,6 +18,10 @@ static void Receive_Data(UART * uart);
 
 /* Global variables */
 uint8_t g_rx_buffer[NUMBER_OF_BYTES_PER_MSG] = {0};
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
 UART g_uart =
 {
@@ -34,8 +38,11 @@ void UART_Init(void)
 {
     /* Initialize the UART communication */
 	g_uart.uart_handle = &huart2;
-
 	g_uart.is_uart_initialized = true;
+
+	// Ready to receive the first message
+	Receive_Data(&g_uart);
+
 }
 
 /**
@@ -48,12 +55,12 @@ void UART_Init(void)
  */
 void UART_Task(void)
 {
-	if (g_uart.is_uart_initialized)
-	{
-		Receive_Data(&g_uart);
+
+	if (g_uart.is_uart_initialized){
 
 		/* Update the data structure appropriately */
 		Data *data_structure = DataStruct_Get();
+<<<<<<< Updated upstream
 		if (data_structure == NULL)
 		{
 			//return MOTOR_STATE_WAITING_FOR_SEMAPHORE;
@@ -79,15 +86,57 @@ void UART_Task(void)
 		data_structure->Data_Motors[5].motor_angle_to_reach_deg = (g_uart.message_received[INDEX_THIRD_BYTE] + (g_uart.message_received[INDEX_FOURTH_BYTE] << 8));
 
 		DataStruct_ReleaseSemaphore();
+=======
+		// Distribute the same data to all motors
+		data_structure->Data_Motors[0].motor_desired_speed_percent = (g_uart.message_received[INDEX_FIRST_BYTE] + (g_uart.message_received[INDEX_SECOND_BYTE] << 8));
+		data_structure->Data_Motors[0].motor_angle_to_reach_deg = (g_uart.message_received[INDEX_THIRD_BYTE] + (g_uart.message_received[INDEX_FOURTH_BYTE] << 8));
+
+		data_structure->Data_Motors[1].motor_desired_speed_percent = (g_uart.message_received[INDEX_FIRST_BYTE] + (g_uart.message_received[INDEX_SECOND_BYTE] << 8));
+		data_structure->Data_Motors[1].motor_angle_to_reach_deg = (g_uart.message_received[INDEX_THIRD_BYTE] + (g_uart.message_received[INDEX_FOURTH_BYTE] << 8));
+
+		data_structure->Data_Motors[2].motor_desired_speed_percent = (g_uart.message_received[INDEX_FIRST_BYTE] + (g_uart.message_received[INDEX_SECOND_BYTE] << 8));
+		data_structure->Data_Motors[2].motor_angle_to_reach_deg = (g_uart.message_received[INDEX_THIRD_BYTE] + (g_uart.message_received[INDEX_FOURTH_BYTE] << 8));
+
+		data_structure->Data_Motors[3].motor_desired_speed_percent = (g_uart.message_received[INDEX_FIRST_BYTE] + (g_uart.message_received[INDEX_SECOND_BYTE] << 8));
+		data_structure->Data_Motors[3].motor_angle_to_reach_deg = (g_uart.message_received[INDEX_THIRD_BYTE] + (g_uart.message_received[INDEX_FOURTH_BYTE] << 8));
+
+		data_structure->Data_Motors[4].motor_desired_speed_percent = (g_uart.message_received[INDEX_FIRST_BYTE] + (g_uart.message_received[INDEX_SECOND_BYTE] << 8));
+		data_structure->Data_Motors[4].motor_angle_to_reach_deg = (g_uart.message_received[INDEX_THIRD_BYTE] + (g_uart.message_received[INDEX_FOURTH_BYTE] << 8));
+
+		data_structure->Data_Motors[5].motor_desired_speed_percent = (g_uart.message_received[INDEX_FIRST_BYTE] + (g_uart.message_received[INDEX_SECOND_BYTE] << 8));
+		data_structure->Data_Motors[5].motor_angle_to_reach_deg = (g_uart.message_received[INDEX_THIRD_BYTE] + (g_uart.message_received[INDEX_FOURTH_BYTE] << 8));
+
+		DataStruct_ReleaseSemaphore();
+
+>>>>>>> Stashed changes
 	}
 }
 
+
 /**
  * @brief Data reception
- * 
+ *
  * @param[in] uart The UART structure containing pertinent information about the UART module used
  */
 static void Receive_Data(UART * uart)
 {
-	HAL_UART_Receive(uart->uart_handle, g_rx_buffer, NUMBER_OF_BYTES_PER_MSG, 1000);
+	 HAL_UART_Receive_IT(uart->uart_handle, g_rx_buffer, NUMBER_OF_BYTES_PER_MSG);
 }
+<<<<<<< Updated upstream
+=======
+
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+
+{
+
+	  if (huart == g_uart.uart_handle)
+	    {
+	        // Re-arm reception for the next 4-byte packet
+	        Receive_Data(&g_uart);
+	    }
+}
+
+
+
+>>>>>>> Stashed changes

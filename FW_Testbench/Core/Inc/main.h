@@ -59,15 +59,27 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define B1_Pin GPIO_PIN_13
 #define B1_GPIO_Port GPIOC
+<<<<<<< Updated upstream
+=======
+#define PWM_Motor_4_Pin GPIO_PIN_0
+#define PWM_Motor_4_GPIO_Port GPIOA
+#define DIR_Motor_0_Pin GPIO_PIN_1
+#define DIR_Motor_0_GPIO_Port GPIOA
+>>>>>>> Stashed changes
 #define USART_TX_Pin GPIO_PIN_2
 #define USART_TX_GPIO_Port GPIOA
 #define USART_RX_Pin GPIO_PIN_3
 #define USART_RX_GPIO_Port GPIOA
 #define LD2_Pin GPIO_PIN_5
 #define LD2_GPIO_Port GPIOA
+<<<<<<< Updated upstream
 
 #define DIR_Motor_0_Pin GPIO_PIN_1
 #define DIR_Motor_0_GPIO_Port GPIOA
+=======
+#define PWM_Motor_5_Pin GPIO_PIN_10
+#define PWM_Motor_5_GPIO_Port GPIOB
+>>>>>>> Stashed changes
 #define DIR_Motor_1_Pin GPIO_PIN_12
 #define DIR_Motor_1_GPIO_Port GPIOB
 #define DIR_Motor_2_Pin GPIO_PIN_13
@@ -78,7 +90,10 @@ void Error_Handler(void);
 #define DIR_Motor_4_GPIO_Port GPIOB
 #define DIR_Motor_5_Pin GPIO_PIN_6
 #define DIR_Motor_5_GPIO_Port GPIOC
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 #define PWM_Motor_0_Pin GPIO_PIN_8
 #define PWM_Motor_0_GPIO_Port GPIOA
 #define PWM_Motor_1_Pin GPIO_PIN_9
@@ -87,11 +102,14 @@ void Error_Handler(void);
 #define PWM_Motor_2_GPIO_Port GPIOA
 #define PWM_Motor_3_Pin GPIO_PIN_11
 #define PWM_Motor_3_GPIO_Port GPIOA
+<<<<<<< Updated upstream
 #define PWM_Motor_4_Pin GPIO_PIN_0
 #define PWM_Motor_4_GPIO_Port GPIOA
 #define PWM_Motor_5_Pin GPIO_PIN_10
 #define PWM_Motor_5_GPIO_Port GPIOB
 
+=======
+>>>>>>> Stashed changes
 #define TMS_Pin GPIO_PIN_13
 #define TMS_GPIO_Port GPIOA
 #define TCK_Pin GPIO_PIN_14

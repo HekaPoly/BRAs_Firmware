@@ -53,6 +53,10 @@ void BusFault_Handler(void);
 void UsageFault_Handler(void);
 void DebugMon_Handler(void);
 void SysTick_Handler(void);
+<<<<<<< Updated upstream
+=======
+void USART2_IRQHandler(void);
+>>>>>>> Stashed changes
 /* USER CODE BEGIN EFP */
 
 /* USER CODE END EFP */

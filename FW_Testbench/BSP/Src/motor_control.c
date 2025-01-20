@@ -42,46 +42,83 @@ void MotorControl_Init(void)
 	}
 	// Initialize the timer and the channels for each motor
 	// change timing handle if necessary
+<<<<<<< Updated upstream
 	Motors[0].motor_timer_handle = &htim1;		   		
 	Motors[0].motor_timer_channel = TIM_CHANNEL_1; 		
+=======
+	Motors[0].motor_timer_handle = &htim1;
+	Motors[0].motor_timer_channel = TIM_CHANNEL_1;
+>>>>>>> Stashed changes
 	Motor_gpio_section direction0 = {DIRECTION_MOTOR_0_GPIO_PORT, DIRECTION_MOTOR_0_PIN};
 	Motors[0].direction_port = direction0;
 	Motors[0].deg_per_turn = DEGREES_PER_PULSE_WITH_GEARBOX_0;
 
+<<<<<<< Updated upstream
 	Motors[1].motor_timer_handle = &htim1;	   			
 	Motors[1].motor_timer_channel = TIM_CHANNEL_2;	   	
+=======
+	Motors[1].motor_timer_handle = &htim1;
+	Motors[1].motor_timer_channel = TIM_CHANNEL_2;
+>>>>>>> Stashed changes
 	Motor_gpio_section direction1 = {DIRECTION_MOTOR_1_GPIO_PORT, DIRECTION_MOTOR_1_PIN};
 	Motors[1].direction_port = direction1;
 	Motors[1].deg_per_turn = DEGREES_PER_PULSE_WITH_GEARBOX_1;
 
+<<<<<<< Updated upstream
 	
 	Motors[2].motor_timer_handle = &htim1; 	   			
 	Motors[2].motor_timer_channel = TIM_CHANNEL_3;	   	
+=======
+
+	Motors[2].motor_timer_handle = &htim1;
+	Motors[2].motor_timer_channel = TIM_CHANNEL_3;
+>>>>>>> Stashed changes
 	Motor_gpio_section direction2 = {DIRECTION_MOTOR_2_GPIO_PORT, DIRECTION_MOTOR_2_PIN};
 	Motors[2].direction_port = direction2;
 	Motors[2].deg_per_turn = DEGREES_PER_PULSE_WITH_GEARBOX_2;
 
 
+<<<<<<< Updated upstream
 	Motors[3].motor_timer_handle = &htim1;	   			
 	Motors[3].motor_timer_channel = TIM_CHANNEL_4;	   	
+=======
+	Motors[3].motor_timer_handle = &htim1;
+	Motors[3].motor_timer_channel = TIM_CHANNEL_4;
+>>>>>>> Stashed changes
 	Motor_gpio_section direction3 = {DIRECTION_MOTOR_3_GPIO_PORT, DIRECTION_MOTOR_3_PIN};
 	Motors[3].direction_port = direction3;
 	Motors[3].deg_per_turn = DEGREES_PER_PULSE_WITH_GEARBOX_3;
 
+<<<<<<< Updated upstream
 	
 	Motors[4].motor_timer_handle = &htim2;	   			
 	Motors[4].motor_timer_channel = TIM_CHANNEL_1;	   	
+=======
+
+	Motors[4].motor_timer_handle = &htim2;
+	Motors[4].motor_timer_channel = TIM_CHANNEL_1;
+>>>>>>> Stashed changes
 	Motor_gpio_section direction4 = {DIRECTION_MOTOR_4_GPIO_PORT, DIRECTION_MOTOR_4_PIN};
 	Motors[4].direction_port = direction4;
 	Motors[4].deg_per_turn = DEGREES_PER_PULSE_WITH_GEARBOX_4;
 
+<<<<<<< Updated upstream
 	
 	Motors[5].motor_timer_handle = &htim2;	   			
 	Motors[5].motor_timer_channel = TIM_CHANNEL_3;	   	
+=======
+
+	Motors[5].motor_timer_handle = &htim2;
+	Motors[5].motor_timer_channel = TIM_CHANNEL_3;
+>>>>>>> Stashed changes
 	Motor_gpio_section direction5 = {DIRECTION_MOTOR_5_GPIO_PORT, DIRECTION_MOTOR_5_PIN};
 	Motors[5].direction_port = direction5;
 	Motors[5].deg_per_turn = DEGREES_PER_PULSE_WITH_GEARBOX_5;
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 }
 
 /**
@@ -97,8 +134,13 @@ Motor_State MotorControl_Task(void)
 	// Data of the Motor we are currently changing
 	Data_Motor* currentData; 
 	Motor* currentMotor;
+<<<<<<< Updated upstream
 
 	for(int i=0;i<NUMBER_MOTOR;i++){ // loops each motor
+=======
+	// Modified code to only loop through one motors; add more motors progressively
+	for(int i=0;i<NUMBER_MOTOR-5;i++){ // loops each motor
+>>>>>>> Stashed changes
 		HAL_Delay(2000);
 
 		// call encoder
@@ -137,22 +179,35 @@ Motor_State MotorControl_Task(void)
  */
 static void Modify_Speed(int16_t difference_deg, uint32_t motor_speed_desired_percent, Motor* currentMotor)
 {
-	uint16_t new_freq = (motor_speed_desired_percent * FREQ_MAX_HZ) / 100;
-	uint16_t new_arr = (FREQ_CLK_HZ / ((PSC + 1)* new_freq)) - 1;
+    // Calculate new frequency and ARR based on desired speed percentage
+    uint16_t new_freq = (motor_speed_desired_percent * FREQ_MAX_HZ) / 100;
+    uint16_t new_arr = (FREQ_CLK_HZ / ((PSC + 1) * new_freq)) - 1;
 
-	currentMotor->motor_timer_handle->Instance->ARR = new_arr;
-	currentMotor->motor_timer_handle->Instance->CCR1 = currentMotor->motor_timer_handle->Instance->ARR / 2;
+    // Update the ARR for the timer
+    __HAL_TIM_SET_AUTORELOAD(currentMotor->motor_timer_handle, new_arr);
 
-	currentMotor->nb_pulse = abs(difference_deg) / currentMotor->deg_per_turn;
-	currentMotor->delay = ((float)currentMotor->nb_pulse / (float)new_freq) * FACTOR_SECONDS_TO_MS;
+    // Update the duty cycle (CCR) using the appropriate channel macro
+    uint16_t duty_cycle = new_arr / 2; // 50% duty cycle as an example
+    __HAL_TIM_SET_COMPARE(currentMotor->motor_timer_handle, currentMotor->motor_timer_channel, duty_cycle);
 
-	HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin); // Turn on LED
+    // Calculate number of pulses and delay based on the difference in degrees
+    currentMotor->nb_pulse = abs(difference_deg) / currentMotor->deg_per_turn;
+    currentMotor->delay = ((float)currentMotor->nb_pulse / (float)new_freq) * FACTOR_SECONDS_TO_MS;
 
-	HAL_TIM_PWM_Start(currentMotor->motor_timer_handle, currentMotor->motor_timer_channel);
-	HAL_Delay(currentMotor->delay);
-	HAL_TIM_PWM_Stop(currentMotor->motor_timer_handle, currentMotor->motor_timer_channel);
+    // Toggle LED to indicate motor operation
+    HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin); // Turn on LED
 
-	HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin); // Turn off LED
+    // Start PWM on the appropriate channel
+    HAL_TIM_PWM_Start(currentMotor->motor_timer_handle, currentMotor->motor_timer_channel);
+
+    // Delay for motor operation
+    HAL_Delay(currentMotor->delay);
+
+    // Stop PWM on the appropriate channel
+    HAL_TIM_PWM_Stop(currentMotor->motor_timer_handle, currentMotor->motor_timer_channel);
+
+    // Toggle LED to indicate motor operation ended
+    HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin); // Turn off LED
 }
 
 /**

@@ -57,7 +57,11 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
+<<<<<<< Updated upstream
 
+=======
+extern UART_HandleTypeDef huart2;
+>>>>>>> Stashed changes
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -182,6 +186,26 @@ void SysTick_Handler(void)
 /* please refer to the startup file (startup_stm32f4xx.s).                    */
 /******************************************************************************/
 
+<<<<<<< Updated upstream
+=======
+/**
+  * @brief This function handles USART2 global interrupt.
+  */
+void USART2_IRQHandler(void)
+{
+  /* USER CODE BEGIN USART2_IRQn 0 */
+
+  /* USER CODE END USART2_IRQn 0 */
+  HAL_UART_IRQHandler(&huart2);
+  HAL_NVIC_SetPriority(USART2_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(USART2_IRQn);
+
+  /* USER CODE BEGIN USART2_IRQn 1 */
+
+  /* USER CODE END USART2_IRQn 1 */
+}
+
+>>>>>>> Stashed changes
 /* USER CODE BEGIN 1 */
 
 /* USER CODE END 1 */
