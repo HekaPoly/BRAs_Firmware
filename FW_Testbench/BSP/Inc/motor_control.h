@@ -35,33 +35,7 @@
 #define PSC 9
 #define FREQ_CLK_HZ 72000000
 /*#define DEGREES_PER_PULSE_WITHOUT_GEARBOX 0.225f
-<<<<<<< Updated upstream
-#define DEGREES_PER_PULSE_WITH_GEARBOX 0.015f*/
 
-// currently: NEMA 23 1.8deg 8 microstep 47:1
-#define DEGREES_PER_PULSE_WITHOUT_GEARBOX_0 0.225f
-#define DEGREES_PER_PULSE_WITH_GEARBOX_0 0.004787f
-
-// currently: NEMA 23
-#define DEGREES_PER_PULSE_WITHOUT_GEARBOX_1 0.225f
-#define DEGREES_PER_PULSE_WITH_GEARBOX_1 0.004787f
-
-// currently: NEMA 23
-#define DEGREES_PER_PULSE_WITHOUT_GEARBOX_2 0.225f
-#define DEGREES_PER_PULSE_WITH_GEARBOX_2 0.015f
-
-// currently: NEMA 23
-#define DEGREES_PER_PULSE_WITHOUT_GEARBOX_3 0.225f
-#define DEGREES_PER_PULSE_WITH_GEARBOX_3 0.015f
-
-// currently: NEMA 23
-#define DEGREES_PER_PULSE_WITHOUT_GEARBOX_4 0.225f
-#define DEGREES_PER_PULSE_WITH_GEARBOX_4 0.015f
-
-// currently: NEMA 23
-#define DEGREES_PER_PULSE_WITHOUT_GEARBOX_5 0.225f
-#define DEGREES_PER_PULSE_WITH_GEARBOX_5 0.015f
-=======
 #define DEGREES_PER_PULSE_WITH_GEARBOX 0.04787f*/
 
 // Il sembl avoir un probleme avec la structure de donnee et le nom de moteurs.
@@ -91,7 +65,7 @@
 // currently: NEMA 23
 #define DEGREES_PER_PULSE_WITHOUT_GEARBOX_5 0.225f
 #define DEGREES_PER_PULSE_WITH_GEARBOX_5 0.0225f
->>>>>>> Stashed changes
+
 /* Structs and enums */
 /**
  * Enum describing the current direction in which a motor is rotating
