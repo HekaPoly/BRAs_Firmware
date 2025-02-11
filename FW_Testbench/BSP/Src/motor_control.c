@@ -13,6 +13,10 @@
 #include "main.h"
 #include "data_structure.h"
 
+#include "encoder.h"
+#include <stdlib.h>
+#include <time.h>
+
 /* Constants */
 #define FACTOR_SECONDS_TO_MS 1000
 #define NUMBER_MOTOR 6

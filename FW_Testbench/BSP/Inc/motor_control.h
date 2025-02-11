@@ -109,6 +109,8 @@ typedef struct
 	Motor_gpio_section direction_port;
 } Motor;
 
+// TODO: add struct for PID Arrays
+
 /* Function declaration */
 void MotorControl_Init(void);
 Motor_State MotorControl_Task(void);

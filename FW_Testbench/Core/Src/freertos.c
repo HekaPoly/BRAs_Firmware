@@ -27,6 +27,7 @@
 /* USER CODE BEGIN Includes */
 #include "motor_control.h"
 #include "uart.h"
+#include "encoder.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -141,9 +142,11 @@ void StartSensorsTask(void const * argument)
 {
   /* USER CODE BEGIN StartSensorsTask */
   /* Infinite loop */
+	Encoder_Init();
   for(;;)
   {
-    osDelay(1);
+	  Encoder_Task();
+    osDelay(100);
   }
   /* USER CODE END StartSensorsTask */
 }
