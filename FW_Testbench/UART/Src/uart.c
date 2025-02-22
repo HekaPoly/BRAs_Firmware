@@ -12,13 +12,13 @@
 #include "uart.h"
 #include "main.h"
 #include "data_structure.h"
+#include "stdio.h"
 
 /* Private functions declaration */
 static void Receive_Data(UART * uart);
 
 /* Global variables */
 uint8_t g_rx_buffer[NUMBER_OF_BYTES_PER_MSG] = {0};
-char buffer[100];
 
 
 UART g_uart =
@@ -65,8 +65,10 @@ void UART_Task(void)
 		}
 
 		 // Debugging - Print received data
-		// sprintf(buffer, "Received Bytes: 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X\n",
-		// 	g_rx_buffer[0], g_rx_buffer[1], g_rx_buffer[2], g_rx_buffer[3], g_rx_buffer[4]);
+		char buffer[100];
+		sprintf(buffer, "Received Data: %d %d %d %d\n",
+			g_rx_buffer[INDEX_FIRST_BYTE], g_rx_buffer[INDEX_SECOND_BYTE],
+			g_rx_buffer[INDEX_THIRD_BYTE], g_rx_buffer[INDEX_FOURTH_BYTE]);
 		// HAL_UART_Transmit(g_uart.uart_handle, (uint8_t *)buffer, strlen(buffer), 1000);
 	
 	
@@ -75,8 +77,8 @@ void UART_Task(void)
 		uint16_t velocity = (g_rx_buffer[INDEX_SECOND_BYTE] | (g_rx_buffer[INDEX_THIRD_BYTE] << 8)); // Second & third bytes
 		uint16_t angle = (g_rx_buffer[INDEX_FOURTH_BYTE] | (g_rx_buffer[INDEX_FIFTH_BYTE] << 8)); // Fourth & fifth bytes
 
-		// sprintf(buffer, "Extracted Values: Motor ID = %d, Velocity = %d, Angle = %d\n",
-		// 	motor_id, velocity, angle);
+		sprintf(buffer, "Extracted Values: Motor ID = %d, Velocity = %d, Angle = %d\n",
+			motor_id, velocity, angle);
 		// HAL_UART_Transmit(g_uart.uart_handle, (uint8_t *)buffer, strlen(buffer), 1000);
 	
 		// Validate motor ID
