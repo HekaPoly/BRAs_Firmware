@@ -79,9 +79,9 @@ void UART_Task(void)
 		uint16_t angle = (received_data >> 16) & 0xFFFF;      // Upper 16 bits
 	
 		// debug putty
-		sprintf(buffer, "Extracted Values: Motor ID = %d, Velocity = %d, Angle = %d\n",
-			motor_id, velocity, angle);
-		HAL_UART_Transmit(g_uart.uart_handle, (uint8_t *)buffer, strlen(buffer), 1000);
+		// sprintf(buffer, "Extracted Values: Motor ID = %d, Velocity = %d, Angle = %d\n",
+		// 	motor_id, velocity, angle);
+		// HAL_UART_Transmit(g_uart.uart_handle, (uint8_t *)buffer, strlen(buffer), 1000);
 	
 		// Validate motor ID
 		if (motor_id >= NUMBER_MOTOR)

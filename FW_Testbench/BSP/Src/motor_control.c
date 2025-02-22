@@ -126,6 +126,9 @@ Motor_State MotorControl_Task(void)
 
 	sprintf("In MotorTask", buffer);
 
+
+
+
 	// Modified code to only loop through one motors; add more motors progressively
 	for(int i=0;i<3;i++){ // loops each motor
 		HAL_Delay(1000);	// this delay the interval between the movement of the motors
@@ -137,7 +140,11 @@ Motor_State MotorControl_Task(void)
 		currentData = &data_structure->Data_Motors[i];
 		currentMotor = &Motors[i];
 
-
+		// debug putty
+		sprintf(buffer, " Velocity = %d, Angle = %d\n",
+				currentData->motor_desired_speed_percent, currentData->motor_angle_to_reach_deg
+				);
+		HAL_UART_Transmit(&huart2, (uint8_t *)buffer, strlen(buffer), 1000);
 		int16_t difference_deg = currentData->motor_angle_to_reach_deg - currentData->motor_current_angle_deg;
 
 		if (difference_deg != 0){
