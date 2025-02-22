@@ -66,20 +66,22 @@ void UART_Task(void)
 
 		 // Debugging - Print received data
 		char buffer[100];
-		sprintf(buffer, "Received Data: %d %d %d %d\n",
-			g_rx_buffer[INDEX_FIRST_BYTE], g_rx_buffer[INDEX_SECOND_BYTE],
-			g_rx_buffer[INDEX_THIRD_BYTE], g_rx_buffer[INDEX_FOURTH_BYTE]);
-		// HAL_UART_Transmit(g_uart.uart_handle, (uint8_t *)buffer, strlen(buffer), 1000);
 	
-	
-		// Extract data
-		uint8_t motor_id = g_rx_buffer[INDEX_FIRST_BYTE];  // First byte is the motor ID
-		uint16_t velocity = (g_rx_buffer[INDEX_SECOND_BYTE] | (g_rx_buffer[INDEX_THIRD_BYTE] << 8)); // Second & third bytes
-		uint16_t angle = (g_rx_buffer[INDEX_FOURTH_BYTE] | (g_rx_buffer[INDEX_FIFTH_BYTE] << 8)); // Fourth & fifth bytes
+		 // Reconstruct 32-bit data (little-endian)
+		 uint32_t received_data = g_uart.message_received[0] |
+		 ((uint32_t)g_uart.message_received[1] << 8) |
+		 ((uint32_t)g_uart.message_received[2] << 16) |
+		 ((uint32_t)g_uart.message_received[3] << 24);
 
+		// Extract data
+		uint8_t motor_id = received_data & 0x07;          // First 3 bits
+		uint16_t velocity = (received_data >> 3) & 0x1FFF;    // Next 13 bits
+		uint16_t angle = (received_data >> 16) & 0xFFFF;      // Upper 16 bits
+	
+		// debug putty
 		sprintf(buffer, "Extracted Values: Motor ID = %d, Velocity = %d, Angle = %d\n",
 			motor_id, velocity, angle);
-		// HAL_UART_Transmit(g_uart.uart_handle, (uint8_t *)buffer, strlen(buffer), 1000);
+		HAL_UART_Transmit(g_uart.uart_handle, (uint8_t *)buffer, strlen(buffer), 1000);
 	
 		// Validate motor ID
 		if (motor_id >= NUMBER_MOTOR)
