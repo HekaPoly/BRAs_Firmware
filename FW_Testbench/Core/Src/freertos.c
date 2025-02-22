@@ -28,6 +28,10 @@
 #include "motor_control.h"
 #include "uart.h"
 #include "encoder.h"
+
+#include "stdio.h"
+#include "usart.h"
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -114,7 +118,7 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of Sensors_Task */
-  osThreadDef(Sensors_Task, StartSensorsTask, osPriorityNormal, 0, 128);
+  osThreadDef(Sensors_Task, StartSensorsTask, osPriorityBelowNormal, 0, 128);
   Sensors_TaskHandle = osThreadCreate(osThread(Sensors_Task), NULL);
 
   /* definition and creation of MotorControl_Ta */
@@ -122,7 +126,7 @@ void MX_FREERTOS_Init(void) {
   MotorControl_TaHandle = osThreadCreate(osThread(MotorControl_Ta), NULL);
 
   /* definition and creation of UART_task */
-  osThreadDef(UART_task, StartUART_task, osPriorityNormal, 0, 128);
+  osThreadDef(UART_task, StartUART_task, osPriorityAboveNormal, 0, 128);
   UART_taskHandle = osThreadCreate(osThread(UART_task), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */

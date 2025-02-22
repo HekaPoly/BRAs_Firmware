@@ -16,11 +16,14 @@
 #include "encoder.h"
 #include <stdlib.h>
 #include <time.h>
+#include "stdio.h"
+#include "usart.h"
+#include <string.h>
 
 /* Constants */
 #define FACTOR_SECONDS_TO_MS 1000
 #define NUMBER_MOTOR 6
-
+#define MSG_SIZE 64
 
 /* Private functions declaration */
 static void Modify_Speed(int16_t difference_deg, uint32_t motor_speed_desired, Motor* currentMotor);
@@ -28,8 +31,19 @@ static void Modify_Direction(int16_t difference_deg, Motor* currentMotor);
 
 /* Global variables */
 Motor Motors[NUMBER_MOTOR]; //Array of all the motors
+char buffer[100];
+
+// This prints also
+// HAL_UART_Transmit_DMA(&huart2, (uint8_t *)"In Motor Control Task\r\n", MSG_SIZE);
+
 
 /* Function implementation */
+
+int generateRandomAngle(){
+	srand(time(NULL));
+	return rand() % 361;
+}
+
 
 /**
  * @brief Initialization function for all stepper motors
@@ -52,12 +66,19 @@ void MotorControl_Init(void)
 	Motor_gpio_section direction0 = {DIRECTION_MOTOR_0_GPIO_PORT, DIRECTION_MOTOR_0_PIN};
 	Motors[0].direction_port = direction0;
 	Motors[0].deg_per_turn = DEGREES_PER_PULSE_WITH_GEARBOX_0;
+/*
+	Motors[1].motor_timer_handle = &htim2;
+	Motors[1].motor_timer_channel = TIM_CHANNEL_1;
+	Motor_gpio_section direction1 = {DIRECTION_MOTOR_4_GPIO_PORT, DIRECTION_MOTOR_4_PIN};
+	Motors[1].direction_port = direction1;
+	Motors[1].deg_per_turn = DEGREES_PER_PULSE_WITH_GEARBOX_1;
+*/
 
 	Motors[1].motor_timer_handle = &htim1;
 	Motors[1].motor_timer_channel = TIM_CHANNEL_2;
 	Motor_gpio_section direction1 = {DIRECTION_MOTOR_1_GPIO_PORT, DIRECTION_MOTOR_1_PIN};
 	Motors[1].direction_port = direction1;
-	Motors[1].deg_per_turn = DEGREES_PER_PULSE_WITH_GEARBOX_1;
+	Motors[1].deg_per_turn = DEGREES_PER_PULSE_WITH_GEARBOX_0;
 
 
 
@@ -65,7 +86,7 @@ void MotorControl_Init(void)
 	Motors[2].motor_timer_channel = TIM_CHANNEL_3;
 	Motor_gpio_section direction2 = {DIRECTION_MOTOR_2_GPIO_PORT, DIRECTION_MOTOR_2_PIN};
 	Motors[2].direction_port = direction2;
-	Motors[2].deg_per_turn = DEGREES_PER_PULSE_WITH_GEARBOX_2;
+	Motors[2].deg_per_turn = DEGREES_PER_PULSE_WITH_GEARBOX_0;
 
 
 	Motors[3].motor_timer_handle = &htim1;
@@ -86,6 +107,7 @@ void MotorControl_Init(void)
 	Motors[5].direction_port = direction5;
 	Motors[5].deg_per_turn = DEGREES_PER_PULSE_WITH_GEARBOX_5;
 
+
 }
 
 /**
@@ -99,13 +121,14 @@ Motor_State MotorControl_Task(void)
 	if (data_structure == NULL) return MOTOR_STATE_WAITING_FOR_SEMAPHORE;
 	
 	// Data of the Motor we are currently changing
-	Data_Motor* currentData; 
+	Data_Motor* currentData;
 	Motor* currentMotor;
 
+	sprintf("In MotorTask", buffer);
 
 	// Modified code to only loop through one motors; add more motors progressively
-	for(int i=0;i<NUMBER_MOTOR-5;i++){ // loops each motor
-		HAL_Delay(2000);
+	for(int i=0;i<3;i++){ // loops each motor
+		HAL_Delay(1000);	// this delay the interval between the movement of the motors
 
 		// call encoder
 
@@ -114,6 +137,7 @@ Motor_State MotorControl_Task(void)
 		currentData = &data_structure->Data_Motors[i];
 		currentMotor = &Motors[i];
 
+
 		int16_t difference_deg = currentData->motor_angle_to_reach_deg - currentData->motor_current_angle_deg;
 
 		if (difference_deg != 0){
@@ -121,6 +145,7 @@ Motor_State MotorControl_Task(void)
 			Modify_Speed(difference_deg, currentData->motor_desired_speed_percent, currentMotor);
 
 			currentData->motor_current_angle_deg = currentData->motor_angle_to_reach_deg;
+
 		}
 	}
 
@@ -164,11 +189,19 @@ static void Modify_Speed(int16_t difference_deg, uint32_t motor_speed_desired_pe
     // Start PWM on the appropriate channel
     HAL_TIM_PWM_Start(currentMotor->motor_timer_handle, currentMotor->motor_timer_channel);
 
+    // This prints also, but cant use it at the same time as the user interface since same COM12
+    HAL_UART_Transmit_DMA(&huart2, (uint8_t *)"Toggling\r\n", MSG_SIZE);
+
     // Delay for motor operation
     HAL_Delay(currentMotor->delay);
 
     // Stop PWM on the appropriate channel
     HAL_TIM_PWM_Stop(currentMotor->motor_timer_handle, currentMotor->motor_timer_channel);
+
+
+    // Reset the timer counter to zero to synchronize the PWM phase for the next motor **Added to test if fix
+    // It seems that this (and also that we put the same gearbox ratio) fixes the difference in delay between motors
+     __HAL_TIM_SET_COUNTER(currentMotor->motor_timer_handle, 0);
 
     // Toggle LED to indicate motor operation ended
     HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin); // Turn off LED
