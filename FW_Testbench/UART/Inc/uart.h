@@ -18,6 +18,8 @@
 #define INDEX_SECOND_BYTE 	1
 #define INDEX_THIRD_BYTE 	2
 #define INDEX_FOURTH_BYTE 	3
+#define INDEX_FIFTH_BYTE 	4
+
 
 /**
  * Structure describing the UART module
