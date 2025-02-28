@@ -31,7 +31,7 @@ static void Modify_Direction(int16_t difference_deg, Motor* currentMotor);
 
 /* Global variables */
 Motor Motors[NUMBER_MOTOR]; //Array of all the motors
-char buffer[128];
+//char buffer[128];
 uint32_t buf = 0;
 
 // Test
