@@ -20,7 +20,6 @@
 #define INDEX_FOURTH_BYTE 	3
 #define INDEX_FIFTH_BYTE 	4
 
-
 /**
  * Structure describing the UART module
  */

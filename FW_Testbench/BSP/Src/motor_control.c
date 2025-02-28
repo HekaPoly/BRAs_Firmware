@@ -31,7 +31,16 @@ static void Modify_Direction(int16_t difference_deg, Motor* currentMotor);
 
 /* Global variables */
 Motor Motors[NUMBER_MOTOR]; //Array of all the motors
-char buffer[100];
+char buffer[128];
+uint32_t buf = 0;
+
+// Test
+uint8_t motor_idx = 0;
+extern int _write(int file, char *ptr, int len);
+
+//count++;
+//printf("Hello World count = %d \n", count);
+
 
 // This prints also
 // HAL_UART_Transmit_DMA(&huart2, (uint8_t *)"In Motor Control Task\r\n", MSG_SIZE);
@@ -60,19 +69,13 @@ void MotorControl_Init(void)
 	}
 	// Initialize the timer and the channels for each motor
 	// change timing handle if necessary
+	// ATTENTION: Ils ont tous les memes gearbox ratio
 
 	Motors[0].motor_timer_handle = &htim1;
 	Motors[0].motor_timer_channel = TIM_CHANNEL_1;
 	Motor_gpio_section direction0 = {DIRECTION_MOTOR_0_GPIO_PORT, DIRECTION_MOTOR_0_PIN};
 	Motors[0].direction_port = direction0;
 	Motors[0].deg_per_turn = DEGREES_PER_PULSE_WITH_GEARBOX_0;
-/*
-	Motors[1].motor_timer_handle = &htim2;
-	Motors[1].motor_timer_channel = TIM_CHANNEL_1;
-	Motor_gpio_section direction1 = {DIRECTION_MOTOR_4_GPIO_PORT, DIRECTION_MOTOR_4_PIN};
-	Motors[1].direction_port = direction1;
-	Motors[1].deg_per_turn = DEGREES_PER_PULSE_WITH_GEARBOX_1;
-*/
 
 	Motors[1].motor_timer_handle = &htim1;
 	Motors[1].motor_timer_channel = TIM_CHANNEL_2;
@@ -109,57 +112,86 @@ void MotorControl_Init(void)
 
 
 }
-
-/**
- * @brief Task to control the stepper motors in manual mode
- * @return The state of the motors.
- */
 Motor_State MotorControl_Task(void)
 {
-	Data * data_structure = DataStruct_Get();
-	
-	if (data_structure == NULL) return MOTOR_STATE_WAITING_FOR_SEMAPHORE;
-	
-	// Data of the Motor we are currently changing
-	Data_Motor* currentData;
-	Motor* currentMotor;
+    Data * data_structure = DataStruct_Get();
 
-	sprintf("In MotorTask", buffer);
+    // Cette fonction ne retourne jamais NULL meme si aucun information est send.
+    // Probleme: On toggle toujours dans le for loop (i=0, i=1, i=0, i=1...)
+    // et lorsqu'il recoit une nouvelle information on ne peut pas determiner le behavior
+    // Une solution temporaire est proposee qui respecte la sequence et les directions (a valider).
+    if (data_structure == NULL)
+    {
+        // Semaphore not obtained -> skip
+        return MOTOR_STATE_WAITING_FOR_SEMAPHORE;
+    }
 
+    /*
+     * Keep a local static array of angles (or the entire Data_Motor if needed).
+     * This array persists between function calls.
+     */
+    static uint32_t lastAngles[NUMBER_MOTOR] = {0};
 
+    // 1) Check if data is NEW
+    bool dataChanged = false;
+    for (uint8_t i = 0; i < NUMBER_MOTOR-3; i++)
+    {
+        if (data_structure->Data_Motors[i].motor_angle_to_reach_deg != lastAngles[i])
+        {
+            dataChanged = true;
+            break;
+        }
+    }
 
+    if (!dataChanged)
+    {
+        /*
+         * If angles are the same as last time, no new command,
+         * so do nothing. Release semaphore & return early.
+         */
+        DataStruct_ReleaseSemaphore();
+        return MOTOR_STATE_WAITING_FOR_SEMAPHORE;
+    }
 
-	// Modified code to only loop through one motors; add more motors progressively
-	for(int i=0;i<3;i++){ // loops each motor
-		HAL_Delay(1000);	// this delay the interval between the movement of the motors
+    /*
+     * 2) If data changed, do your motor moves
+     */
+    for (uint8_t i = 0; i < NUMBER_MOTOR-3; i++)
+    {
+    	motor_idx = i;
+        HAL_Delay(1000);
 
-		// call encoder
+        Data_Motor* currentData = &data_structure->Data_Motors[i];
+        Motor* currentMotor     = &Motors[i];
 
-		// call PID
-		
-		currentData = &data_structure->Data_Motors[i];
-		currentMotor = &Motors[i];
+        int16_t difference_deg =
+            currentData->motor_angle_to_reach_deg -
+            currentData->motor_current_angle_deg;
 
-		// debug putty
-		sprintf(buffer, " Velocity = %d, Angle = %d\n",
-				currentData->motor_desired_speed_percent, currentData->motor_angle_to_reach_deg
-				);
-		HAL_UART_Transmit(&huart2, (uint8_t *)buffer, strlen(buffer), 1000);
-		int16_t difference_deg = currentData->motor_angle_to_reach_deg - currentData->motor_current_angle_deg;
+        if (difference_deg != 0)
+        {
+            Modify_Direction(difference_deg, currentMotor);
+            Modify_Speed(difference_deg,
+                         currentData->motor_desired_speed_percent,
+                         currentMotor);
 
-		if (difference_deg != 0){
-			Modify_Direction(difference_deg, currentMotor);
-			Modify_Speed(difference_deg, currentData->motor_desired_speed_percent, currentMotor);
+            currentData->motor_current_angle_deg =
+                currentData->motor_angle_to_reach_deg;
+        }
+    }
 
-			currentData->motor_current_angle_deg = currentData->motor_angle_to_reach_deg;
+    // 3) Update our snapshot with the new angles
+    for (uint8_t i = 0; i < NUMBER_MOTOR-3; i++)
+    {
+        lastAngles[i] = data_structure->Data_Motors[i].motor_angle_to_reach_deg;
+    }
 
-		}
-	}
+    // 4) Release the semaphore
+    DataStruct_ReleaseSemaphore();
 
-	DataStruct_ReleaseSemaphore();
-
-	return MOTOR_STATE_OK;
+    return MOTOR_STATE_OK;
 }
+
 
 /**
  * @brief Modifies the speed of a motor based on the desired speed percentage and the difference in degrees.
@@ -190,14 +222,15 @@ static void Modify_Speed(int16_t difference_deg, uint32_t motor_speed_desired_pe
     currentMotor->nb_pulse = abs(difference_deg) / currentMotor->deg_per_turn;
     currentMotor->delay = ((float)currentMotor->nb_pulse / (float)new_freq) * FACTOR_SECONDS_TO_MS;
 
+    // TODO: Verifier avec les moteurs bien (approx) a l'angle demandee.
+    // Cela sera ajuste avec l'encodeur et PID
+
     // Toggle LED to indicate motor operation
     HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin); // Turn on LED
 
     // Start PWM on the appropriate channel
     HAL_TIM_PWM_Start(currentMotor->motor_timer_handle, currentMotor->motor_timer_channel);
 
-    // This prints also, but cant use it at the same time as the user interface since same COM12
-    HAL_UART_Transmit_DMA(&huart2, (uint8_t *)"Toggling\r\n", MSG_SIZE);
 
     // Delay for motor operation
     HAL_Delay(currentMotor->delay);

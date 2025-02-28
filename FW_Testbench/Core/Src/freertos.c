@@ -104,6 +104,7 @@ void MX_FREERTOS_Init(void) {
   osSemaphoreDef(binarySemaphore);
   binarySemaphoreHandle = osSemaphoreCreate(osSemaphore(binarySemaphore), 1);
 
+
   /* USER CODE BEGIN RTOS_SEMAPHORES */
   /* add semaphores, ... */
   /* USER CODE END RTOS_SEMAPHORES */
@@ -117,6 +118,7 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
+
   /* definition and creation of Sensors_Task */
   osThreadDef(Sensors_Task, StartSensorsTask, osPriorityBelowNormal, 0, 128);
   Sensors_TaskHandle = osThreadCreate(osThread(Sensors_Task), NULL);

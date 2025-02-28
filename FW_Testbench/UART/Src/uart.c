@@ -19,6 +19,7 @@ static void Receive_Data(UART * uart);
 
 /* Global variables */
 uint8_t g_rx_buffer[NUMBER_OF_BYTES_PER_MSG] = {0};
+char buffer[100];
 
 
 UART g_uart =
@@ -37,10 +38,8 @@ void UART_Init(void)
     /* Initialize the UART communication */
 	g_uart.uart_handle = &huart2;
 	g_uart.is_uart_initialized = true;
-
 	// Ready to receive the first message
 	Receive_Data(&g_uart);
-
 }
 
 /**
@@ -58,7 +57,6 @@ void UART_Task(void)
 
 		/* Update the data structure appropriately */
 		Data *data_structure = DataStruct_Get();
-
 		if (data_structure == NULL)
 		{
 			//return MOTOR_STATE_WAITING_FOR_SEMAPHORE;
