@@ -12,6 +12,7 @@
 #include "uart.h"
 #include "main.h"
 #include "data_structure.h"
+#include "stdio.h"
 
 /* Private functions declaration */
 static void Receive_Data(UART * uart);
@@ -61,27 +62,35 @@ void UART_Task(void)
 			//return MOTOR_STATE_WAITING_FOR_SEMAPHORE;
 		}
 
+		 // Debugging - Print received data
+		char buffer[100];
+	
+		 // Reconstruct 32-bit data (little-endian)
+		 uint32_t received_data = g_uart.message_received[0] |
+		 ((uint32_t)g_uart.message_received[1] << 8) |
+		 ((uint32_t)g_uart.message_received[2] << 16) |
+		 ((uint32_t)g_uart.message_received[3] << 24);
 
-		// Distribute the same data to all motors
+		// Extract data
+		uint8_t motor_id = received_data & 0x07;          // First 3 bits
+		uint16_t velocity = (received_data >> 3) & 0x1FFF;    // Next 13 bits
+		uint16_t angle = (received_data >> 16) & 0xFFFF;      // Upper 16 bits
+	
+		// debug putty
+		// sprintf(buffer, "Extracted Values: Motor ID = %d, Velocity = %d, Angle = %d\n",
+		// 	motor_id, velocity, angle);
+		// HAL_UART_Transmit(g_uart.uart_handle, (uint8_t *)buffer, strlen(buffer), 1000);
+	
+		// Validate motor ID
+		if (motor_id >= NUMBER_MOTOR)
+		{
+			return;  // Ignore invalid motor ID
+		}
+	
+		// Update motor data
+		data_structure->Data_Motors[motor_id].motor_desired_speed_percent = velocity;
+		data_structure->Data_Motors[motor_id].motor_angle_to_reach_deg = angle;
 
-		data_structure->Data_Motors[0].motor_desired_speed_percent = (g_uart.message_received[INDEX_FIRST_BYTE] + (g_uart.message_received[INDEX_SECOND_BYTE] << 8));
-		data_structure->Data_Motors[0].motor_angle_to_reach_deg = (g_uart.message_received[INDEX_THIRD_BYTE] + (g_uart.message_received[INDEX_FOURTH_BYTE] << 8));
-
-		data_structure->Data_Motors[1].motor_desired_speed_percent = (g_uart.message_received[INDEX_FIRST_BYTE] + (g_uart.message_received[INDEX_SECOND_BYTE] << 8));
-		data_structure->Data_Motors[1].motor_angle_to_reach_deg = (g_uart.message_received[INDEX_THIRD_BYTE] + (g_uart.message_received[INDEX_FOURTH_BYTE] << 8));
-
-		data_structure->Data_Motors[2].motor_desired_speed_percent = (g_uart.message_received[INDEX_FIRST_BYTE] + (g_uart.message_received[INDEX_SECOND_BYTE] << 8));
-		data_structure->Data_Motors[2].motor_angle_to_reach_deg = (g_uart.message_received[INDEX_THIRD_BYTE] + (g_uart.message_received[INDEX_FOURTH_BYTE] << 8));
-		/*
-		data_structure->Data_Motors[3].motor_desired_speed_percent = (g_uart.message_received[INDEX_FIRST_BYTE] + (g_uart.message_received[INDEX_SECOND_BYTE] << 8));
-		data_structure->Data_Motors[3].motor_angle_to_reach_deg = (g_uart.message_received[INDEX_THIRD_BYTE] + (g_uart.message_received[INDEX_FOURTH_BYTE] << 8));
-
-		data_structure->Data_Motors[4].motor_desired_speed_percent = (g_uart.message_received[INDEX_FIRST_BYTE] + (g_uart.message_received[INDEX_SECOND_BYTE] << 8));
-		data_structure->Data_Motors[4].motor_angle_to_reach_deg = (g_uart.message_received[INDEX_THIRD_BYTE] + (g_uart.message_received[INDEX_FOURTH_BYTE] << 8));
-
-		data_structure->Data_Motors[5].motor_desired_speed_percent = (g_uart.message_received[INDEX_FIRST_BYTE] + (g_uart.message_received[INDEX_SECOND_BYTE] << 8));
-		data_structure->Data_Motors[5].motor_angle_to_reach_deg = (g_uart.message_received[INDEX_THIRD_BYTE] + (g_uart.message_received[INDEX_FOURTH_BYTE] << 8));
-		*/
 		DataStruct_ReleaseSemaphore();
 
 	}
