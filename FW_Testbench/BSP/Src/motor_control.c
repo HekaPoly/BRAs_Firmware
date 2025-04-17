@@ -22,7 +22,7 @@
 
 /* Constants */
 #define FACTOR_SECONDS_TO_MS 1000
-#define NUMBER_MOTOR 6
+#define NUMBER_MOTOR 6 - 3
 #define MSG_SIZE 64
 
 /* Private functions declaration */
@@ -36,15 +36,9 @@ uint32_t buf = 0;
 
 // Test
 uint8_t motor_idx = 0;
+static uint32_t lastAngles[NUMBER_MOTOR] = {0};
+
 extern int _write(int file, char *ptr, int len);
-
-//count++;
-//printf("Hello World count = %d \n", count);
-
-
-// This prints also
-// HAL_UART_Transmit_DMA(&huart2, (uint8_t *)"In Motor Control Task\r\n", MSG_SIZE);
-
 
 /* Function implementation */
 
@@ -69,7 +63,6 @@ void MotorControl_Init(void)
 	}
 	// Initialize the timer and the channels for each motor
 	// change timing handle if necessary
-	// ATTENTION: Ils ont tous les memes gearbox ratio
 
 	Motors[0].motor_timer_handle = &htim1;
 	Motors[0].motor_timer_channel = TIM_CHANNEL_1;
@@ -83,14 +76,11 @@ void MotorControl_Init(void)
 	Motors[1].direction_port = direction1;
 	Motors[1].deg_per_turn = DEGREES_PER_PULSE_WITH_GEARBOX_0;
 
-
-
 	Motors[2].motor_timer_handle = &htim1;
 	Motors[2].motor_timer_channel = TIM_CHANNEL_3;
 	Motor_gpio_section direction2 = {DIRECTION_MOTOR_2_GPIO_PORT, DIRECTION_MOTOR_2_PIN};
 	Motors[2].direction_port = direction2;
 	Motors[2].deg_per_turn = DEGREES_PER_PULSE_WITH_GEARBOX_0;
-
 
 	Motors[3].motor_timer_handle = &htim1;
 	Motors[3].motor_timer_channel = TIM_CHANNEL_4;
@@ -120,21 +110,10 @@ Motor_State MotorControl_Task(void)
     // Probleme: On toggle toujours dans le for loop (i=0, i=1, i=0, i=1...)
     // et lorsqu'il recoit une nouvelle information on ne peut pas determiner le behavior
     // Une solution temporaire est proposee qui respecte la sequence et les directions (a valider).
-    if (data_structure == NULL)
-    {
-        // Semaphore not obtained -> skip
-        return MOTOR_STATE_WAITING_FOR_SEMAPHORE;
-    }
+    if (data_structure == NULL) return MOTOR_STATE_WAITING_FOR_SEMAPHORE;
 
-    /*
-     * Keep a local static array of angles (or the entire Data_Motor if needed).
-     * This array persists between function calls.
-     */
-    static uint32_t lastAngles[NUMBER_MOTOR] = {0};
-
-    // 1) Check if data is NEW
     bool dataChanged = false;
-    for (uint8_t i = 0; i < NUMBER_MOTOR-3; i++)
+    for (uint8_t i = 0; i < NUMBER_MOTOR; i++)
     {
         if (data_structure->Data_Motors[i].motor_angle_to_reach_deg != lastAngles[i])
         {
@@ -145,18 +124,11 @@ Motor_State MotorControl_Task(void)
 
     if (!dataChanged)
     {
-        /*
-         * If angles are the same as last time, no new command,
-         * so do nothing. Release semaphore & return early.
-         */
         DataStruct_ReleaseSemaphore();
         return MOTOR_STATE_WAITING_FOR_SEMAPHORE;
     }
 
-    /*
-     * 2) If data changed, do your motor moves
-     */
-    for (uint8_t i = 0; i < NUMBER_MOTOR-3; i++)
+    for (uint8_t i = 0; i < NUMBER_MOTOR; i++)
     {
     	motor_idx = i;
         HAL_Delay(1000);
@@ -180,13 +152,12 @@ Motor_State MotorControl_Task(void)
         }
     }
 
-    // 3) Update our snapshot with the new angles
-    for (uint8_t i = 0; i < NUMBER_MOTOR-3; i++)
+
+    for (uint8_t i = 0; i < NUMBER_MOTOR; i++)
     {
         lastAngles[i] = data_structure->Data_Motors[i].motor_angle_to_reach_deg;
     }
 
-    // 4) Release the semaphore
     DataStruct_ReleaseSemaphore();
 
     return MOTOR_STATE_OK;
