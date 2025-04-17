@@ -31,13 +31,12 @@ static void Modify_Direction(int16_t difference_deg, Motor* currentMotor);
 
 /* Global variables */
 Motor Motors[NUMBER_MOTOR]; //Array of all the motors
-
-static uint32_t lastAngles[NUMBER_MOTOR] = {0};
-
+//char buffer[128];
 uint32_t buf = 0;
 
+// Test
 uint8_t motor_idx = 0;
-
+static uint32_t lastAngles[NUMBER_MOTOR] = {0};
 
 extern int _write(int file, char *ptr, int len);
 
@@ -107,6 +106,10 @@ Motor_State MotorControl_Task(void)
 {
     Data * data_structure = DataStruct_Get();
 
+    // Cette fonction ne retourne jamais NULL meme si aucun information est send.
+    // Probleme: On toggle toujours dans le for loop (i=0, i=1, i=0, i=1...)
+    // et lorsqu'il recoit une nouvelle information on ne peut pas determiner le behavior
+    // Une solution temporaire est proposee qui respecte la sequence et les directions (a valider).
     if (data_structure == NULL) return MOTOR_STATE_WAITING_FOR_SEMAPHORE;
 
     bool dataChanged = false;
