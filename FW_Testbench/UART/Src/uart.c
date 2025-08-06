@@ -89,7 +89,29 @@ void UART_Task(void)
 	
 		// Update motor data
 		data_structure->Data_Motors[motor_id].motor_desired_speed_percent = velocity;
-		data_structure->Data_Motors[motor_id].motor_angle_to_reach_deg = angle;
+		switch(motor_id)
+		{
+			case 0:
+			{
+				data_structure->Data_Motors[motor_id].motor_angle_to_reach_deg = angle /3;
+				break;
+			}
+			case 1:
+			{
+				data_structure->Data_Motors[motor_id].motor_angle_to_reach_deg = angle /8;
+				break;
+			}
+			case 2:
+			{
+				data_structure->Data_Motors[motor_id].motor_angle_to_reach_deg = angle*10;
+				break;
+			}
+
+			default:
+
+				data_structure->Data_Motors[motor_id].motor_angle_to_reach_deg = angle;
+				break;
+		}
 
 		DataStruct_ReleaseSemaphore();
 

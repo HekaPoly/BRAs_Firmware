@@ -89,7 +89,7 @@ void MotorControl_Init(void)
 	Motors[2].motor_timer_channel = TIM_CHANNEL_3;
 	Motor_gpio_section direction2 = {DIRECTION_MOTOR_2_GPIO_PORT, DIRECTION_MOTOR_2_PIN};
 	Motors[2].direction_port = direction2;
-	Motors[2].deg_per_turn = DEGREES_PER_PULSE_WITH_GEARBOX_0;
+	Motors[2].deg_per_turn = 0.9;//DEGREES_PER_PULSE_WITH_GEARBOX_0;
 
 
 	Motors[3].motor_timer_handle = &htim1;
