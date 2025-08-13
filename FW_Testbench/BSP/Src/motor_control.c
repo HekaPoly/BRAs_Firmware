@@ -35,6 +35,7 @@ Motor Motors[NUMBER_MOTOR]; //Array of all the motors
 uint32_t buf = 0;
 
 // Test
+uint8_t count = 0;
 uint8_t motor_idx = 0;
 extern int _write(int file, char *ptr, int len);
 
@@ -231,6 +232,8 @@ static void Modify_Speed(int16_t difference_deg, uint32_t motor_speed_desired_pe
     // Start PWM on the appropriate channel
     HAL_TIM_PWM_Start(currentMotor->motor_timer_handle, currentMotor->motor_timer_channel);
 
+    count++;
+    printf("Hello World count = %d \n", count);
 
     // Delay for motor operation
     HAL_Delay(currentMotor->delay);
