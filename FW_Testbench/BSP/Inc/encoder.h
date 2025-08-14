@@ -14,13 +14,15 @@
 
 #include "tim.h"
 
+#include <stdlib.h>
 /* Constants */
 #define DEGREES_PER_TURN 360
 #define OVERFLOW 2000
 #define DEGREES_PER_COUNTER_INCREMENTS (360.0f / (640.0f * 4))
 
 /* Structs and enums */
-typedef struct 
+
+typedef struct
 {
 	TIM_HandleTypeDef * htim;
 	float encoder_position_degrees;

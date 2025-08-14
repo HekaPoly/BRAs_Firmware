@@ -36,6 +36,7 @@ void Encoder_Update(Encoder * current_encoder)
 	 * It's Count Per Revolution (CPR) is therefore 640 * 4
 	 * We set the ARR of the encoder timer to 640 * 4 since it is going to receive a maximum of 640 * 4 counts per 360 degrees
 	 */
+
 	uint32_t temp_counter = (uint32_t)((current_encoder->htim->Instance->CNT));
 	uint32_t absolute_difference = abs(temp_counter - current_encoder->encoder_last_counter_value);
 

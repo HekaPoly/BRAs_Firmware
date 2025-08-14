@@ -18,8 +18,37 @@
 #define FREQ_MAX_HZ 14000
 #define PSC 9
 #define FREQ_CLK_HZ 72000000
-#define DEGREES_PER_PULSE_WITHOUT_GEARBOX 0.225f
-#define DEGREES_PER_PULSE_WITH_GEARBOX 0.015f
+/*#define DEGREES_PER_PULSE_WITHOUT_GEARBOX 0.225f
+
+#define DEGREES_PER_PULSE_WITH_GEARBOX 0.04787f*/
+
+// Il sembl avoir un probleme avec la structure de donnee et le nom de moteurs.
+// Ils changent de position a chaque nouvelle info.
+// Possiblement avec la fonction Motor_speed vu que ils utilisent le meme ARR
+
+// currently: NEMA 23 1.8deg 50 microsteps 10:1
+#define DEGREES_PER_PULSE_WITHOUT_GEARBOX_0 0.225f
+#define DEGREES_PER_PULSE_WITH_GEARBOX_0 0.0015f
+
+// currently: NEMA 23 1.8deg 8 microsteps 47:1
+#define DEGREES_PER_PULSE_WITHOUT_GEARBOX_1 0 0.225f
+#define DEGREES_PER_PULSE_WITH_GEARBOX_1 0.0225f
+
+// currently: NEMA 23
+#define DEGREES_PER_PULSE_WITHOUT_GEARBOX_2 0.225f
+#define DEGREES_PER_PULSE_WITH_GEARBOX_2 0.0225f
+
+// currently: NEMA 23
+#define DEGREES_PER_PULSE_WITHOUT_GEARBOX_3 0.225f
+#define DEGREES_PER_PULSE_WITH_GEARBOX_3 0.0225f
+
+// currently: NEMA 23
+#define DEGREES_PER_PULSE_WITHOUT_GEARBOX_4 0.225f
+#define DEGREES_PER_PULSE_WITH_GEARBOX_4 0.0225f
+
+// currently: NEMA 23
+#define DEGREES_PER_PULSE_WITHOUT_GEARBOX_5 0.225f
+#define DEGREES_PER_PULSE_WITH_GEARBOX_5 0.0225f
 
 /* Structs and enums */
 /**
@@ -63,6 +92,8 @@ typedef struct
 	uint16_t delay;
 	Motor_gpio_section direction_port;
 } Motor;
+
+// TODO: add struct for PID Arrays
 
 /* Function declaration */
 void MotorControl_Init(void);
