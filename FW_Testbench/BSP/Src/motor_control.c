@@ -83,14 +83,11 @@ void MotorControl_Init(void)
 	Motors[1].direction_port = direction1;
 	Motors[1].deg_per_turn = DEGREES_PER_PULSE_WITH_GEARBOX_0;
 
-
-
 	Motors[2].motor_timer_handle = &htim1;
 	Motors[2].motor_timer_channel = TIM_CHANNEL_3;
 	Motor_gpio_section direction2 = {DIRECTION_MOTOR_2_GPIO_PORT, DIRECTION_MOTOR_2_PIN};
 	Motors[2].direction_port = direction2;
 	Motors[2].deg_per_turn = 0.9;//DEGREES_PER_PULSE_WITH_GEARBOX_0;
-
 
 	Motors[3].motor_timer_handle = &htim1;
 	Motors[3].motor_timer_channel = TIM_CHANNEL_4;
@@ -143,6 +140,7 @@ Motor_State MotorControl_Task(void)
         }
     }
 
+
     if (!dataChanged)
     {
         /*
@@ -160,6 +158,7 @@ Motor_State MotorControl_Task(void)
     {
     	motor_idx = i;
         HAL_Delay(1000);
+
 
         Data_Motor* currentData = &data_structure->Data_Motors[i];
         Motor* currentMotor     = &Motors[i];

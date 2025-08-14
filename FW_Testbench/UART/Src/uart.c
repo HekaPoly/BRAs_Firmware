@@ -16,11 +16,11 @@
 
 /* Private functions declaration */
 static void Receive_Data(UART * uart);
+static void Transmit_Data(UART * uart, Data * data_structure);
 
 /* Global variables */
 uint8_t g_rx_buffer[NUMBER_OF_BYTES_PER_MSG] = {0};
 char buffer[100];
-
 
 UART g_uart =
 {
@@ -61,6 +61,15 @@ void UART_Task(void)
 		{
 			//return MOTOR_STATE_WAITING_FOR_SEMAPHORE;
 		}
+		else
+		{
+			//Transmit_Data(&g_uart, data_structure);
+			sprintf(g_tx_buffer, "Encoder Ticks = %f\r\n", data_structure->encoder_base.encoder_degrees);
+			HAL_UART_Transmit(g_uart.uart_handle, g_tx_buffer, sizeof(g_tx_buffer), 1000);
+
+			memset(g_tx_buffer, 0, 50);
+			sprintf(g_tx_buffer, "\r\n");
+			HAL_UART_Transmit(g_uart.uart_handle, g_tx_buffer, sizeof(g_tx_buffer), 1000);
 
 		 // Debugging - Print received data
 		char buffer[100];
@@ -114,7 +123,6 @@ void UART_Task(void)
 		}
 
 		DataStruct_ReleaseSemaphore();
-
 	}
 }
 
@@ -140,5 +148,3 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 	        Receive_Data(&g_uart);
 	    }
 }
-
-

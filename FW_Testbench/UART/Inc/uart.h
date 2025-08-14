@@ -28,6 +28,7 @@ typedef struct
 	bool is_uart_initialized;
 	UART_HandleTypeDef * uart_handle;
 	uint8_t * message_received;
+	uint8_t * message_to_send;
 } UART;
 
 /* Function protoytpes */

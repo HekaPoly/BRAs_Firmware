@@ -97,8 +97,24 @@ void Error_Handler(void);
 #define TMS_GPIO_Port GPIOA
 #define TCK_Pin GPIO_PIN_14
 #define TCK_GPIO_Port GPIOA
+#define PWM_MOTOR_1_Pin GPIO_PIN_15
+#define PWM_MOTOR_1_GPIO_Port GPIOA
+#define DIR_MOTOR_2_Pin GPIO_PIN_2
+#define DIR_MOTOR_2_GPIO_Port GPIOD
 #define SWO_Pin GPIO_PIN_3
 #define SWO_GPIO_Port GPIOB
+#define DIR_MOTOR_5_Pin GPIO_PIN_4
+#define DIR_MOTOR_5_GPIO_Port GPIOB
+#define DIR_MOTOR_4_Pin GPIO_PIN_5
+#define DIR_MOTOR_4_GPIO_Port GPIOB
+#define DIR_MOTOR_3_Pin GPIO_PIN_6
+#define DIR_MOTOR_3_GPIO_Port GPIOB
+#define PWM_MOTOR_5_Pin GPIO_PIN_7
+#define PWM_MOTOR_5_GPIO_Port GPIOB
+#define PWM_MOTOR_4_Pin GPIO_PIN_8
+#define PWM_MOTOR_4_GPIO_Port GPIOB
+#define PWM_MOTOR_3_Pin GPIO_PIN_9
+#define PWM_MOTOR_3_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 

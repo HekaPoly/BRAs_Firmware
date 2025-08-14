@@ -30,6 +30,7 @@ SourceFiles#5=..\Core\Src\stm32f4xx_it.c
 SourceFiles#6=..\Core\Src\stm32f4xx_hal_msp.c
 SourceFiles#7=..\Core\Src\stm32f4xx_hal_timebase_tim.c
 SourceFiles#8=..\Core\Src\main.c
+
 SourceFolderListSize=1
 SourcePath#0=..\Core\Src
 SourceFiles=;

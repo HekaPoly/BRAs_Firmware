@@ -193,6 +193,7 @@ void TIM1_BRK_TIM9_IRQHandler(void)
 }
 
 /**
+
   * @brief This function handles TIM3 global interrupt.
   */
 void TIM3_IRQHandler(void)
@@ -219,6 +220,7 @@ void USART2_IRQHandler(void)
 
   /* USER CODE END USART2_IRQn 1 */
 }
+
 
 /* USER CODE BEGIN 1 */
 

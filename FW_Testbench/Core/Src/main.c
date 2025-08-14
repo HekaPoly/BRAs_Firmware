@@ -110,7 +110,6 @@ int main(void)
 
 
 
-
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in cmsis_os2.c) */
@@ -197,6 +196,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
   /* USER CODE END Callback 0 */
   if (htim->Instance == TIM9) {
+
     HAL_IncTick();
   }
   /* USER CODE BEGIN Callback 1 */
